@@ -1,2 +1,3 @@
-# sokoban
-A web version of the renowned Sokoban game.
+# Sokoban
+
+**A minimalistic web version of the renowned Sokoban game.**
