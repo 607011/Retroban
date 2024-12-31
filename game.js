@@ -146,7 +146,7 @@ import("./sokoban.js");
             if (levelNum >= this._levels.length)
                 return;
             this._levelNum = levelNum;
-            this._level = this._levels[this._levelNum];
+            this._restartLevel();
         }
         /** @returns {Number} */
         get levelNum() {
