@@ -122,18 +122,3 @@ class XSBReader {
         return levels;
     }
 }
-
-if (typeof window === 'undefined') {
-    const fs = require('node:fs');
-    fs.readFile('xsokoban_large_test_suite/GrigrSpecial_40.xsb', 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        let levels = XSBReader.parseMulti(data);
-        for (const level of levels) {
-            console.debug(level);
-
-        }
-    });
-}

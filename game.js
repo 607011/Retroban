@@ -12,13 +12,6 @@ import("./sokoban.js");
         return Object.assign(defaults, result);
     }
 
-    class State {
-        static Initializing = 0;
-        static Playing = 1;
-        static Menu = 2;
-        static TheEnd = 3;
-    };
-
     const CELL_SIZE = 64;
 
     const MOVE = {
@@ -37,8 +30,6 @@ import("./sokoban.js");
         _levelNum = 0;
         /** @type {SokobanLevel} */
         _level;
-        /** @type {Number} */
-        _state = State.Initializing;
         /** @type {String[]} */
         _moves = [];
         /** @type {Number} */
@@ -52,8 +43,10 @@ import("./sokoban.js");
             super();
             this._internals = this.attachInternals();
         }
+
         attributeChangedCallback(name, _oldValue, newValue) {
         }
+
         connectedCallback() {
             this._shadow = this.attachShadow({ mode: "open" });
             this._style = document.createElement("style");
@@ -73,10 +66,9 @@ import("./sokoban.js");
     position: absolute;
     display: inline-block;
     background-image: url("images/tileset-bw-8x8.png");
-    background-size: calc(8 * var(--cell-size)) calc(8 * var(--cell-size));
+    background-size: calc(2 * var(--cell-size)) calc(4 * var(--cell-size));
     width: var(--cell-size);
     height: var(--cell-size);
-    cursor: inherit;
     box-sizing: content-box;
     background-repeat: no-repeat;
     image-rendering: -moz-pixelated;
@@ -85,37 +77,39 @@ import("./sokoban.js");
     -ms-interpolation-mode: nearest-neighbor;
 }
 .floor {
-  background-position: calc(-1 * var(--cell-size)) calc(-4 * var(--cell-size));
+    background-position: 0 calc(-2 * var(--cell-size));
 }
 .goal {
-  background-position: calc(-1 * var(--cell-size)) 0;
+    background-position: calc(-1 * var(--cell-size)) 0;
 }
 .crate {
-  background-position: calc(-1 * var(--cell-size)) calc(-1 * var(--cell-size));
+    background-position: calc(-1 * var(--cell-size)) calc(-1 * var(--cell-size));
 }
 .crate.goal {
-  background-position: calc(-1 * var(--cell-size)) calc(-2 * var(--cell-size));
+    background-position: calc(-1 * var(--cell-size)) calc(-2 * var(--cell-size));
 }
 .wall {
-  background-position: 0 calc(-3 * var(--cell-size));
+    background-position: 0 calc(-3 * var(--cell-size));
 }
 .player {
-  background-position: 0 0;
+    background-position: 0 0;
 }
 .player.goal {
-  background-position: calc(-1 * var(--cell-size)) calc(-3 * var(--cell-size));
+    background-position: calc(-1 * var(--cell-size)) calc(-3 * var(--cell-size));
 }
 `;
             this._shadow.appendChild(this._style);
             this._levelStyle = document.createElement("style");
             this._shadow.appendChild(this._levelStyle);
-            this._activateEventListeners();
             this._board = document.createElement("div");
             this._board.className = "board";
             this._shadow.appendChild(this._board);
+            this._activateEventListeners();
         }
+
         disconnectedCallback() {
         }
+
         _setLevelStyles() {
             this._levelStyle.textContent = `
 .board {
@@ -123,6 +117,7 @@ import("./sokoban.js");
     height: calc(var(--cell-size) * ${this._level.height});
 }`;
         }
+
         /** @param {String} url */
         loadFromUrl(url) {
             fetch(url)
@@ -134,11 +129,12 @@ import("./sokoban.js");
                 })
                 .catch(err => console.error(err));
         }
+
         /** Reset game data to its initial state  */
         reset() {
-            this._moves = [];
-            this._buildLevel();
+            this._restartLevel();
         }
+
         /**
          * @param {Number} levelNum
          */
@@ -148,24 +144,24 @@ import("./sokoban.js");
             this._levelNum = levelNum;
             this._restartLevel();
         }
+
         /** @returns {Number} */
         get levelNum() {
             this._levelNum;
         }
-        enterLoop() {
-            this._state = State.Playing;
-            // requestAnimationFrame(this._update.bind(this));
-        }
+
         _activateEventListeners() {
             window.addEventListener("hashchange", this._onHashChange.bind(this));
             dispatchEvent(new HashChangeEvent("hashchange"));
             window.addEventListener("keyup", this._onKeyUp.bind(this));
         }
+
         _restartLevel() {
             this._moves = [];
             this._level = this._levels[this._levelNum].clone();
             this._buildLevel();
         }
+
         _buildLevel() {
             this._setLevelStyles();
             let tiles = [];
@@ -198,9 +194,11 @@ import("./sokoban.js");
             }
             this._board.replaceChildren(...tiles);
         }
+
         _buildHash() {
             window.location.hash = `#level=${this._currentLevelNum}`;
         }
+
         /** @param {KeyboardEvent} e */
         _onKeyUp(e) {
             switch (e.key) {
@@ -225,10 +223,12 @@ import("./sokoban.js");
                     break;
             }
         }
+
         _onHashChange(_e) {
             let { level } = parseHash(window.location.hash.substring(1), { level: "0" });
             this.levelNum = parseInt(level);
         }
+
         /** @param {string} direction */
         move(direction) {
             const d = MOVE[direction];
@@ -260,16 +260,18 @@ import("./sokoban.js");
                 }, 0);
             };
         }
+
         _dumpLevel() {
             console.debug(this._level.toString());
         }
     }
 
     function play(seq) {
+        el.game.reset();
         let moves = seq.split("");
         let t0 = performance.now();
         const autoplay = _t => {
-            if (moves.length > 0 && performance.now() > t0 + 500) {
+            if (moves.length > 0 && performance.now() > t0 + 20) {
                 const move = moves.shift();
                 el.game.move(move.toUpperCase());
                 t0 = performance.now()
@@ -286,7 +288,6 @@ import("./sokoban.js");
         customElements.define("sokoban-game", SokobanGame);
         el.game = document.querySelector("sokoban-game");
         el.game.loadFromUrl("xsokoban_large_test_suite/Microban II_135.xsb");
-        el.game.enterLoop();
     }
 
     window.addEventListener("load", main);
