@@ -67,8 +67,9 @@ class SokobanLevel {
             .split("")
             .map(tile => TileMap[tile]));
     }
-    at(x, y) {
-        return this._data[y][x];
+    /** @param {Vec2} pos */
+    at(pos) {
+        return this._data[pos.y][pos.x];
     }
     /**
      * Move a crate or the player to the next field.

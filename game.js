@@ -38,6 +38,8 @@ import("./sokoban.js");
         _tiles;
         /** @type {Vec2} */
         _pos;
+        /** @type {HTMLElement} */
+        _player;
 
         constructor() {
             super();
@@ -136,7 +138,7 @@ import("./sokoban.js");
         }
 
         /**
-         * @param {Number} levelNum
+         * @param {number} levelNum
          */
         set levelNum(levelNum) {
             if (levelNum >= this._levels.length)
@@ -145,15 +147,20 @@ import("./sokoban.js");
             this._restartLevel();
         }
 
-        /** @returns {Number} */
+        /** @returns {number} */
         get levelNum() {
-            this._levelNum;
+            return this._levelNum;
+        }
+
+        nextLevel() {
+            ++this.levelNum;
         }
 
         _activateEventListeners() {
             window.addEventListener("hashchange", this._onHashChange.bind(this));
             dispatchEvent(new HashChangeEvent("hashchange"));
             window.addEventListener("keyup", this._onKeyUp.bind(this));
+            window.addEventListener("click", this._onClick.bind(this));
         }
 
         _restartLevel() {
@@ -184,6 +191,7 @@ import("./sokoban.js");
                         if (tile & Tile.Player) {
                             div.classList.add("player");
                             this._pos = new Vec2(col, row);
+                            this._player = div;
                         }
                         if (tile & Tile.Floor) {
                             div.classList.add("floor");
@@ -197,6 +205,26 @@ import("./sokoban.js");
 
         _buildHash() {
             window.location.hash = `#level=${this._currentLevelNum}`;
+        }
+
+        _onClick(e) {
+            const playerRect = this._player.getBoundingClientRect();
+            const inHoriRange = playerRect.left < e.clientX && e.clientX < playerRect.right;
+            const inVertRange = playerRect.top < e.clientY && e.clientY < playerRect.bottom;
+            if ((inHoriRange && inVertRange) || (!inHoriRange && !inVertRange))
+                return;
+            if (e.clientX < playerRect.left) {
+                this.move("L");
+            }
+            else if (e.clientX > playerRect.right) {
+                this.move("R");
+            }
+            else if (e.clientY < playerRect.top) {
+                this.move("U");
+            }
+            else if (e.clientY > playerRect.bottom) {
+                this.move("D");
+            }
         }
 
         /** @param {KeyboardEvent} e */
@@ -233,7 +261,7 @@ import("./sokoban.js");
         move(direction) {
             const d = MOVE[direction];
             const dst = this._pos.add(d);
-            const dstTile = this._level.at(dst.x, dst.y);
+            const dstTile = this._level.at(dst);
             if (dstTile === Tile.Wall)
                 return;
             if (!(dstTile & Tile.Crate)) {
@@ -246,7 +274,7 @@ import("./sokoban.js");
             // destination field is a crate
             const d2 = d.mul(2);
             const dst2 = this._pos.add(d2);
-            const dstTile2 = this._level.at(dst2.x, dst2.y);
+            const dstTile2 = this._level.at(dst2);
             if ((dstTile2 & Tile.Wall) || (dstTile2 & Tile.Crate))
                 return;
             this._level.moveTo(this._pos, dst, Tile.Player);
@@ -257,6 +285,7 @@ import("./sokoban.js");
             if (this._level.missionAccomplished()) {
                 setTimeout(() => {
                     alert(`Congratulations! Mission accomplished within ${this._moves.length} moves: ${this._moves.join("")}`);
+                    this.nextLevel();
                 }, 0);
             };
         }
@@ -270,8 +299,8 @@ import("./sokoban.js");
         el.game.reset();
         let moves = seq.split("");
         let t0 = performance.now();
-        const autoplay = _t => {
-            if (moves.length > 0 && performance.now() > t0 + 200) {
+        const autoplay = () => {
+            if (moves.length > 0 && performance.now() > t0 + 50) {
                 const move = moves.shift();
                 el.game.move(move.toUpperCase());
                 t0 = performance.now()
