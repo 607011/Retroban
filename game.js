@@ -159,9 +159,7 @@ import("./sokoban.js");
         _activateEventListeners() {
             window.addEventListener("hashchange", this._onHashChange.bind(this));
             dispatchEvent(new HashChangeEvent("hashchange"));
-            window.addEventListener("keydown", this._onKeyDown.bind(this));
             window.addEventListener("keyup", this._onKeyUp.bind(this));
-            window.addEventListener("keypress", this._onKeyPress.bind(this));
         }
         _restartLevel() {
             this._moves = [];
@@ -203,16 +201,6 @@ import("./sokoban.js");
         _buildHash() {
             window.location.hash = `#level=${this._currentLevelNum}`;
         }
-        _updateGame(_t) {
-        }
-        _menu(_t) {
-        }
-        _theEnd(_t) {
-        }
-        /** @param {KeyboardEvent} e */
-        _onKeyDown(e) {
-            console.debug(e);
-        }
         /** @param {KeyboardEvent} e */
         _onKeyUp(e) {
             switch (e.key) {
@@ -236,10 +224,6 @@ import("./sokoban.js");
                     this.move("L");
                     break;
             }
-        }
-        /** @param {KeyboardEvent} e */
-        _onKeyPress(e) {
-            console.debug(e);
         }
         _onHashChange(_e) {
             let { level } = parseHash(window.location.hash.substring(1), { level: "0" });
