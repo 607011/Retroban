@@ -81,7 +81,7 @@ class SokobanLevel {
         this._data[a.y][a.x] &= ~what;
     }
     missionAccomplished() {
-        return !this._data.some(row => row.some(tile => (tile === Tile.Goal)))
+        return !this._data.some(row => row.some(tile => (tile & Tile.Goal) && !(tile & Tile.Crate)))
     }
     toString() {
         return this._data.map(row => row.map(tile => TileReverseMap[tile]).join("")).join("\n");

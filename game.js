@@ -254,27 +254,29 @@ import("./sokoban.js");
             this._pos = dst;
             this._moves.push(direction);
             this._buildLevel();
+            if (this._level.missionAccomplished()) {
+                setTimeout(() => {
+                    alert(`Congratulations! Mission accomplished within ${this._moves.length} moves: ${this._moves.join("")}`);
+                }, 0);
+            };
         }
         _dumpLevel() {
             console.debug(this._level.toString());
         }
-        /** @param {number} t (in milliseconds since page loaded) */
-        _update(t) {
-            switch (this._state) {
-                case State.Playing:
-                    this._updateGame(t);
-                    break;
-                case State.Menu:
-                    this._menu(t);
-                    break;
-                case State.TheEnd:
-                    this._theEnd(t);
-                    break;
-                default:
-                    break;
+    }
+
+    function play(seq) {
+        let moves = seq.split("");
+        let t0 = performance.now();
+        const autoplay = _t => {
+            if (moves.length > 0 && performance.now() > t0 + 500) {
+                const move = moves.shift();
+                el.game.move(move.toUpperCase());
+                t0 = performance.now()
             }
-            requestAnimationFrame(this._update.bind(this));
+            requestAnimationFrame(autoplay);
         }
+        requestAnimationFrame(autoplay);
     }
 
     let el = {};
@@ -288,5 +290,9 @@ import("./sokoban.js");
     }
 
     window.addEventListener("load", main);
+
+    window.exports = {
+        play
+    };
 
 })(window);
