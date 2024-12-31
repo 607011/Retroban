@@ -271,7 +271,7 @@ import("./sokoban.js");
         let moves = seq.split("");
         let t0 = performance.now();
         const autoplay = _t => {
-            if (moves.length > 0 && performance.now() > t0 + 20) {
+            if (moves.length > 0 && performance.now() > t0 + 200) {
                 const move = moves.shift();
                 el.game.move(move.toUpperCase());
                 t0 = performance.now()
