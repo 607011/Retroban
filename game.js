@@ -161,6 +161,7 @@ import("./sokoban.js");
             dispatchEvent(new HashChangeEvent("hashchange"));
             window.addEventListener("keyup", this._onKeyUp.bind(this));
             window.addEventListener("click", this._onClick.bind(this));
+            window.addEventListener("dblclick", this._onDblClick.bind(this));
         }
 
         _restartLevel() {
@@ -225,6 +226,10 @@ import("./sokoban.js");
             else if (e.clientY > playerRect.bottom) {
                 this.move("D");
             }
+        }
+
+        _onDblClick(_e) {
+            this._restartLevel();
         }
 
         /** @param {KeyboardEvent} e */
