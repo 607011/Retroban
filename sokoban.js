@@ -72,16 +72,6 @@ class SokobanLevel {
     }
     /**
      * Move a crate or the player to the next field.
-     * @param {Vec2} pos coordinate of the current field
-     * @param {Vec2} delta delta to move by
-     * @param {Tile} what to move
-     */
-    moveBy(pos, delta, what) {
-        this._data[pos.y + delta.y][pos.x + delta.x] |= what;
-        this._data[pos.y][pos.x] &= ~what;
-    }
-    /**
-     * Move a crate or the player to the next field.
      * @param {Vec2} a coordinate of the current field
      * @param {Vec2} b coordinate of the destination field
      * @param {Tile} what to move
