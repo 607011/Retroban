@@ -265,7 +265,6 @@ import("./sokoban.js");
             const dstTile2 = this._level.at(dst2.x, dst2.y);
             if ((dstTile2 & Tile.Wall) || (dstTile2 & Tile.Crate))
                 return;
-            // console.debug(this._pos, dst, dst2);
             this._level.moveTo(this._pos, dst, Tile.Player);
             this._level.moveTo(dst, dst2, Tile.Crate);
             this._pos = dst;
