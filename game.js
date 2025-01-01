@@ -176,7 +176,8 @@ import("./sokoban.js");
             window.addEventListener("hashchange", this._onHashChange.bind(this));
             dispatchEvent(new HashChangeEvent("hashchange"));
             window.addEventListener("keyup", this._onKeyUp.bind(this));
-            window.addEventListener("click", this._onClick.bind(this));
+            window.addEventListener("touchstart", this._onTouchStart.bind(this));
+            window.addEventListener("touchend", this._onTouchEnd.bind(this));
         }
 
         _restartLevel() {
@@ -223,23 +224,48 @@ import("./sokoban.js");
             window.location.hash = `#level=${this._levelNum}`;
         }
 
+        /** @param {TouchEvent} _e  */
+        _onTouchStart(_e) {
+            this._touchStartTime = performance.now();
+        }
+
+        /** @param {TouchEvent} e  */
+        _onTouchEnd(e) {
+            const touchDuration = performance.now() - this._touchStartTime;
+            if (touchDuration < 400) {
+                this._onClick(e);
+            }
+        }
+
+        /** @param {TouchEvent|PointerEvent} e  */
         _onClick(e) {
+            let clientX, clientY;
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else if (e.changedTouches && e.changedTouches.length > 0) {
+                clientX = e.changedTouches[0].clientX;
+                clientY = e.changedTouches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
             const playerRect = this._player.getBoundingClientRect();
-            const inXRange = (playerRect.left < e.clientX) && (e.clientX < playerRect.right);
-            const inYRange = (playerRect.top < e.clientY) && (e.clientY < playerRect.bottom);
+            const inXRange = (playerRect.left < clientX) && (clientX < playerRect.right);
+            const inYRange = (playerRect.top < clientY) && (clientY < playerRect.bottom);
             if ((inXRange && inYRange) || (!inXRange && !inYRange))
                 return;
-            if (e.clientX < playerRect.left) {
-                this.move("L");
+            if (clientX < playerRect.left) {
+                this.move(Direction.Left);
             }
-            else if (e.clientX > playerRect.right) {
-                this.move("R");
+            else if (clientX > playerRect.right) {
+                this.move(Direction.Right);
             }
-            else if (e.clientY < playerRect.top) {
-                this.move("U");
+            else if (clientY < playerRect.top) {
+                this.move(Direction.Up);
             }
-            else if (e.clientY > playerRect.bottom) {
-                this.move("D");
+            else if (clientY > playerRect.bottom) {
+                this.move(Direction.Down);
             }
         }
 
