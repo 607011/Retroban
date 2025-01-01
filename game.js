@@ -534,13 +534,22 @@
                 return;
             this._level.moveTo(this._pos, dst, Tile.Player);
             this._level.moveTo(dst, dst2, Tile.Crate);
+            this._undoStack.push([
+                { from: dst, to: dst2, what: Tile.Crate },
+                { from: this._pos, to: dst, what: Tile.Player }
+            ]);
             this._pos = dst;
             this._moves.push(direction);
             this._buildLevel(); // Expensive operation! Should be optimized by moving only the necessary tiles.
             if (this._level.missionAccomplished()) {
                 setTimeout(() => {
-                    alert(`Congratulations! Mission accomplished within ${this._moves.length} moves: ${this._moves.join("")}`);
-                    this.nextLevel();
+                    if (this._levelNum + 1 < this._levels.length) {
+                        alert(`Congratulations! Mission accomplished within ${this._moves.length} moves: ${this._moves.join("")}. Head over to the next level by pressing OK.`);
+                        this.nextLevel();
+                    }
+                    else {
+                        alert(`Congratulations! Mission accomplished within ${this._moves.length} moves: ${this._moves.join("")}`);
+                    }
                 }, 0);
             };
         }
