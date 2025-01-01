@@ -312,11 +312,20 @@
         /** @param {String} url */
         loadFromUrl(url) {
             fetch(url)
-                .then(response => response.text())
+                .then(async response => {
+                    if (response.headers.get("Content-Type") === "application/octet-stream") {
+                        return response.arrayBuffer().then(buffer => {
+                            const decoder = new TextDecoder('utf-8');
+                            return decoder.decode(buffer);
+                        });
+                    } else {
+                        return response.text();
+                    }
+                })
                 .then(levelsData => {
                     this._levels = XSBReader.parseMulti(levelsData);
                     console.debug(`${this._levels.length} levels loaded.`);
-                    this._restartLevel();
+                    dispatchEvent(new HashChangeEvent("hashchange"));
                 })
                 .catch(err => console.error(err));
         }
