@@ -124,7 +124,7 @@
         /** @param {string} data  */
         static parseMulti(data) {
             const reRow = /^[@\+ \$\.\*#]{2,}$/;
-            const reLE = /"\n|\r\n|\r"/;
+            const reLE = /\n|\r\n|\r/;
             const reTitle = /^Title:\s*(.*)/g;
             const reAuthor = /^Author:\s*(.*)/g;
             let levels = [];
