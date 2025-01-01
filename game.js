@@ -31,22 +31,46 @@
             return acc;
         }, {});
 
+    /**
+     * Class representing a 2D vector.
+     */
     class Vec2 {
-        x;
-        y;
+        /**
+         * Create a vector.
+         * @param {number} x - The x-coordinate.
+         * @param {number} y - The y-coordinate.
+         */
         constructor(x, y) {
             this.x = x;
             this.y = y;
         }
+
+        /**
+         * Multiply the vector by a scalar.
+         * @param {number} s - The scalar to multiply by.
+         * @returns {Vec2} A new vector scaled by the given scalar.
+         */
         mul(s) {
             return new Vec2(this.x * s, this.y * s);
         }
+
+        /**
+         * Add another vector to this vector.
+         * @param {Vec2} v - The vector to add.
+         * @returns {Vec2} A new vector that is the sum of the two vectors.
+         */
         add(v) {
             return new Vec2(this.x + v.x, this.y + v.y);
         }
     };
 
     class SokobanLevel {
+        /**
+         * Create a Sokoban level.
+         * @param {string[]} data - The level data.
+         * @param {string} [title] - The title of the level.
+         * @param {string} [author] - The author of the level.
+         */
         constructor(data, title, author) {
             this._rawData = data;
             this.data = data;
@@ -95,7 +119,9 @@
         }
     }
 
+    /** Read and parse XSokoban data into `SokobanLevel` objects. */
     class XSBReader {
+        /** @param {string} data  */
         static parseMulti(data) {
             const reRow = /^[@\+ \$\.\*#]{2,}$/;
             const reLE = /"\n|\r\n|\r"/;
@@ -130,8 +156,12 @@
         }
     }
 
-    function parseHash(hash, defaults = {}) {
-        let result = {};
+    /** Extract key/value pairs from URL hash.
+     * @param {Object} defaults default values
+     */
+    function parseHash(defaults = {}) {
+        const hash = window.location.hash.substring(1);
+        const result = {};
         for (const arg of hash.split(";")) {
             const [key, value] = arg.split("=");
             result[key] = value;
@@ -421,7 +451,7 @@
 
         /** @param {HashChangeEvent} _e  */
         _onHashChange(_e) {
-            let { level } = parseHash(window.location.hash.substring(1), { level: "0" });
+            let { level } = parseHash({ level: "0" });
             this.levelNum = parseInt(level);
         }
 
@@ -449,7 +479,7 @@
             this._level.moveTo(dst, dst2, Tile.Crate);
             this._pos = dst;
             this._moves.push(direction);
-            this._buildLevel();
+            this._buildLevel(); // Expensive operation! Should be optimized by moving only the necessary tiles.
             if (this._level.missionAccomplished()) {
                 setTimeout(() => {
                     alert(`Congratulations! Mission accomplished within ${this._moves.length} moves: ${this._moves.join("")}`);
@@ -457,12 +487,14 @@
                 }, 0);
             };
         }
-
-        _dumpLevel() {
-            console.debug(this._level.toString());
-        }
     }
 
+    /**
+     * Plays a sequence of moves in the game.
+     *
+     * @param {string} seq - A string representing the sequence of moves to be played.
+     *                       Each character in the string corresponds to a move.
+     */
     function play(seq) {
         el.game.reset();
         let moves = seq.split("");
