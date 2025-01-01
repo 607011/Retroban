@@ -184,7 +184,7 @@
     };
 
     class SokobanGame extends HTMLElement {
-        static observedAttributes = [/* attribute names to observe */];
+        static observedAttributes = ["xsb-file"];
 
         /** @type {SokobanLevel[]} */
         _levels = [];
@@ -205,10 +205,16 @@
 
         constructor() {
             super();
-            this._internals = this.attachInternals();
         }
 
         attributeChangedCallback(name, _oldValue, newValue) {
+            switch (name) {
+                case "xsb-file":
+                    this.loadFromUrl(newValue);
+                    break;
+                default:
+                    break;
+            }
         }
 
         connectedCallback() {
@@ -516,7 +522,6 @@
         console.info("%cSokoban started.", "color: green; font-weight: bold");
         customElements.define("sokoban-game", SokobanGame);
         el.game = document.querySelector("sokoban-game");
-        el.game.loadFromUrl("xsokoban_large_test_suite/Microban II_135.xsb");
     }
 
     window.addEventListener("load", main);
