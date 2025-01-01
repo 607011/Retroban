@@ -1,7 +1,7 @@
 (function (window) {
     "use strict";
 
-    const CELL_SIZE = 64;
+    const CELL_SIZE = 32;
 
     class Tile {
         static Floor = 1 << 0;
