@@ -205,6 +205,7 @@
 
         constructor() {
             super();
+            this._undoStack = [];
         }
 
         attributeChangedCallback(name, _oldValue, newValue) {
@@ -236,7 +237,7 @@
     position: absolute;
     display: inline-block;
     background-image: url("images/tileset-colors-8x8.png");
-    background-size: calc(2 * var(--cell-size)) calc(4 * var(--cell-size));
+    background-size: calc(3 * var(--cell-size)) calc(4 * var(--cell-size));
     width: var(--cell-size);
     height: var(--cell-size);
     box-sizing: content-box;
@@ -268,7 +269,13 @@
     background-position: calc(-1 * var(--cell-size)) calc(-3 * var(--cell-size));
 }
 .tile.reset {
+    position: relative;
     background-position: 0 calc(-1 * var(--cell-size));
+    cursor: pointer;
+}
+.tile.undo {
+    position: relative;
+    background-position: calc(-2 * var(--cell-size)) calc(-1 * var(--cell-size));
     cursor: pointer;
 }
 `;
@@ -280,8 +287,14 @@
             this._shadow.appendChild(this._board);
             let resetButton = document.createElement("div");
             resetButton.className = "tile reset";
+            resetButton.title = "[R]estart level";
             resetButton.addEventListener("click", this.reset.bind(this));
             this._shadow.appendChild(resetButton);
+            let undoButton = document.createElement("div");
+            undoButton.className = "tile undo";
+            undoButton.title = "[U]ndo last move";
+            undoButton.addEventListener("click", this._undo.bind(this));
+            this._shadow.appendChild(undoButton);
             this._activateEventListeners();
         }
 
@@ -313,6 +326,19 @@
             this._restartLevel();
         }
 
+        _undo() {
+            const moves = this._undoStack.pop();
+            if (!moves)
+                return;
+            for (const move of moves) {
+                this._level.moveTo(move.to, move.from, move.what);
+                if (move.what === Tile.Player) {
+                    this._pos = move.from;
+                }
+                this._buildLevel();
+            }
+        }
+
         /**
          * @param {number} levelNum
          */
@@ -341,8 +367,7 @@
 
         _activateEventListeners() {
             window.addEventListener("hashchange", this._onHashChange.bind(this));
-            dispatchEvent(new HashChangeEvent("hashchange"));
-            window.addEventListener("keyup", this._onKeyUp.bind(this));
+            window.addEventListener("keydown", this._onKeyDown.bind(this));
             window.addEventListener("touchstart", this._onTouchStart.bind(this));
             window.addEventListener("touchend", this._onTouchEnd.bind(this));
         }
@@ -350,6 +375,7 @@
         _restartLevel() {
             if (this._levelNum >= 0 && this._levelNum < this._levels.length) {
                 this._moves = [];
+                this._undoStack = [];
                 this._level = this._levels[this._levelNum].clone();
                 this._buildLevel();
             }
@@ -428,40 +454,44 @@
             if ((inXRange && inYRange) || (!inXRange && !inYRange))
                 return;
             if (clientX < playerRect.left) {
-                this.move(Direction.Left);
+                this._move(Direction.Left);
             }
             else if (clientX > playerRect.right) {
-                this.move(Direction.Right);
+                this._move(Direction.Right);
             }
             else if (clientY < playerRect.top) {
-                this.move(Direction.Up);
+                this._move(Direction.Up);
             }
             else if (clientY > playerRect.bottom) {
-                this.move(Direction.Down);
+                this._move(Direction.Down);
             }
         }
 
         /** @param {KeyboardEvent} e */
-        _onKeyUp(e) {
+        _onKeyDown(e) {
             switch (e.key) {
+                case "u":
+                case "z":
+                    this._undo();
+                    break;
                 case "r":
                     this._restartLevel();
                     break;
                 case "ArrowUp":
                 case "w":
-                    this.move(Direction.Up);
+                    this._move(Direction.Up);
                     break;
                 case "ArrowRight":
                 case "d":
-                    this.move(Direction.Right);
+                    this._move(Direction.Right);
                     break;
                 case "ArrowDown":
                 case "s":
-                    this.move(Direction.Down);
+                    this._move(Direction.Down);
                     break;
                 case "ArrowLeft":
                 case "a":
-                    this.move(Direction.Left);
+                    this._move(Direction.Left);
                     break;
             }
         }
@@ -473,7 +503,7 @@
         }
 
         /** @param {string} direction */
-        move(direction) {
+        _move(direction) {
             const d = MOVE[direction];
             const dst = this._pos.add(d);
             const dstTile = this._level.at(dst);
@@ -481,6 +511,7 @@
                 return;
             if (!(dstTile & Tile.Crate)) {
                 this._level.moveTo(this._pos, dst, Tile.Player);
+                this._undoStack.push([{ from: this._pos, to: dst, what: Tile.Player }]);
                 this._pos = dst;
                 this._moves.push(direction);
                 this._buildLevel();
