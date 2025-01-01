@@ -1,5 +1,3 @@
-import("./sokoban.js");
-
 (function (window) {
     "use strict";
 
