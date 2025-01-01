@@ -294,6 +294,7 @@ import("./sokoban.js");
             }
         }
 
+        /** @param {HashChangeEvent} _e  */
         _onHashChange(_e) {
             let { level } = parseHash(window.location.hash.substring(1), { level: "0" });
             this.levelNum = parseInt(level);
