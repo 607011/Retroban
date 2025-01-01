@@ -329,8 +329,14 @@
         }
 
         nextLevel() {
-            ++this.levelNum;
-            this._buildHash();
+            if (this._levelNum + 1 < this._levels.length) {
+                ++this._levelNum;
+                this._buildHash();
+                this._restartLevel();
+            }
+            else {
+                console.warn("No more levels available.");
+            }
         }
 
         _activateEventListeners() {
@@ -342,9 +348,14 @@
         }
 
         _restartLevel() {
-            this._moves = [];
-            this._level = this._levels[this._levelNum].clone();
-            this._buildLevel();
+            if (this._levelNum >= 0 && this._levelNum < this._levels.length) {
+                this._moves = [];
+                this._level = this._levels[this._levelNum].clone();
+                this._buildLevel();
+            }
+            else {
+                console.error("Invalid level number:", this._levelNum);
+            }
         }
 
         _buildLevel() {
