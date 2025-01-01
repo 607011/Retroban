@@ -3,6 +3,8 @@ import("./sokoban.js");
 (function (window) {
     "use strict";
 
+    const CELL_SIZE = 64;
+
     function parseHash(hash, defaults = {}) {
         let result = {};
         for (const arg of hash.split(";")) {
@@ -12,14 +14,19 @@ import("./sokoban.js");
         return Object.assign(defaults, result);
     }
 
-    const CELL_SIZE = 64;
+    class Direction {
+        static Up = "U";
+        static Right = "R";
+        static Down = "D";
+        static Left = "L";
+    }
 
     const MOVE = {
-        U: new Vec2(0, -1),
-        R: new Vec2(+1, 0),
-        D: new Vec2(0, +1),
-        L: new Vec2(-1, 0),
-    }
+        [Direction.Up]: new Vec2(0, -1),
+        [Direction.Right]: new Vec2(+1, 0),
+        [Direction.Down]: new Vec2(0, +1),
+        [Direction.Left]: new Vec2(-1, 0),
+    };
 
     class SokobanGame extends HTMLElement {
         static observedAttributes = [/* attribute names to observe */];
@@ -67,7 +74,7 @@ import("./sokoban.js");
 .tile {
     position: absolute;
     display: inline-block;
-    background-image: url("images/tileset-bw-8x8.png");
+    background-image: url("images/tileset-colors-8x8.png");
     background-size: calc(2 * var(--cell-size)) calc(4 * var(--cell-size));
     width: var(--cell-size);
     height: var(--cell-size);
@@ -78,26 +85,30 @@ import("./sokoban.js");
     image-rendering: pixelated;
     -ms-interpolation-mode: nearest-neighbor;
 }
-.floor {
+.tile.floor {
     background-position: 0 calc(-2 * var(--cell-size));
 }
-.goal {
+.tile.goal {
     background-position: calc(-1 * var(--cell-size)) 0;
 }
-.crate {
+.tile.crate {
     background-position: calc(-1 * var(--cell-size)) calc(-1 * var(--cell-size));
 }
-.crate.goal {
+.tile.crate.goal {
     background-position: calc(-1 * var(--cell-size)) calc(-2 * var(--cell-size));
 }
-.wall {
+.tile.wall {
     background-position: 0 calc(-3 * var(--cell-size));
 }
-.player {
+.tile.player {
     background-position: 0 0;
 }
-.player.goal {
+.tile.player.goal {
     background-position: calc(-1 * var(--cell-size)) calc(-3 * var(--cell-size));
+}
+.tile.reset {
+    background-position: 0 calc(-1 * var(--cell-size));
+    cursor: pointer;
 }
 `;
             this._shadow.appendChild(this._style);
@@ -106,6 +117,10 @@ import("./sokoban.js");
             this._board = document.createElement("div");
             this._board.className = "board";
             this._shadow.appendChild(this._board);
+            let resetButton = document.createElement("div");
+            resetButton.className = "tile reset";
+            resetButton.addEventListener("click", this.reset.bind(this));
+            this._shadow.appendChild(resetButton);
             this._activateEventListeners();
         }
 
@@ -154,6 +169,7 @@ import("./sokoban.js");
 
         nextLevel() {
             ++this.levelNum;
+            this._buildHash();
         }
 
         _activateEventListeners() {
@@ -161,7 +177,6 @@ import("./sokoban.js");
             dispatchEvent(new HashChangeEvent("hashchange"));
             window.addEventListener("keyup", this._onKeyUp.bind(this));
             window.addEventListener("click", this._onClick.bind(this));
-            window.addEventListener("dblclick", this._onDblClick.bind(this));
         }
 
         _restartLevel() {
@@ -205,14 +220,14 @@ import("./sokoban.js");
         }
 
         _buildHash() {
-            window.location.hash = `#level=${this._currentLevelNum}`;
+            window.location.hash = `#level=${this._levelNum}`;
         }
 
         _onClick(e) {
             const playerRect = this._player.getBoundingClientRect();
-            const inHoriRange = playerRect.left < e.clientX && e.clientX < playerRect.right;
-            const inVertRange = playerRect.top < e.clientY && e.clientY < playerRect.bottom;
-            if ((inHoriRange && inVertRange) || (!inHoriRange && !inVertRange))
+            const inXRange = (playerRect.left < e.clientX) && (e.clientX < playerRect.right);
+            const inYRange = (playerRect.top < e.clientY) && (e.clientY < playerRect.bottom);
+            if ((inXRange && inYRange) || (!inXRange && !inYRange))
                 return;
             if (e.clientX < playerRect.left) {
                 this.move("L");
@@ -228,10 +243,6 @@ import("./sokoban.js");
             }
         }
 
-        _onDblClick(_e) {
-            this._restartLevel();
-        }
-
         /** @param {KeyboardEvent} e */
         _onKeyUp(e) {
             switch (e.key) {
@@ -240,19 +251,19 @@ import("./sokoban.js");
                     break;
                 case "ArrowUp":
                 case "w":
-                    this.move("U");
+                    this.move(Direction.Up);
                     break;
                 case "ArrowRight":
                 case "d":
-                    this.move("R");
+                    this.move(Direction.Right);
                     break;
                 case "ArrowDown":
                 case "s":
-                    this.move("D");
+                    this.move(Direction.Down);
                     break;
                 case "ArrowLeft":
                 case "a":
-                    this.move("L");
+                    this.move(Direction.Left);
                     break;
             }
         }

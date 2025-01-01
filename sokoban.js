@@ -81,6 +81,7 @@ class SokobanLevel {
         this._data[b.y][b.x] |= what;
         this._data[a.y][a.x] &= ~what;
     }
+    /** @return true, if all crates are placed on goals */
     missionAccomplished() {
         return !this._data.some(row => row.some(tile => (tile & Tile.Goal) && !(tile & Tile.Crate)))
     }
