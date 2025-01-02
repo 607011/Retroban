@@ -307,6 +307,7 @@
             toolbar.appendChild(undoButton);
             this._shadow.appendChild(toolbar);
             this._activateEventListeners();
+            dispatchEvent(new HashChangeEvent("hashchange"));
         }
 
         _setLevelStyles() {
@@ -361,10 +362,10 @@
          * @param {number} levelNum
          */
         set levelNum(levelNum) {
-            if (levelNum >= this._levels.length)
-                return;
             this._levelNum = levelNum;
-            this._restartLevel();
+            if (this._levelNum < this._levels.length) {
+                this._restartLevel();
+            }
         }
 
         /** @returns {number} */
@@ -521,10 +522,7 @@
                 this._collection = param.collection;
                 this.loadFromUrl(`puzzles/${this._collection}.xsb`);
             }
-            const levelNum = parseInt(param.level);
-            if (this.levelNum !== levelNum) {
-                this.levelNum = levelNum;
-            }
+            this.levelNum = parseInt(param.level);
             this._buildHash();
         }
 
@@ -620,7 +618,6 @@
         console.info("%cSokoban started.", "color: green; font-weight: bold");
         customElements.define("sokoban-game", SokobanGame);
         el.game = document.querySelector("sokoban-game");
-        dispatchEvent(new HashChangeEvent("hashchange"));
     }
 
     window.addEventListener("load", main);
