@@ -223,7 +223,7 @@
 .board {
     position: relative;
 }
-.tile {
+.tile, .char {
     position: absolute;
     display: inline-block;
     background-image: url("images/tileset-colors-8x8.png");
@@ -286,7 +286,25 @@
     justify-content: space-between;
     margin-top: calc(var(--cell-size) / 2);
 }
+.move-count {
+    transform: scale(0.5);
+}
+.char {
+    opacity: 0.2;
+    position: relative;
+    background-image: url("images/font-8x8.png");
+    background-size: calc(16 * var(--cell-size)) calc(16 * var(--cell-size));
+}
 `;
+            for (let j = 2; j < 28; ++j) {
+                for (let i = 0; i < 16; ++i) {
+                    const idx = j * 16 + i;
+                    this._style.textContent += 
+`.char.c${idx} {
+    background-position: calc(-${i} * var(--cell-size)) calc(-${j} * var(--cell-size));
+}`;
+                }
+            }
             this._shadow.appendChild(this._style);
             this._levelStyle = document.createElement("style");
             this._shadow.appendChild(this._levelStyle);
@@ -300,6 +318,9 @@
             resetButton.title = "[R]estart level";
             resetButton.addEventListener("click", this.reset.bind(this));
             toolbar.appendChild(resetButton);
+            this._moveCountEl = document.createElement("div");
+            this._moveCountEl.className = "move-count"
+            toolbar.appendChild(this._moveCountEl);
             let undoButton = document.createElement("div");
             undoButton.className = "tile undo";
             undoButton.title = "[U]ndo last move";
@@ -307,6 +328,7 @@
             toolbar.appendChild(undoButton);
             this._shadow.appendChild(toolbar);
             this._activateEventListeners();
+            this._updateDisplay();
             dispatchEvent(new HashChangeEvent("hashchange"));
         }
 
@@ -342,6 +364,16 @@
         /** Reset game data to its initial state  */
         reset() {
             this._restartLevel();
+        }
+
+        _updateDisplay() {
+            let digits = [];
+            for (const digit of this._moves.length.toString()) {
+                const div = document.createElement("div");
+                div.className = `char c${digit.charCodeAt(0)}`;
+                digits.push(div);
+            }
+            this._moveCountEl.replaceChildren(...digits);
         }
 
         _undo() {
@@ -397,6 +429,7 @@
                 this._undoStack = [];
                 this._level = this._levels[this._levelNum].clone();
                 this._buildLevel();
+                this._updateDisplay();
             }
             else {
                 console.error("Invalid level number:", this._levelNum);
@@ -557,6 +590,7 @@
                 this._undoStack.push([{ from: this._pos, to: dst, what: Tile.Player }]);
                 this._pos = dst;
                 this._moves.push(direction);
+                this._updateDisplay();
                 this._buildLevel();
                 this.animatePlayer(direction);
                 return;
@@ -575,6 +609,7 @@
             ]);
             this._pos = dst;
             this._moves.push(direction);
+            this._updateDisplay();
             this._buildLevel(); // XXX: Expensive operation! Should be optimized by moving only the necessary tiles.
             this.animatePlayer(direction);
             if (this._level.missionAccomplished()) {
@@ -602,7 +637,7 @@
         let moves = seq.split("");
         let t0 = performance.now();
         const autoplay = () => {
-            if (moves.length > 0 && performance.now() > t0 + 50) {
+            if (moves.length > 0 && performance.now() > t0 + 150) {
                 const move = moves.shift();
                 el.game.move(move.toUpperCase());
                 t0 = performance.now()
