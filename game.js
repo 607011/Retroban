@@ -615,7 +615,7 @@
     let el = {};
 
     function main() {
-        console.info("%cSokoban started.", "color: green; font-weight: bold");
+        console.info("%cMinimalist Sokoban started.", "color: green; font-weight: bold");
         customElements.define("sokoban-game", SokobanGame);
         el.game = document.querySelector("sokoban-game");
     }
