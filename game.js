@@ -500,7 +500,11 @@
                 this._collection = param.collection;
                 this.loadFromUrl(`puzzles/${this._collection}.xsb`);    
             }
-            this.levelNum = parseInt(param.level);
+            const levelNum = parseInt(param.level);
+            if (this.levelNum !== levelNum) {
+                this.levelNum = levelNum;
+            }
+            this._buildHash();
         }
 
         /** @param {string} direction */
