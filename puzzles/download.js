@@ -21,7 +21,7 @@ async function main() {
         console.info(`Processing ${baseUrl}${i}.js ...`);
         const url = `${baseUrl}${i}.js`;
         try {
-            const jsCode = await download(url);
+            const jsCode = await downloadFrom(url);
             fs.writeFileSync(`${destDir}/bunch-${i}.js`, jsCode);
         }
         catch (error) {
