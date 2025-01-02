@@ -502,8 +502,6 @@
                 case "ArrowRight":
                 case "d":
                     this.move(Direction.Right);
-                    this._player.classList.add("right");
-                    this._player.classList.remove("left");
                     break;
                 case "ArrowDown":
                 case "s":
@@ -512,8 +510,6 @@
                 case "ArrowLeft":
                 case "a":
                     this.move(Direction.Left);
-                    this._player.classList.add("left");
-                    this._player.classList.remove("right");
                     break;
             }
         }
@@ -523,13 +519,32 @@
             const param = parseHash({ level: "0", collection: "Novoban" });
             if (this._collection !== param.collection) {
                 this._collection = param.collection;
-                this.loadFromUrl(`puzzles/${this._collection}.xsb`);    
+                this.loadFromUrl(`puzzles/${this._collection}.xsb`);
             }
             const levelNum = parseInt(param.level);
             if (this.levelNum !== levelNum) {
                 this.levelNum = levelNum;
             }
             this._buildHash();
+        }
+
+        animatePlayer(direction) {
+            switch (direction) {
+                case Direction.Up:
+                case Direction.Down:
+                    this._player.classList.remove("left", "right");
+                    break;
+                case Direction.Right:
+                    this._player.classList.add("right");
+                    this._player.classList.remove("left");
+                    break;
+                case Direction.Left:
+                    this._player.classList.add("left");
+                    this._player.classList.remove("right");
+                    break;
+                default:
+                    break;
+            }
         }
 
         /** @param {string} direction */
@@ -545,6 +560,7 @@
                 this._pos = dst;
                 this._moves.push(direction);
                 this._buildLevel();
+                this.animatePlayer(direction);
                 return;
             }
             // destination field is a crate
@@ -561,7 +577,8 @@
             ]);
             this._pos = dst;
             this._moves.push(direction);
-            this._buildLevel(); // Expensive operation! Should be optimized by moving only the necessary tiles.
+            this._buildLevel(); // XXX: Expensive operation! Should be optimized by moving only the necessary tiles.
+            this.animatePlayer(direction);
             if (this._level.missionAccomplished()) {
                 setTimeout(() => {
                     if (this._levelNum + 1 < this._levels.length) {
@@ -571,7 +588,7 @@
                     else {
                         alert(`Congratulations! Mission accomplished within ${this._moves.length} moves: ${this._moves.join("")}`);
                     }
-                }, 0);
+                }, 10);
             };
         }
     }
