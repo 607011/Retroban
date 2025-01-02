@@ -227,7 +227,7 @@
     position: absolute;
     display: inline-block;
     background-image: url("images/tileset-colors-8x8.png");
-    background-size: calc(3 * var(--cell-size)) calc(4 * var(--cell-size));
+    background-size: calc(4 * var(--cell-size)) calc(4 * var(--cell-size));
     width: var(--cell-size);
     height: var(--cell-size);
     box-sizing: content-box;
@@ -250,13 +250,25 @@
     background-position: calc(-1 * var(--cell-size)) calc(-2 * var(--cell-size));
 }
 .tile.wall {
-    background-position: 0 calc(-3 * var(--cell-size));
+    background-position: calc(-1 * var(--cell-size)) calc(-3 * var(--cell-size));
 }
 .tile.player {
+    background-position: calc(-2 * var(--cell-size)) calc(-2 * var(--cell-size));
+}
+.tile.player.left {
     background-position: 0 0;
 }
+.tile.player.right {
+    background-position: calc(-2 * var(--cell-size)) 0;
+}
 .tile.player.goal {
-    background-position: calc(-1 * var(--cell-size)) calc(-3 * var(--cell-size));
+    background-position: calc(-2 * var(--cell-size)) calc(-2 * var(--cell-size));
+}
+.tile.player.goal.left {
+    background-position: 0 calc(-3 * var(--cell-size));
+}
+.tile.player.goal.right {
+    background-position: calc(-2 * var(--cell-size)) calc(-3 * var(--cell-size));
 }
 .tile.reset {
     position: relative;
@@ -268,6 +280,12 @@
     background-position: calc(-2 * var(--cell-size)) calc(-1 * var(--cell-size));
     cursor: pointer;
 }
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: calc(var(--cell-size) / 2);
+}
 `;
             this._shadow.appendChild(this._style);
             this._levelStyle = document.createElement("style");
@@ -275,16 +293,19 @@
             this._board = document.createElement("div");
             this._board.className = "board";
             this._shadow.appendChild(this._board);
+            let toolbar = document.createElement("div");
+            toolbar.className = "toolbar";
             let resetButton = document.createElement("div");
             resetButton.className = "tile reset";
             resetButton.title = "[R]estart level";
             resetButton.addEventListener("click", this.reset.bind(this));
-            this._shadow.appendChild(resetButton);
+            toolbar.appendChild(resetButton);
             let undoButton = document.createElement("div");
             undoButton.className = "tile undo";
             undoButton.title = "[U]ndo last move";
             undoButton.addEventListener("click", this._undo.bind(this));
-            this._shadow.appendChild(undoButton);
+            toolbar.appendChild(undoButton);
+            this._shadow.appendChild(toolbar);
             this._activateEventListeners();
         }
 
@@ -481,6 +502,8 @@
                 case "ArrowRight":
                 case "d":
                     this.move(Direction.Right);
+                    this._player.classList.add("right");
+                    this._player.classList.remove("left");
                     break;
                 case "ArrowDown":
                 case "s":
@@ -489,6 +512,8 @@
                 case "ArrowLeft":
                 case "a":
                     this.move(Direction.Left);
+                    this._player.classList.add("left");
+                    this._player.classList.remove("right");
                     break;
             }
         }
