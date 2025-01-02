@@ -451,16 +451,16 @@
             if ((inXRange && inYRange) || (!inXRange && !inYRange))
                 return;
             if (clientX < playerRect.left) {
-                this._move(Direction.Left);
+                this.move(Direction.Left);
             }
             else if (clientX > playerRect.right) {
-                this._move(Direction.Right);
+                this.move(Direction.Right);
             }
             else if (clientY < playerRect.top) {
-                this._move(Direction.Up);
+                this.move(Direction.Up);
             }
             else if (clientY > playerRect.bottom) {
-                this._move(Direction.Down);
+                this.move(Direction.Down);
             }
         }
 
@@ -476,19 +476,19 @@
                     break;
                 case "ArrowUp":
                 case "w":
-                    this._move(Direction.Up);
+                    this.move(Direction.Up);
                     break;
                 case "ArrowRight":
                 case "d":
-                    this._move(Direction.Right);
+                    this.move(Direction.Right);
                     break;
                 case "ArrowDown":
                 case "s":
-                    this._move(Direction.Down);
+                    this.move(Direction.Down);
                     break;
                 case "ArrowLeft":
                 case "a":
-                    this._move(Direction.Left);
+                    this.move(Direction.Left);
                     break;
             }
         }
@@ -508,7 +508,7 @@
         }
 
         /** @param {string} direction */
-        _move(direction) {
+        move(direction) {
             const d = MOVE[direction];
             const dst = this._pos.add(d);
             const dstTile = this._level.at(dst);
