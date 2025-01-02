@@ -208,16 +208,6 @@
             this._undoStack = [];
         }
 
-        attributeChangedCallback(name, _oldValue, newValue) {
-            switch (name) {
-                case "xsb-file":
-                    this.loadFromUrl(newValue);
-                    break;
-                default:
-                    break;
-            }
-        }
-
         connectedCallback() {
             this._shadow = this.attachShadow({ mode: "open" });
             this._style = document.createElement("style");
@@ -298,9 +288,6 @@
             this._activateEventListeners();
         }
 
-        disconnectedCallback() {
-        }
-
         _setLevelStyles() {
             this._levelStyle.textContent = `
 .board {
@@ -325,7 +312,7 @@
                 .then(levelsData => {
                     this._levels = XSBReader.parseMulti(levelsData);
                     console.debug(`${this._levels.length} levels loaded.`);
-                    dispatchEvent(new HashChangeEvent("hashchange"));
+                    this._restartLevel();
                 })
                 .catch(err => console.error(err));
         }
@@ -339,13 +326,14 @@
             const moves = this._undoStack.pop();
             if (!moves)
                 return;
+            this._moves.pop();
             for (const move of moves) {
                 this._level.moveTo(move.to, move.from, move.what);
                 if (move.what === Tile.Player) {
                     this._pos = move.from;
                 }
-                this._buildLevel();
             }
+            this._buildLevel();
         }
 
         /**
@@ -428,7 +416,7 @@
         }
 
         _buildHash() {
-            window.location.hash = `#level=${this._levelNum}`;
+            window.location.hash = `#collection=${this._collection};level=${this._levelNum}`;
         }
 
         /** @param {TouchEvent} _e  */
@@ -507,8 +495,12 @@
 
         /** @param {HashChangeEvent} _e  */
         _onHashChange(_e) {
-            let { level } = parseHash({ level: "0" });
-            this.levelNum = parseInt(level);
+            const param = parseHash({ level: "0", collection: "Novoban" });
+            if (this._collection !== param.collection) {
+                this._collection = param.collection;
+                this.loadFromUrl(`puzzles/${this._collection}.xsb`);    
+            }
+            this.levelNum = parseInt(param.level);
         }
 
         /** @param {string} direction */
@@ -582,6 +574,7 @@
         console.info("%cSokoban started.", "color: green; font-weight: bold");
         customElements.define("sokoban-game", SokobanGame);
         el.game = document.querySelector("sokoban-game");
+        dispatchEvent(new HashChangeEvent("hashchange"));
     }
 
     window.addEventListener("load", main);
