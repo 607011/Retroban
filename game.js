@@ -291,7 +291,7 @@
      */
     class XSBReader {
         /** 
-         * Parse data with multiple levels.
+         * Parse data containing multiple levels.
          * @param {string} data - XSB data to parse.
          * @returns {SokobanLevel[]} An array of `SokobanLevel` objects.
          */
