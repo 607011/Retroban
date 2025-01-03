@@ -915,7 +915,7 @@
 
         /** @param {HashChangeEvent} _e  */
         _onHashChange(_e) {
-            const param = parseHash({ level: "0", collection: "Novoban" });
+            const param = parseHash({ level: "1", collection: "Novoban" });
             if (this._collection !== param.collection) {
                 this._collection = param.collection;
                 this.loadFromUrl(`puzzles/xsb/${this._collection}.xsb`);
