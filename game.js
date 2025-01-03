@@ -398,6 +398,12 @@
          */
         _player;
 
+        /** 
+         * Handle for inactivity timer.
+         * @type {number}
+         */
+        _inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
+
         constructor(game) {
             super();
             this._undoStack = [];
@@ -434,7 +440,7 @@
     position: absolute;
     display: inline-block;
     background-image: url("images/tileset-colors-8x8.png");
-    background-size: calc(4 * var(--cell-size)) calc(4 * var(--cell-size));
+    background-size: calc(6 * var(--cell-size)) calc(6 * var(--cell-size));
     width: var(--cell-size);
     height: var(--cell-size);
     box-sizing: content-box;
@@ -461,6 +467,9 @@
 }
 .tile.player {
     background-position: calc(-2 * var(--cell-size)) calc(-2 * var(--cell-size));
+}
+.tile.player.relaxed {
+    background-position: 0 calc(-4 * var(--cell-size));
 }
 .tile.player.left {
     background-position: 0 0;
@@ -700,6 +709,7 @@
                 }
             }
             this._buildLevel();
+            this._updateDisplay();
         }
 
         /**
@@ -799,6 +809,7 @@
         /** @param {TouchEvent} _e  */
         _onTouchStart(_e) {
             this._touchStartTime = performance.now();
+            this._stimulatePlayer();
         }
 
         /** @param {TouchEvent} e  */
@@ -839,10 +850,12 @@
             else if (clientY > playerRect.bottom) {
                 this.move(Direction.Down);
             }
+            this._stimulatePlayer();
         }
 
         /** @param {KeyboardEvent} e */
         _onKeyDown(e) {
+            this._stimulatePlayer();
             switch (e.key) {
                 case "u":
                 // fallthrough
@@ -874,6 +887,7 @@
 
         /** @param {KeyboardEvent} e */
         _onKeyPress(e) {
+            this._stimulatePlayer();
             switch (e.key) {
                 case "?":
                     if (this._level.solution) {
@@ -907,6 +921,18 @@
             }
             this.levelNum = parseInt(param.level) - 1;
             this._buildHash();
+        }
+
+        _relaxPlayer() {
+            this._player.classList.add("relaxed");
+            this._player.classList.remove("left", "right");
+            clearTimeout(this._inactivityTimer);
+        }
+
+        _stimulatePlayer() {
+            this._player.classList.remove("relaxed");
+            clearTimeout(this._inactivityTimer);
+            this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
         }
 
         animatePlayer(direction) {
