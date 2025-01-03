@@ -1,0 +1,1039 @@
+;1
+            #######
+            #     #
+      ####### **$ #
+########...#  * * #
+#      #...#  * * #
+# **$  #...#  * * #
+# * *  # . #  * * #
+# * *         * * #
+# * *     **$ * * #
+# * *     * * $ * #
+# $ * **$ * * * * #####
+# * * * * $ * * *     #
+# * * * * * * * * **$ #
+# * * $ * * * * * $ * #
+# * * * * * * * * * * #
+# *   *   *   *   *  @#
+#######################
+Solution: 3-7r4,8-8u4,3-6r2,6-5d1,5-7r3,9-8u1,8-6r1,10-7u3,7-11u3,6-7r1,8-8u3,5-13r1,7-14u6,6-7r2,9-8u4,11-9u1,12-7l3,7-7r1,9-8u1,8-6r1,10-7u2,11-11l1,9-12u7,13-9l1,11-10u2,12-7l2,9-8u2,8-5r1,11-9l1,9-10u4,11-8l2,8-9u3,13-8l3,9-9u2,3-8r7,1-8r3,4-4d1,5-9u1,6-7l1,3-10r1u1,5-11u1,6-9l1,1-10r2,5-8l2,12-8l7,9-10l1,15-9l4,17-9l5,11-10u1,12-8l1,15-8l3,15-1d7,16-9l3,17-2l1,17-8l2,17-11l1u2,15-12u2,14-9r1,19-13l1,17-14u2,18-11l1,15-12r1u1,17-13u1,18-11l1,19-11d1l2,21-12l2,19-14u1
+
+;2
+###############################
+#             #               #
+# *****$***** #         $$$$$ #
+# *          # ****$*** $   $ #
+# $********* #        * $   $ #
+#               ******$ $$$$$ #
+###### ***$** #               #
+     # *     #@******$******* #
+     # $**** #              * #
+     #       ## ************$ #
+     #####   .#               #
+         ##...#################
+          ##..................#
+           ####################
+Solution: d1r1d2r14u4l14u1l3d5l1d1r1u1r1d1l1d1r16l16u5l1d1r1d2l2u1r1u1r1d2l1d1r1u1r1d1l1d1r15l15u5l2d1r2u3l6d4r5u1r1d2l1d1r1u1r1d1l1d1r14l14u5l3d1r3u3l6d4r5u1r1d2l1d1r1u1r1d1l1d1r13l13u7l1d3l1d1r1u1r1d2l1d1r1u1r1d1l1d1r12l12u5l4d1r3u3l5d4r5u1r1d2l1d1r1u1r1d1l1d1r11l11u7l2d3l1d1r2u1r1d2l1d1r1u1r1d1l1d1r10l10u3l6u1r5u1r1d3l1d1r1u1r1d1l1d1r9l9u7l3d3l1d1r3u1r1d2l1d1r1u1r1d1l1d1r8l8u7l4d3l1d1r4u1r1d2l1d1r1u1r1d1l1d1r7l7u7l6d2r5u1r1d4l1d1r1u1r1d1l1d1r6l6u7l5d3l1d1r5u1r1d2l1d1r1u1r1d1l1d1r5l5u7d1l4u1l7u4r11d9l1d1r1u1r1d1l1d1r4l4u9l9d1u1r9u2l11d4r10l10u4r11d9l1d1r1u1r1d1l1d1r3l3u8d1l11u2r1d1l1d1r10l10u4r11d9l1d1r1u1r1d1l1d1r2l2u7l11u2r10l10u2r11d9l1d1r1u1r1d1l1d1r1l1u11l5d1u1r5d2l9d2l2u4r2d2u2r4l2d1l1d1r7l4u1l2u1r7d9l1d1r1u1r1d1l1u7d1l7u2d2r1u2d2r5l3u1l2u1r5l4u2r5d9l1d1r1u6l2u1l3r2d1r3u1l4r1u1r2d1r1u1d2r3d1r14d4l14u2d2r14u4l14u3d2u1r1u1d1r1u1d1r1u1d1r1u1d1r1u1d1r1u1d1l6d2r8u2l8u1l1d1r1d1l4u1l1d4l1d1r2u1r1d1l1d1r1u5r3u1r8d2l1u1r1u1l8u1l1d1r1d1l3u1l1d4l1d1r1u1r1d3u6r3d1r7l1u1r1u1l7u1l1d1r1d1l3u1l1d4l1d1r1u1r1d2u5r3d1r5u1r1u1l6u1l1d1r1d1l4u1l1d3l1d1r1u1r1d3u5r4d1r4u1r1u1l5u1l1d1r1d1l6u1l1d2r1d1l1u2r7d1r3u1r1u1l4u1l1d1r1d1l6u1l1d3u3d1r7d1r2u1l7u1l1d3u2r6u2r2d1r1d1l7u1l1d3u2r10l1d1r10d4l14u2r6u2r1u1l13u1l1d1r1d1l1r3u1d1u1r7d1r3d2l6u2r1u1l7d1l1u1r13d3l1u2r1u1l11u1l1d1r1d1l1u1r11d3l1u2r1u1l10d1l1u1r10d3l1u2r1u1l8u1l1d1r1d1l1r2u1r6d3l1u2r1u1l6u1l1d4r1u3r5d3l1u2r1u1l5u1l1d2r2u1r10u3l1d2r1d1l11d1l1u1r1u1l1r1d2u1r10u4l1d3r1d1l9d1l2u2r1d2u1r9u4l1d3r1d1l9d1l1u1l8r4l1d4r4d1r2u3d1l1u1r1d3l1u1l5u4r14u4l5d5u5r1d5u5r1d5u5r1d5u5r1d5r10l8d2l6u4d4r1l1d2r14u2l13r13d2l1u1d1l13u2r6u2r8u2l2u1l2d1l4u1l1d3u2r5u1l8r10d1r2u1l11r9d1l6u1l1d1r1d1l4r6d1r2u1l7r6d1r3u1l8r1d1r9u1l9r6u1l5u1l1d1r1d1r7u1l6u1l1d1u3r4d2r1d1l3r2u2l6u1l1d1u1r9d1l6u1l1d1r3d2r5u1l6u2r6d1r1d1l6
+
+;3
+################
+#              #
+# $$$$$$$$* #  #
+# *         #. #
+# ********* #  #
+#         *    #
+# **$ *** *  ..#
+# * * * * * #..#
+# * * $ * * #..#
+# * *   * * #..#
+# * ***** * #..#
+# *       * ####
+# $******** #
+#          @#
+#############
+Solution: l10u8r11d1r2u2l1d5u4l4d6l6u5d5r6u6r2d8l10u8r11d1r2u2l1d4u2l1u1l11d8r2u7d7l2u1r1l1u7r11d1r2u2l1d3u2l8d1l1r1d3r2u1l1d1l1u3l1u1r8d1r2u2l1d2u1l2u2l2d1u1r2u2l10d4r12u1r1d5u4l3u2l3d1u1r3u2l10d4r12u1r1d4u3l5u2l2d1r2d1r2u4l10d4r12u1r1d3u2l6u2l2d1r3d1r2u4l10d4r12u1r1d2u1l8u2l1d1r3d1r3u4l10d4r12u1r1d1l7u2l3d1r3d1r4u4l10d4r11d1r1u2d1l6u2l4d1r2d1r6u4l10d4r11l1u4r3d3l1d1l3r1u2l1d1r1u3l2d2l1d1r1u3l1d2u2l1d2u2l1d2u2l1d2u2l1d2u2l1d2u2l2d1r7u1r1d2
+
+;4
+#######################
+#                     #
+# $********$********$ #
+# *                 * #
+# * ******$ $****** * #
+# * *     * *     * * #
+# * * *** * * *** * * #
+# * * * * * * * * * * #
+# * * $ * *@* * $ * * #
+# * *   * * * *   * * #
+# * $**** * * ****$ * #
+# *       * *       * #
+# ********* ********* #
+#          .          #
+######### ... #########
+        #.....#
+        #######
+Solution: d5r10u12l10d13l1d1u1r1u11r8d8l6d3u1l2u10r2d8u8d5l1r1u5l2d10l1d1r1u1r1d1l2r1u11r2d2r4d4l2u1l2r2d1r2u1l2r2u3l4d6l1r1u8l2d10r1d1l1u1l1d1r1u4d1r2u6r4d5u5l4u2r6d7l1d1l5u8l2d1r1l1u3r10d2l9r9u2l1d1u1l9d12r1d1l2u1l1d1r2u11l8d8r6u3r1l1u3l4d4r2u1r2l2d1l2u1r2l2u3r4d6l6u8r8d10l1d1r1u11l8d8r6d1r1d1r1u8d8r10u12l20d12r8u1r1d1l2r13u12l10d2l2d8u8r2d10u10l2d8u1r1d1l5r5u1l1d1r5l3u1d1r2u1l2d1l2u1d1l4r1u1d1l1u1d1r4u6l4d5u5r4u2l6d8r6l4u3r1d1l1d2l2u1r1l1d1r6l6u8r16d8l6u1l2d1l5r8l5u8r2d8u8r8d8l6r2u1l2r1d1l1u6r4d2u2l4d6r4u1l2r1u2l1d1u1r2d1l1d2r3u1l2d1l4u6r4d3l2u1r1l1d1r2d3l4u6r4d4u4l4d2r2l2d4r6u8l8d4r2u2r4d3l2u1l2r2d1r2u1l2r2u2l4d3r2d1r1u1l3d3r6u8l8d5r2l2u5l2d5r2l2u3l4d3r4u3l2d2u2l2d3r2u3r2d6r2l4r2u8r2u2l10d3u1r8l8u2r10d10r2l4u8r1l1d8r2u5d5l2u8d3u3l2d2r2u1l1r1d7r2u7l2r3u1l1u2l2d2u2d2r1l1u2r2d1l1d2r2u1l1d1l1u1r1u2l10d2r2d8r6u3d3l6u8l2u2r1d1u1r10l1d11u1r2u3d3l2u8r8d8l6
+
+;5
+         *
+        ***
+         *
+         *
+        ###
+       # . #
+      #  .  #
+     #   .   #
+    #   .#.   #
+   #   . . .   #
+  #   . .#. .   #
+ #   . .   . .   #
+#  #$$$$$$$$$$$#  #
+# $. .       . .$ #
+#.$ . $$$$$$$ . $ #
+# $. ......... .$.#
+# $ $$$$.$.$$$$ $ #
+#.$ .....$..... $.#
+# $ $$$$.$.$$$$ $ #
+#.$ .....$..... $.#
+# $ $$$$.$.$$$$ $ #
+##$..... $ .....$##
+#   . .$.$.$. .   #
+#    .   .   .    #
+# $$$$$$$$$$$$$$$ #
+#        @        #
+###################
+Solution: r8u3l2u9l5u6r1u1l1d1l1u1r2l1d7l2u6l1u1r1d7l1u4l1u1r1d5l1u3l1u1r1d4l1u2l1u1r1d2u1l3d1l1d1r3d1r1u2d1l3u2r2d1r1d1l1d2r4l3u2l1u4r4d3l3d3r2u5d5r1u4d2r2u1l2d1l1u1d1r4u5r1l2u2r1d1r1d1l1d5r1u3r1u1l1d4r1u2r1u1l3r4d1r1d1r1d1l3d1l1u3r1u1l1d3r1u1d1r2u2l4d2r1d2l1u2l1u1r1d1r1u1d2r2d3l2u3r1u1r3d1l2d3l1u1r1u1l3r3u1r2d1l2d1l2u1r1d1r1u1d1u1r2l2u1d1r2l4r4d2u1l3r3d2l1u2l1u1r1d2r1d3l1u3l1u2r1d1l1d1r1d2l6d4r6u3d1l6u2r6l6d4l2u8l2u1r1u1l1u1l2u1l2d1l1d3r3l1u1l1d1l1d1r1u2r6d9l5u7l2d2r1l1u2r2d1l1r6d2l5r5u2l6d1l1d1r5l5d1r1u3r6d2l6u2r2u2d2r2u1d1r1u1r1u1r4u2l1d1u1l2d1u1r2d1l1r2l2d3r2u1r1d1r2u2l1d1l2d1l3r4u1r3d1l2u1l2d1l2u1r4u1r2d3u1l1u1r1d4u1l2u1d1l2u1d1l1u1l1d5l2u4l6u3r1d1r4u1r3l3d1l3u1r3l5d3r6d4r2u9l1u1l1d1r6d2l3r5d5l6u5d3r4u1l3d1l1u1d5l4u2r2u2l1u1d1l1u1d1l1u1d1l1u1r5l1d1r4l10u1r5d1r5u1r2d1r1u2r1u1l5r5u2d1u1l1r1d7l6u2r1u1r1l1d1r3u1r2d3l2u1d1l1u1d1l1u1d1l1u1l2u1l4d2r3u1d1l1u1d1l1u1l1d1l1u1r1u2l3d2r2d1r1u1r5d2u2r3d1r3u1l5d1l1u1d3r1u2r1u1l5r9u2l1d1r1d1l5d1r2l2d2l3u1r6d1r1u1l7u1r5l8u1r2l1d2r6d1r1u1l6u1l3d1r7d1r1u1l7u2l3d1r1d2l2u1r9d1r1u1r6d3l3u2d2l1u1d1l1u2d2l2u2d2l1u1d1l1u2d2l1u3d3l1u3d3l1u3d3l1u3d3l1u3l2d2r2d1r1u2d2r10u2r2u12l1u1l1u1l2u1l1d1l1u1r1u1l1r1d2r2d1r2l1d2l2u1l2u2d2r1u1d2l3u1r1d1r1u1d1r4d1l2d1l2u1r2u1r2u1r2d5l5u4d4r4d2l4u2d2r4d2l4u2r5d5l2d2l5u1r1u1r1u3d3l1d2r1u3d3r5u1l9d1l1u2d2r11u3l1d1r1d1l11d1l1u1
+
+;6
+####                           ####
+#  #                           #  #
+#  ####                     ####  #
+#    .#                     #.    #
+## ####                     #### ##
+ #    #                     #@   #
+ #  *##                     ##*  #
+ # *  # ################### #  * #
+ #*   # #.# #   #   #     # #   *#
+ # *  # # # *   *   *   * ###  * #
+ #  *#### #  * * * * * * *  ##*  #
+ # *  #       *   *   *   $    * #
+ #*   #   ###################   *#
+ # *    ###                 #  * #
+ #  *####                   ##*  #
+ # *  #                     #  * #
+ #*   #                     #   *#
+ # *  #                     #  * #
+ #  * #                     # *  #
+ # *  #                     #  * #
+ #$ ###                     ### $#
+ #  #                         #  #
+ ####                         ####
+Solution: r1d2l1d2r1d2l1d2r1u1r1u1r1u8r1u2l1d1r1d1l3r3l1d8l1d1l2u1r1u2d6u1r2u11d9l2u5d5r2u2l1r1d1l1r1u8r1u2l1d9l1d2r1u3d3l3u1r1d1r2d2l2d1l1d2r1u4d3l1d3r1u1r2u5d6l1d2r1u4d1l3d1r1l1u3r1d1u4l1u2r1d2u4d6l1d2r1u4l1u2r1d2u4l1u2r1l1d2r1d2l3u1l2d1u3l3d1l2r2d1u1l3u1l2d1r4l5d2l7d1l2u1r1d1r1u3d2r5u2r3u1r2d1l2r3d2l5r5l11d1l2d1l3u4d1l2u7l1u2r1d1l1d1r3l2d7r2d5r1d2u2l1u1l2u5d3r3l1d3r1d2l1u4r1u2l1d4r1d2u2d2l1u4d3r1d3l1u2d1l2u5d6r1d2l1u4d1r3d1l1u1r1u3l1d2u4r1u2l1d2u4r1u2l1d4r1d2l1u2d2r3u1r2l2u1d1r2u1r11u2r1u1r4d2r2d1r3u2l1u2r1d4l1d2r1u2l3u1l2u2l4d1l3d2l9d1l2u1r7u2r3u1r2d1r1d2l5r5u2l3r4u1r4d3l6r6u3l2d1l2r3l1r1l2d2r2u1r3d1l1r4l3u1l3d1l2u1r1d1r2u1r2d1l4r1l1u1r2l2u2r2d1l1d2r1u1d1r2u1l3u2r1d1u1l3d1r1
+
+;7
+#################
+#     #...#     #
+# $ $ #...# $ $ #
+#  $ ##...## $  #
+# $ $       $ $ #
+#  # $ $ $ $ #  #
+####  $ * $  ####
+#... $ *** $ ...#
+#...  *****  ...#
+#... $ *** $ ...#
+####  $ * $  ####
+#  # $ $@$ $ #  #
+# $ $       $ $ #
+#  $ ##...## $  #
+# $ $ #...# $ $ #
+#     #...#     #
+#################
+Solution: d1r4d1r1l1u3l1d1r1d1u4l1d1l1d1l1d4u4r1u1r2d3l3u1l1d3u2r1u2r1d1r1d1l2u1l1d2r1u1r3u3l1d2r1d1l2u1l1d2u1l3u1r3d1r2u2l1d1r1d1l3u1l1d3u4l1u1l4r2d2r2u1r1d3u2l3u2r1d1l1d1r1d1r1u1r1u1l2d1l1u2r1u1l2r2l1d2r1d2l1d1l1d2r1u6l1u1l1d1r3u1l2r1d7l3u1d1r3u11l1u1d1r3d1l1u1l1d4r1d1l2r1d6l3u2r2l2d2r3u5r1u1l1d5u1l3u2r1d1r6u1r1d1l8d2r2d1r1u2l1u1r4u1r1d1l7d1r2d1r1u1l1u1r3u1r1d1u1l3u5r1d3r1d1l1d1l1u3r1u1l3r2u3r4d1l3u1l1d3r1d1l1u3r3d1l2u1l1d1r1d1l2r2u3r5d1l5u1l1d2r1d1l1u2r5l3r4u1d1u1r2u1r1l1d3l1u1r1u1l4d1l1u3r2d2r3d4l1u3r1u1l3d1l1u3d1r1d1r2d3l1u2r1u1l1d1l1u3d2r3u1r1u2r2d2l2r2d2l1u1l6d1l1u2r2d1r6u2d1l1r1u2l2d2r1d1l5d1l1u2d1r5u3l2d1r1d4l1d1r3l2u6r1d2r1d1l1u1l1d4l1d1r3l2u7r2d2r1d1l2u1l1d5l1d1r3l2d4r1d2l1u7l1u1r2l1d6r1d1l1r1d1l1r3u2l2d1l1u5l1u1r2l1d6r1d1r2u4l1d1l1d1l1u3l1u1r2l1d3r3d1l2d1l1u4l1u1r1d4r3d1l2d1l1u6l1u1r1u4l9u1l2d1r10d1r1u1r1u2l1d4l1d1r1u3l11u3r2d2l1d1r6d1r1u2d1l6u3r2d1l1d1l1d1r5d1r1u1l5u3l1d2l1d1r5l6u3r1d2l1d1r5d1r1u1d1r1u1
+
+;8
+    #######
+   ##     #
+####  $  $#
+#  # $#$  ####
+#  #  #  $#  ##
+#   $ #       #
+#   # ##  ##  #
+##  #$######$##
+ #   ...+....#
+ #############
+Solution: r4u2r1u1l4d1l1u1l1u2r2d1u1l1u2r1d2l2d2r1u2r1u2l4d1l1d2r1d1l2d3r9u3l3d1l1u2d1r4d3l10r1u3r2l1u3r1u1r4d3l1d1r3u1r1d3u2l3u4l4d1l1d3r1d2u2l2d3r7l8u2l1u1r3u1r1d3u2l2d3r6l5r1u3l1u3r1d5u2l2d3r5l3u7r2d1l1u1l1d6u2l2d3r4l2u7r4d1l3u1l1d6u2l2d3r3l1u6r4d2l1u1r1u1l3u1l1d6u2l2d3r2u6r3d2l1u1r1u1l2u1l1d6
+
+;9
+###########
+#         #
+# $ * * $ #
+#  * # *  #
+# * *.* * #
+#  #. .#  #
+# * *.* * #
+#  * # *  #
+# $ *@* $ #
+#         #
+###########
+Solution: r1u2d3r3u8l2r2d5l2r2d3l4u1l1u2d3l3u3r3l3d3r1u1d1u1r1d1r1u2d1l3u7r4d1u1l4d4r1u1r2l3u3r3d2u2l3d1r2l1d1l1d5r1u1d2r6u1l3r4u2l1d1r1d1l2r2u5l1d2r1u4l1d2
+
+;10
+###########
+#         #
+# * * * * #
+#  * # *  #
+# * $.$ * #
+#  #. .#  #
+# * $.$ * #
+#  * # *  #
+# * *@* * #
+#         #
+###########
+Solution: r1u2d3r3u5d1l1u1l2r3u3l4d1l1d2u3l3d8r4u1d1l4u4r1d1r2l3d3r2u2r1u1l1d3l2u2r1l1d2r6l1u2r1l1d2r1u1d1r2u1l2r2u2d2l1d1l3u1r1d1r3u3l1r1d3l1u3d3l2u2r1l1d2r3u2d1l2r2u2l1d1l2r1l1u1d1r3u3l1d2r1d3l2u2l1u1r1d3r2u2l1r1u6l2d2l1d1r1u3r2d2l1r1u2l8d2r2d1r1u1l3u2r2d1
+
+;11
+#######  #######
+#     #  #     #
+# $   #  #   $ #
+##$## #### ##$##
+ # $   $ $     #
+ #   #     #####
+ ##### $...#
+     ##*##.##
+      #.... #
+      #@    #
+      #######
+Solution: r3u4l4d1r2u1r2d3l3u1d1r3u3l4d1r1u1r3u4r4d1l3u1l1d6u2l3d4r4u1l3d1l1u3l1u1r1d4u1r4l1u3l2r2u3r1l1d2r3u1d1l3u3r4d1l1u1l3d4l2u1r2u3r3d3u3l3d7l3u2l1u1r1d4r3u8r3d3l1r1u3l3d7l3u3r1l1d4r3u8r3d3l2r3l1u3l3d6u3l2d1l1d4r4u1l3d1l1u3l1u2r5l1d1l1r1u4r3d1l2u1l1d6u3l4d2r1d3r4u1l2r2l1u6r3d2l2r2u2l3d5u4d1l6r2d2r1d3r4u1l1u4l6d1l2u1r8u2r3d2l2r2u2l3d5u4d1l6r1u3l4d1r2u1r2d3l3u1d1r3u3l2d1r1u1l3d1r1u1r3d2u2l3d3r8u2r3d2l2r2u2l3d4u2l8u2r2u1r1d2u1l4r1d2r8u2r3d2l2r2u2l3d3u1l3d3u3r2d1l1u1l1d2
+
+;12
+##### #####
+#   ###   ###
+# #$  # #$  #
+#   #     #@#
+## ..  $ .. #
+ #$  #.#$ $##
+ #   #.#   #
+ # $ ...  $#
+ #  $#.#$  #
+ #$  #.#   ###
+ #  $  #  $  #
+ #   #     # #
+ ## .. ## .. #
+  #$# # #$# ##
+  #   # #   #
+  ##### #####
+Solution: d1l3d2r1d1l2r2l1u4l2d5u5r2d1l1u1l1d4r3d2l1u4r1u1l2u1l1d3u2r2l4d3r2l2u1l2d1r3l2d2r1u1l1u1r1l1d4r1u6l1u1r2u1r1d2u1r2d4u2r1l1u3l1u2r2d2u1r2d2l4u1l1d1r3d3u1r1u1l1d7r3u2l2d1l1u6d6r1d1r1d2l2u2r1u2l2d1r1u1r1d1l1d1r1l1u6r1d5u2l2d2l2u1l2u6r1u2d2l2u1l2u2r2d2l1d1u1r1d7l1d1r1u1d2r2d2l2u4r1d1l1d1r1l1u1l1u2d1r2l2u1r1u1r1d3u5l2u2r1u3l2d2r1l1u2r2d2l1d1r1l1d1r1d4l1u5r1u3l2d2r1l1u2r2d2
+
+;13
+      ####
+     ##  ##
+ #####    #
+ #     $  #
+##$$$$$$ $##
+#        ..##
+# $$     ...###
+#  $$$$$$$....#
+# #   $..#....#
+# #   $.#....##
+#  $$$$.#..###
+# $    .#.##
+###   $...#
+  #### $  #
+     #  $ #
+     #   $#
+     ##@  #
+      #####
+Solution: r2u6d5l2u1r1d1r1u4d3l3u1r2d1r1u2l2u1l2d1r3l1u3l2r1d2l1d1r2u3l2d2l1d1r2u1r1u5d2r1u1r4l5u1r2u1r1d1l1d1r1u1r1d1l1d1r2l2u2l2u3r1d3l1d1r2u1r1d2l1d1r1u3l5u1r2u1r1d2l1d1r2u1r1d1l1d1r1u2l6d1r6l4d2l1u2l1u1r4u1r1d1l1d1r1u1r1d2u2l4r2u4l3d1r2u1r1d4l1d1r2u1r1d1u1l2u3l3d1r2u1r1d3l1d1r2l5u2r2u1r1d1l1d1r3l5u1l4d2r1u1l1u1r7u1r1d2l1d1r1u1r1d3u2l3u2l5d1r7u1r1d3u2l4d3l1u1l2u1l1u1r7u1r1d2u1l3d2l3u1l1u1r6u1r1d1l2d2l3u1l1u1r5l2u3l5d3l1d1r6u1r1d1l7d4r5l3u1r3l3u2d1r3u3l4d1r1d1r2l2u1r3u1r1d1u4l4d2l1d1r6u3l4d1l1d1r6u2l4d1l1d1r4
+
+;14
+      ####
+     ##  ##
+ #####    #
+ #     $  #
+##$$$$$$ $##
+#    # # ..##
+# $$     ...###
+#  $$$$$$$....#
+# #   $..#....#
+# #   $.#....##
+#  $$$$.#..###
+# $    .#.##
+###   $...#
+  #### $  #
+     #  $ #
+     #   $#
+     ##@  #
+      #####
+Solution: r2u6d6l2u2r1d1r1u4d3l3u1r2d1r1u2l2u1l3d1r4l1u3l2r1d2l1d1r2u4r1u1r4l4d1l1d1l2u1d1r2u1r1u1r2u2l2d2u1l1d5u2l2r2l2r2u3l2d1r5u1r1d1l1d1r2l2u1l3d2l1u1r1u2l2d1r5u1r1d2l1d1r1u2l4d2l2u1l2d1r3d1r1u2l1u1r4u1r1d1l1d1r1u2l6d1r1d2l2u1r2d1r1u1l1u1r5l5u1l2d1r1d2l2u1r3d1r1u1l1u1r4u1r1d2u2l7u1l2d1r7u1r1d1l1d1r1u1r1d1u1l8d1u1l2d1r9l3d2l4u2l1u1r8d2u2l3d4l1d1l3u1d1r2u1d1l2u1r3l2u1r2l2d1l3d1r5l3r1u4l1d2r1d2l2u1r3d1r1u2l1u1r1u1r2u4r1d3l1d1r1u1r1d3u3l2u4l2d1r2u1r1d4l1d1r1u2r1d3u2l2u3l2d3l1d1r4u1r1d1u1l2u2l1u1l1d3l1d2u1r4u4l5d2l1d1r5d1r1u1l1u1r1u2l2d1l2u1l1d2l1d1r5d1r1u1l1u3l6d2l1d1r8l6r1u3l1d2l1d1r6
+
+;15
+      ####
+     ##  ##
+ #####    #
+ #     $  #
+##$$$$$$ $##
+#    # # ..##
+# $$     ...###
+#  $$$$$$$....#
+# ##  $..#....#
+# #@  $.#....##
+#  $$$$.#..###
+# $    .#.##
+###   $...#
+  #### $  #
+     #  $ #
+     #   $#
+     ##   #
+      #####
+Solution: r1d2r1d1r3d1r1u3d2l3d3r1d1r2u5d4l2u1r1d1r1u3l3d1r2d1r1u1l2u2l4d1r4l4r1u3l1d1r1d1r3u3r1u1r4l3u2l1d1l1d5u5d1r3u1r1d1l1d1r2l2u1l3d4l3u2r1u1r1l2d3r3u3r1u2l2d1r4u1r1d2l1d1r1u2l4d2l1r1d2l3u3r3l3d4r2u3d2l2u3r2d1r1u1l1u1r4u1r1d1l1d1r1u1l5u1l2d1r7l5d4l2u1r2d1r1u3l1u1r4u1r1d2u2l4d4u3l3d2l1d1l2u3r9u1r1d1u1l7u1l2d1l1d1r9l9u1r9l2u3r1d3l1d1r1u1r1d3u3l6d3r2d1r1u1d1l2d1l1u1l1u1r3d3l3u1r2u4l4d3r5l5d1r5u4r3u5l3d1r2u1r1d4l1d1r1u1r1d2u2l2u3l2d3l1d1r4u1r1d1u1l2u2l1u1l1d3l1d1r4l2u1r1u2l1u1l3d2l1d1r5d1r1u1l1u1r1u2l2d1l2u1l1d2l1d1r5d1r1u1l6r1u3l2d2l1d1r8l5u3l1d2l1d1r6
+
+;16
+      #####
+      #.. #####
+####  # @     #
+#  #####$###  #
+#.         # ##
+#. #$$$ ####  #
+## #.    #.   #
+ # ### #   #  #
+ #   $  #$$#$$#####
+ #. #   #         #
+ #####  $$$$$$ ## #
+     #            ##
+     #  #.. ##### .#
+     ## #.. #  .   #
+     #  ###     #. #
+     #    $ ########
+     ##  # ..#
+      ########
+Solution: r4d4l2d1l2u1l1u2r1u2d2l1d2r1d1r2u1r3u1l1u3l3u1l1d3l2r1d2l1d2l3d1l1r1u1r3u2r1u2l5d4r4u2l1u1d1r2u2l5u1l1d1r6d2l1u1r1u1l5r2d1r3d1l1d5r8u2l2u6r1u1l4r3d4l2d1l2u1l1u2r1u2r4d7r2d2l2u4r1u1l2r1d5l5d4r3l3u4r4d4l1d1r1u5r1u2l1d6u6r2d1l1d1r4l2u2r3d3r1d1l3d1l4u5r1u2r1d3l1d1r4l2u2r3d3u1l6d3r4u1r2d1r1u1l1u2l4u2l4d3u2r4u1r1d1l1d1r3l2u2r3d4l2d1l2u1r1l1d1l2u3l4u3l1u2r2d1r1d4u4r1d5u1l3u1r2u1r1d2
+
+;17
+     ############
+     #          #
+     #  $$$$$$  #
+  #### $......$ ####
+  #    $......$    #
+  # $$$.. .. ..$$$ #
+  # $ $.. .. ..$ $ #
+  # $ $...  ...$ $ #
+  # $ $...  ...$ $ #
+  # $  $$....$$  $ #
+  # $   $....$   $ #
+### $    $..$    $ ###
+#   $ $$$$..$$$$ $   #
+# $$$ $........$ $$$ #
+# $   $........$   $ #
+# $  $..$....$..$  $ #
+# $  $..$....$..$  $ #
+# $ $.. $....$ ..$ $ #
+# $ $.. $....$ ..$ $ #
+# $  $..$....$..$  $ #
+# $  $..$....$..$  $ #
+# $   $...$$...$   $ #
+#  $  $...$ ...$  $  #
+##  $ $ $. $.$ $ $  ##
+ ##   $$$.$ .$$$   ##
+  ### $... $...$ ###
+    # $...@ ...$ #
+    # $$$$$$$$$$ #
+    #            #
+    ##############
+Solution: l1u5l2u1r1l1u1r1l1u1r1l1u1r1l1u1r1l1u1r1l1d1u2r3d3r2d5l1u6r1u1l1r1d9l1u7r1u1l1r1d7l3u1r1u4d5r1u4r1u1l1d4l2d3r1u5d6r1u5r1u1l1d1r3u1l2r2u1l2r2u1l2r2u1l2r2u1l2r2u1l2r1u2l2u3r2d1r3d3r2d7l2d7l7r3u12d12l1u4l1u1r1d1r1u7d11l2u6l1u1r2d1r1u4d10u6r2d1l1u1l2d2r1u5d6r1u5r1u1l1d3l1d6r4u7r1u1l4d2l1d3l1d3l2u6l2d1r2d1r1u1r1u1l1d6l5u3r6d1r1u4d3l7u2r3l1d1r1u1l3d2r6d1r1u3d5l5u2d2l2u3r2d1r1u4d2l1d4r1u5d2l3u1r2u1r1d1l1d1r1l3d1r2d1r1u1d2l3u1r1d1r1u2d2r9u2l8r1d2r6u1r1u1l7r6d2l1u1r1u1l5r6u3l3r2l1d2u2r2d1l3r3d1l3r2d2l2d1l1u1d1r3u2l1r1u2r1u3l2u1l1d4u3r2d1r1d1l1u1l1d3u1r4u1l3u1l1d2r3u1r2u1l5r6u1l6u4r1d1r1d3r1d1l2r2u1r1u3l3u1l1d3r4u4l1d4r1d2l3d1r3u2l2d1l1u1r1u1l1r1d2r4u2l4r4u1l5r5u1l2u1l1d1r1d1l2r1u4l1d2r1d1l1r4u1l3u1l1d1r2u1d1r2u1l2u1l1d1r1d1l2r4u2l2u1l1d2r1d1l1u1l3u2d2r2u2l1d1l2u2r1d2r2u4l2d3l1d1r1u1r2u1l1r1u2l2d3r3d10l1d3l11u5r1l1u1r1l2u1r2l2u1r2l3u1r2l2u2r1d3l1d1r2l1u3r2d1l2u2r2u1r1d2r1d1l1u1l3u3r1d3u3r8l8u3r2d2r1d2l2u1r6l5u3r1d2l1d1r4l1u2l2d1u2l1d2r1d2l2u1r4l5u1r2u1r1d1l1d1r2l4u3r1d2l1d1r3l4d5r1d5l1u6l1u1r2l1d6l2u1r1d1r1u5l1u1r1d5l3u6r5l5d1r2d1r1u1l1u1r2l4u1r5l2d1l3d2r2d1r1u3l1u1r2l4u1r6l6u2r1d1l1d1r5l4u2r1d3r1u1r1u2r5u2l1d2l1d1u1r2u2r3d2l2u1l1d1u2r2d1r1d1l1u1l1d1u1r5d1l3u1l1d1r4d2r2d1r2u3l5u1l1d1l8d2l3u1r4l4u1r3u1r1d1u2r3u1r1d2u3l3d3l1d1r2l3u3r3u1r1d2r2d1r3u1l3u1l1d1r3l1u1d1r2u1l5u1l1d1r5u1l3u1l1d2l2d3l5u3r7u1r1d1l6u1r6u1r1d2r4u1l6u1l1d1r7u1l5u1l1d2r5d4r3u3l6r6d1l4d1l1u1r1u1l1r5u1l5r5u2d1l4u1l1d1r3u1l2u1l1d1l1d1r1u1r1d1l6d1l1d2u1l4u2d1r5l3u1r2u1r1d1l3u1r2u1r1d1r1d1l1u1l1d1l1d2l3u2r5l5u1r4u1r1d1l5u2r3d2l1d1r1u4d1r1l1u2r1d3u2r1d2r5d2r5u1l5u1l1d1r6u2l3d2r1d1l2r4u3l1d2r1d1l3r2u3l1d1u1l2r1u2l1d3u2l1d2r1u4l1d1u1l1d1u1l1d1u1l1d1u1l1d1u1l1d1l1d2l1d2l2u1l1u1r9l8d2r1u1l1u1r7l6r1u3r4d4u3r1d3u3l4d2r1u1l1u1r3u1r1d1l3d1r1l3d9l3u1r2d1r1u7l1u1r2d1r1u1l1u1r1l2d8l2u6l1u1r4d1r1u1l2d1l1d5l1d7l2u1r1d1r1u12l1u1r7l7r1d18l3u1r2d1r1u17l1u1r6l6d17l2u1r2d1r1u16l1u1r5l4d16l3u1r2d1r1u15l1u1r4u2r7d2r4d3l2u1r1u1l9r10d7l1u6r1u1l9r9l2d9r1u8r1u1l7r5d9r1d1r3u1l2d1l1u9r1u1l6r4d4r1d1r1d2r1d1l1d1l1u8r1u1l4r4d10r2u1l2d1l1u9r1u1l3
+
+;18
+######################
+#       ......       #
+# $ $ $ ...... $ $ $ #
+# $$$$$........$$$$$ #
+#   $ $........$ $   #
+#     $...  ...$     #
+# $$$$$...  ...$$$$$ #
+#        ....        #
+#$$$$$$$$....$$$$$$$$#
+#         ..         #
+# $$$$$$$$..$$$$$$$$ #
+#....................#
+#....................#
+# $$$$$$$....$$$$$$$ #
+#        ....        #
+#$$$$$$$$....$$$$$$$$#
+#  $ $ $ .... $ $ $  #
+#  $ $ $ .... $ $ $  #
+#  $ $ $ .... $ $ $  #
+#  $ $ $..  ..$ $ $  #
+#  $ $ $..  ..$ $ $  #
+#  $ $ ..$$$$.. $ $  #
+#  $ $ ..    .. $ $  #
+#  $ ...$$$$$$... $  #
+#    ...  @   ...    #
+######################
+Solution: r4u2l1d1r1d1l8u2r2d1l1d1r8u2l3d1r1d1l6r4l3u2r1d1l1d1r6u2l3d1r1d1l4u2r2d1l1d1r4u1l2u10d10l1u10d9r2u6d6l3u6d7l5d1l2u1r2u1r3l3d1u2r5l2d1r1l4d1l2u1r3u1r1d1r1d1r3u1l2u1l1d1r4u2l1d1r1d1l2u1l4d1l3u1r7d1l1u1l1r2d1r1u1r1u1l2u1l1d2l2u1r4u1r1d1r1d1l3u1l2d1l3u1r5d1l1u2r2d1r1d1l2u1l4d1l4u1r8u1r1d2u1l4u1r2u1r1d1r1d1l1u1l3u1r3l3u1r3l3u1r3l3d4l2u1r4u1r1d3u3l2d1l2d2u2r6u5r8u1d1l1u1d1u1d1l1u1d1l1u1d1l1u1d1l1u1d1l1u1l1u2l1u2r2d1u1r1d1u1r1d1u1r1d1u1r1d1u1r1d1u1r1d1l6u1l2d2r1u5d8l1d2r1u8d15l3u4d1r2d2l1d1l1u2r4d2r4d1r2u1l2u1l3u1l1d1l1d1r2u1r3d2r2u2l6u1l1d1l1d1r2u1r4u1l4u1l1d1l1d1r2u1r3d1r3u1l6u1l1d1l1d1r1u1r3u1l2r1d1l3u2r1d1l1d1r2u1r2d2r1u1r1u1l4u1l1d1l1d1r1u1r3d1r4u1l6u1l1d1r3u1l3d1l1u5d4r2d1r4u1l4u1l1d1l1d1r1u1r3d1r4u1l6u1l2d1r3l3d3r1u1l1u2r3d1r2u1l4u1l1d2u1r4u1l2u1l1d1l1d1r1u1r3d1r2u1l5u1l1d1r1d1l4u1l2d1r5u1r4d2r5u7l11d1l1u1d1l1u1d1l1u1d1l1u1d1l1u1d1l1u1d1l1u1l1u4r1d1u1r1d1u1r1d1u1r1d1u1r1d1u1r1d1u1r1d1u1r2d1l1d3r3d4l1d2l3u3r1u11d12l3r2d2r2d3r1u4r1u5l1u10d10l1u10d12r1u9d9r1d3l1u10d7l2d1l1u2l1u1r2d1r1u6d7l1d1l2d3l3u3r4l4d1r4l3r1d3l4u1d1u1r6u2l3d1l1d1r3u3r1u1r4d3r2d1r5u1l7r3u2l1d1r1d1l2r4u1l5r3d1l1r5u1l6r1u1l2r1d1r4u1l4r1u2d2l1u1r1u1l4r3d2r3u1l1d1l1u1r1u1l4r3d1r1d2r5u3l8d1l1u4d4l1u4d3r2d1r3d2r5u1l1u1r1u1l8d1l1u2d1r8d2l5d1l1u2r1u1l2d1l1u1d1l3u1l2d1r5u1r6u1l4d1l1u3d3r2d2r4u2r1u1l6d1l3u3r1u2r1l1d2r1d2r1d1u1l2d1l1u1r5l1d3r3u2r1u1l7d2l3u2r3l3d4l3u1r2d1r1u1l1u1r3l2u1r2l1u3r2d1u1l1d3l7r1d1r4l2d4l5u6d3r1u1l1u1d1r1u1l1u1r8d1r1u1l1u1r2l1d1l9d2r6d1r1u2l1u1r2d1r1u2l1u1r2l2d3l3d3l1d2l3u2r3d1r1u3l1u1d1r1u1r3l2d1l2u2r3d1r1u7d6l2d4l2d1l1u4l1u1r6l2d4l4u2l1u1r7l4d5l2u4l1u1r6u1r1u4l2d1r1u1r1d3u3r2d1l1u1l1d2u2r4d1l1u1l1d2l1u2l1u2l1u2r1d5u4r1d5u2r2u1l1d1l2u2r1d3u4r1d4u3l10d3r10u4r2d1r7d3u1l3r3u3d1l1d2r1d1l9r8u3l1d2r1d1l7r1u1l12u2r1d1l1d1r9l9u2r2d1l1d1r7l2u1d1l2u1d1r2u1r2l1d2l3u2r3d1r1u1l1u1r1l1d2l6u1r6l2u1r2u1r3d2r1l1u2l1u1l1u3d2r1u2d1r1u1l1d4r1u3l1u1r1d1r1l1u1r1d1r1u1d4l1u4l5d7l3u2r3d1r1u6r5d4r1d1r5d2l5u4d3l2r1d2r3u2l3u1l1r1d2r5u2l5r7u2l7u2r1d1l1d3r7u2l6d3u3r2u1l4r4d3u2r2u1l3d1r5u4l4d1l4r3u1r4l1d1l4r2l3r3u1r4d1l6d1l7u2l2d1r4l2u1l4d1r5l2u1l5d1r6d1r3d3r4d1u2r6l4u1l3r7u2l1r1d2l4d2l3r1d3r3u1r1u1l4d1l1u1r5d1l3d1l1u2r4u2r1u1l5r3l2r4l1d3l1u2r1u1l3r5d2l4d1l1u1r1u1l1r5u3l6d1l7u2l6d4r8d1r1u1l5u1r3u1r1d2u1l3d1l3u1r5u1r1d1l2u2l1d2l1d1r2u1r1d1l1d2l1u2l1u1r3l2u2l1d2l1d1r3u3l3d2l1d1r3u1r1d1l2u3l2d2l1d1r4u3l4d1l1d1r6u1r7u1r2d1l9u1l1d1l1d1r1u1r10u1r1d1l2d2r2l1u1l1u2r2d1l14u1l1d1r13d2r5u3l1d1l15u1l1d1r17d2l1u1r1u1l15u1l1d1r16d2l3u1r1u1l12u1l1d1r1d2l4u1l1u1r12l11d2r1u1l1u1r10l9d2r1u1l1u1r8l7d2r1u1l1u1r6l9d4r1u3l1u1r8l7d4r1u3l1u1r6l5d4r1u3l1u1r4l3d4r1u3l1u1r2
+
+;19
+######################
+#       ......       #
+# $ $ $ ...... $ $ $ #
+# $$$$$........$$$$$ #
+#   $ $........$ $   #
+#     $...# ...$     #
+# $$$$$... #...$$$$$ #
+#        ....        #
+#$$$$$$$$....$$$$$$$$#
+#         ..         #
+# $$$$$$$$..$$$$$$$$ #
+#....................#
+#....................#
+# $$$$$$$....$$$$$$$ #
+#        ....        #
+#$$$$$$$$....$$$$$$$$#
+#  $ $ $ .... $ $ $  #
+#  $ $ $ .... $ $ $  #
+#  $ $ $ .... $ $ $  #
+#  $ $ $..  ..$ $ $  #
+#  $ $ $..  ..$ $ $  #
+#  $ $ ..$$$$.. $ $  #
+#  $ $ ..    .. $ $  #
+#  $ ...$$$$$$... $  #
+#    ...  @   ...    #
+######################
+Solution: r4u2l1d1r1d1l8u2r2d1l1d1r8u2l3d1r1d1l6u2r2d1l1d1r6u2l3d1r1d1l4u2r2d1l1d1r4u1r4d1r2u1l7r1u4l1u15r1u1l2r1d15r1d5l1u19r1u1l1d19l3r3u2l3u16d12l1d7r1u17d3u3l1u2r2u2d2r1u2d1l1d1l1u2l2d4r2u3r1u1l1d1l1u1r5l1d20l1u14l1u1r1d1r1u6d22l2u1r1d1r1u21l1u1r1d1r1u1d3l1d18r2u1r1u2l2d1l1u17r1u1l2r1d18r3u2l2d1l1u16r1u1l1d16r3u1l2d1l1u15d14r3u1l2d1l1u12d14r3u4l2d1l1u8r1d1u1r1d1u1r1d1u1r1d1u1r1d1u1r1d1u1r1d1r1d4l1u1d1l1u1d1l1u1d1l1u1d1l1u1d1l1u1d1l1u1l4d1l1u1d1l1u1d1l1u1d1l1u1d1l1u1d1l1u1d1l1u1l1u4r1d1u1r1d1u1r1d1u1r1d1u1r1d1u1r1d1u1r1d1r3d7l3d7u1l4d1l2u1r4l2u1r4d2r3u2l4u1l1d1u2r3l2d2l3u2r2l1d2l1d1l2u1r7l7u1r2u1r1d1l1d1r2u1r2d2r3u1l2u2r3l3d1r3l6u2r6l5d1l1d1l4u1r5u1r1d1l4u1r4u1r1d1r1d1l1u1l4d1l4u1r7u1r1d1l3u1r6l6u1r3l3u1r3d2l2d1l3u1r4u1r1d1l4d1l3u1r5u1r1d1r3u2d1l1u8d7l2d1r1d1r1u8l1u1r1d1r1u1d8l4d1l3u1r6u1r1d1l8d1l2u1r9l6r5u3l1d3l1d1r2l2r1u4l1d3l1d1r2u2d1l5r1u1r5u1r1d1u2d2l4d1l4u1r6u1r1d1r3d1r2d6r3u1l4d1l2u2r1d1l1d1r4u1r2d2r2u2l7d1l2u2r1d1l1d1r4u1r2l2u1l1d1l2u2r1d2l1d1r2u1r4u1l4d1l2u2r1d1l1d1r2u1r3d1r3u1l6d1l2u2r1d1l1d1r1u1r2u1l2u1l1d1l1d1r3u1r2u2l2u1l1d3l1d1r1u1r1u2r2d3r2u1l4r2d1r4u1l5r4l1u1l4r2d1r4u1l5u1l1u1r1u1l1d1l1u4d3r3d3r5u6d6l3u1l4r4u1l4r4u1l6u2d2l7r10d1r1d2r5u3l9r3d2r2d1r3u2l2d1l1u1r1u1l5r2d2r2d1r2u2r1u1l6r1u1l2r1d1r3u1l3r2u1l3r1u1r4d1l4u1l4d3l2d1l6u1r7u2l3d1r4l3u1l3d1r5d2l7u4d3u1r6d1r1u1l1u1r2l1d3l3u1r1u2l1d1u2r11d3r3u2r1u1l17r17d3l2u2r1u1l13r2l3r14d3l2u2r1u1l7u1l2d1r2l3d1l5u1r5d1r1u3d2l4d1l4u1r9l3d4l2u3l1u1r5l2d5l4u3l1u1r6u1r1u1r1u3l1d3u5r1d4u4r1d4u3l1u1l1d2u2l8d3u3r19d3u3l8d3u1l2u2l2d2l1d1r1u1r1d2u4l2d2l1d1r2u1r1d1u2r1u1r3d2r1d1l2u1l1d1r2u3r1d2r1d1l4u1l1d1r4u3r1d2r1d1l5r3u3r2d2r1d1l5r8u1d1l1u2r1u1l9r2d2r5u1r1u1l7r6d1l5d1l1u1l4u1l3d1r7d1r2u1l1d1l3u1l2u1l5d1r7l4u1l5d1r8d1l1d1l4u1r6l2u1l6d1r7l1u3d1l7u2r7d2u3r1d3u3l1d1l3u1r3u1r1d3u1l6u1r5u2r5d3u1l1d1r2d3r6u3l7r3u1l4r1d1r6u1l6d3r3u1l2r1d1r3u1l3r2u1l3r1u1r4d1l4u1l1u2l6d5u2l3d1r3l2u1l3d1r4d1r1u1l1u2r2l2d1r1d3l3u2l1u1r3l2d3l2u1l1u1r5u1l3u1l2d1l1d1r5u2r2l1u3l2d3l1d1r2l1u2r2u1d1r1u1r1d1u1r1l3u1l1d2l1d1r2u2r6d2r7u3l2d2u2l2d2u2l2d3r1d2r2u2l3r2d1r3u1l4r1u1l2r1d1r3u1l3r1u2l2d1l7u1l4d1r3u1r1d2u2l6d1r5u1r1d1l1d1r2l1u2l3d2r2u1r9u1r1d1r1u1r1d1u1l4d1l12d1r5l2d2l1u1l1u1r3l2d2l2u2l1u1r14u1r2d1l8r7u1r4d1l10r10d2l1u1r1u1l9r9d2l2u1r1u1l7r5d2l1u1r1u1l4r7d5l1u4r1u1l6
+
+;20
+  #########
+###       ###
+# *   *   * #
+#  *  *  *  #
+#   * * *   #
+#    *+*    #
+# *** $ *** #
+#    * *    #
+#   * * *   #
+#  *  *  *  #
+# *   *   * #
+###       ###
+  #########
+Solution: l3r2d2r1u1l1u1l2u1l2d1r3l3d2r4d2l1d2r1u3
+
+;21
+#############
+# *   *   * #
+#  *  *  *  #
+#   * * *   #
+#    *+*    #
+# *** $ *** #
+#    * *    #
+#   * * *   #
+#  *  *  *  #
+# *   *   * #
+#############
+Solution: r3l2r2u1r2d5l2d1l2u3l1u1d1r5l4d2r1l1u2r4u3l2d1l2d1u1r2u1r2d1l3
+
+;22
+###########
+#*   *   *#
+# *  *  * #
+#  * * *  #
+#   *+*   #
+#*** $ ***#
+#   * *   #
+#  * * *  #
+# *  *  * #
+#*   *   *#
+###########
+Solution: r1u3r2d1r1d2l1d2r1d2l1d1l2u3l1u1d1r3u2r1u2l1u1l2d4u4d1r3d2l2r1u1d3r1d2l1u2d3l2u1r1
+
+;23
+###############
+#*     *     *#
+# *    $    * #
+#  *   *   *  #
+#   *  *  *   #
+#    * * *    #
+#     *+*     #
+#*$***.*.***$*#
+#     *.*     #
+#    * * *    #
+#   *  *  *   #
+#  *   *   *  #
+# *    $    * #
+#*     *     *#
+###############
+Solution: r3u1r2d3l2d2l2u2d1u1r5l1u3l2d1l6u1l2d3u3r2d1r4u5d1l2d4r4u1r2d3l2d2l2d2l2r3u2r1u2r2u3l2d1l2u4l2d4l2u1l2d1r4u4r2d4u4l2u1l2d1r1u1r1d4u3r3l1d4r2u1r2d1l3r3d2l4d4l2u4d4r4u1l2u3r3d2r1u1r1u1l5d4l2u4r1l4d2l1u1l1u1r5d5l2u1r1d1r1u4
+
+;24
+   #######
+   #  @  #
+   #  *  #
+  ## *** ##
+  #   *   #
+### **$** ###
+#     *     #
+# ********* #
+#     .     #
+#############
+Solution: r2d3l2r3d2l3d1u1r3u2l3d2r3u2l1u3l4d3r1l2d2r2
+
+;25
+   #######
+   #  +  #
+   #  *  #
+  ## *** ##
+  #   *   #
+### **$** ###
+#     *     #
+# ********* #
+#           #
+#############
+Solution: r2d3l2r3d2l3r3u2l3r2u3l4d3r1u1l1r1u1l1u1r1l1d3l1d2l2d2r10u2l6u2d2u3d3r4u2l2u1d1r2d2l4u1d1r4u2l3r3d2r2d2l10u2r2u2r1u1r1d1r4d2l4r1u1d1r4l1u2l1u3l1d1r1d2r1d2r2d2l10u2r4l2u2r1u3r1d1
+
+;26
+     #########
+     #   #   #
+   ### . # $ ###
+####   . # $   ####
+#    . . # $ $    #
+#  . . . # $ $ $  #
+##...... @ $$$$$$##
+#  . . . # $ $ $  #
+#    . . # $ $    #
+####   . # $   ####
+   ### . # $ ###
+     #   #   #
+     #########
+Solution: r1d5r2u5l4d1l1u4d4u1r5d3r2u3l6d1l1u3d2r7d2l1u1r1u1l6d1l1u2d2u1r7d2r3l1u2l8u1l1d4u3r9d2l1u1r1u1l9u1l2d1r1u1r1d3u3d1r6d3l1u2r1u1l5u1l1d2u1r5d4u3l1r1d4l2u4r1u1l3d1l1u1r5d5u1l1d1l1u4r1u1l5u1l1d1l1d1r2u1r6d3l1d1l1u3r1u1l5d1l1u2d1r7d3l1u2r1u1l6d1l1u1r6l1u5r2d5r1d1l2d1l1u1r1u1l7u1l1d1l1d1r2u1r1d1u1r7u3r2d1l1u1l1d3r1d2l1u1r1u1l9u1l1d1l1d1r2u1r8u2r1d2l1d2r1u1r1u1l10d1l1u1r1u1l1d1r13l3u2r3d1u1l2d1l1d2r3u1l12u1l1d1u2l2d1r1d1r14l2u3d1r2d1l3u1l1d1r1d1l10r12d1r1u1l1u2r2d1l4u2l1d2r1d1l9r6u2r1d1r1d1l7r10l2u3l1d2r1d1l7r4u5d1r1d3r1d1l5r3u5r2d4r1d1l5
+
+;27
+     #########
+     #   #   #
+   ### . #$$ ###
+####   . # $   ####
+#    . . # $ $    #
+#  . . . # $ $ $  #
+##........ $$$$$$@#
+#  . . . # $ $ $  #
+#    . . # $ $    #
+####   . # $   ####
+   ### . #$$ ###
+     #   #   #
+     #########
+Solution: d2l3d1l2u3l4d1l1u4d4u1r5d5l2u4d4r2u5l4d1l1u3d2r5d3r2u3l6d1l1u2d1r7d2r2u2l8u1l1d4u3r10u2l1d1r1d1l10u1l2d1r1u1r1d3u2r10d2l2u1r1u1l8u1l1d2u1r9u2l1d1r1d1l8d1l1u1r8u2l1d1r1d1l8d1l2u2r1d1l1d1r1u1r8u3l2d2u2r2d4u1l8d1l1u2d2u1r12u2l4d1r1d1l9u1l1d2l1d1r1u2r10u3l2d2r1d1l7d1l1u1r9d2l1u1r1u1l9d1l2u2r1d1l1d1r1u1r13l3d3l2u2r1u1l9d1l1u1r1u1l1d1r13l7r1u1r2u1r1d1r1d1l10u1l1d1u2l2d1r1u1r2d2r13l5u5l2d4r1d1l8r14l5d4u4d1l1r1d4l2u4r1u1l7r13l5d4l1d1l1u4r1u1l6r7d3l1d1l1u3r1u1l5r6d3l1u2r1u1l5r5u4l1u1l1d4r1d1l3r5u3l2u1l1d3r1d1l2r3u4l1d3r1d1l2
+
+;28
+#############
+#@          #
+# ****#**** #
+# *       * #
+# *** # *** #
+#   * # *   #
+# #** # **# #
+# #       # #
+# #** # **# #
+#   * # *   #
+# *** # *** #
+# *       * #
+# *** # *** #
+#   * # *   #
+# *** # *** #
+# *       * #
+# ***.$**** #
+#           #
+#############
+Solution: 7-17u1l1,7-14d1
+
+;29
+#############
+#@          #
+# ****#**** #
+# *       * #
+# *** # *** #
+#   * # *   #
+# #** # **# #
+# #       # #
+# #** # **# #
+#   * # *   #
+# *** # *** #
+# *   #   * #
+# *** # *** #
+#   * # *   #
+# *** # *** #
+# *       * #
+# ***.$**** #
+#           #
+#############
+Solution: d16r7l1u1l1u1l1u8r2d8
+
+;30
+#############
+#@          #
+# ****#**** #
+# *       * #
+# *** # *** #
+#   * # *   #
+# #** # **# #
+# #   #   # #
+# #** # **# #
+#   * # *   #
+# *** # *** #
+# *   #   * #
+# *** # *** #
+#   * # *   #
+# *** # *** #
+# *       * #
+# ***.$**** #
+#           #
+#############
+Solution: d16r6u2d1l1u1l1u12r2d12
+
+;31
+###########
+# $   .   #
+# $ $.#. $#
+# $$..##. #########
+# $.$ .$$.$ @# .  #
+# .   $.  .$$#.#. #
+#####$$$. $. .   .#
+    #    .$ .   . #
+    # ### . #######
+    # $ $  . #
+    #$   $$$.#
+    #        #
+    ##########
+Solution: d2l1d1r4l4d1u2r6d1l2u1l2d1l2d1l2u2r6d1r1u2r1u1l1d2l4u2l1d1l1d1r5d1r1u1l3d1r2l4d1l1u1l1u1r4d1r1u1l4d3r2d2l2u5l1u1r2u1r1d1l1d1r5l6d5r1u1d1l4u1r4l4u1r2d1r1u3l1u1r3l1d1l6d2r4d1r1u1l1u2r1u2l1u2l1u2l3d4r3l3u4r2d1r1d1r1d3l1d1r3l6u3d3r4d3l1d1l3u4r5u1l1u1l3d1r4l1d3l4u2r3u1r1u1r2u1d1l3r1u2l1d2r3u1l1d1l2u2r1d1l1d1r1u1l1u3r1d2l1d2l2u1r1d1r1u2r1u1l1d2l2d1l5u4r4l4d4r2u1r4d1r1u1l4d1l3u1r4d1r1d2l1u1r1u1l1u1l2d1r3l5u4r2d3r1d1l1u3r1u1l3d2r2u2l1d2l1d1r1
+
+;32
+     ####
+    ## .#
+  ### * #
+ ##   * #
+##  **  #
+# * *  *##
+#  *  *  ##
+#  * * *  ##
+# * * ** * ##
+# * *  * *  ##
+# * *  **  * #
+# * * **   * #
+# *  **  **  ##
+# *** * *  *  #
+#     $  * *  #
+########   # @#
+       ########
+Solution: undefined
+
+;33
+########################
+#                      #
+# ##$$$$$$$$$$$$$$$$## #
+# #      ..          # #
+# $ $$$$$. .$$$  $.$ $ #
+# $      . .$..$$..$ $ #
+# $ $$$$$.$.$......$ $ #
+# $ $..... . ..   $. $ #
+# $ . .$$$$....$$$.. $ #
+# $ ..    $...$   $. $ #
+# $ .  ... $ $ ... $ $ #
+# $ . .....$$$.....$ $ #
+# $ $...$.......$... $ #
+# $ $..$.$..$..$.$.. $ #
+# $ $...$... ...$... $ #
+# $ $$.....$$$.....$ $ #
+# #    ...     ...   # #
+# ####$$$$$$$$$$$$#### #
+#@                     #
+########################
+Solution: r15u2r1u2r3u6l2u3d3r2d4l2u3d5l1u3d2l1u2d1l2d2r1u3l1u3d7r3d1r1u3r1u1l2d1u1l1r1d3l1u2d2l2d1l1u2d2l2u2l2u3d2l1u2l2d3r1u3d4r1u3r2d4r6d2l1u4l1u1r1d5l1u3l3d1l1u2d2r4d2l7u2d2r1u2d2r1u2d2r1u2d2l4u7d3r6d2r2d2l1u1r1u1l6d2r4u1r1u1l4r3d2l1u1r1u1l2r10u1l5d3r2u1l1u2r2d1l2d2r6u3l6r6u1l3u1l1d2r1d1l2r1u2r4u2l3d1l2u2r1d4r1d1l1r1u2r3u1l3u1l1d2r1d1l2r2u3r1u2l1d4r1d1l2u1r2l6u1d2u1l1d3r1u1l1u2r2u1r2u1r1d2u3l2d2l1d1r4u1r2d1l1u1l2u2l3d2r1d1l1u2l2d2l4r2u1r1u1r1l1d1r6u1r1u3l1d4u4l1d4u4l2d4l3d3r1u1l1u3l3d1l2d1r4d1r1u1l1u1r6l3u4l2d3l1d1r4l3u3r1d2u3r1d3l4u1r3u2l2d5r1d2l1u1d1l1d1l4u1l1u6l2d4r6l6d1r2u3r4u1r2d1l1u1l1d2l4u2l1u3r2d5l1d1r1l3u1r2u1r1d1u2l2d2l1d1r1u1r6l6d3r2d2l5u5r8l8u1r3u1r1d1l1d1r3l6d1r2d1r1u1l1u1r2l4d2r2d1r1u2l1u1r1l3r3u1r2u3r1d2r3u1r1d1r2u1r1d1u2r1d2u2r1d2l1d1r3l1u2l4d2r4l3u1l4d1r6l6u1l4d1r8l8u3r2d2l1d1r6l5u3r1d2l1d1r4u5l3d4l1d1r3u4l1u1l1d4l1d1r2u2r1u2l1d3u2r1u4l1d5r1d1l1u1l1d1u5d1l1d3r1d1l1u1l1d1u1l1u2l1d3u2r3u1l1u1l1d4l2d1l3u1r2l2u1r4u1r1d1l5u1r5u1r1d2u1l5r1u2r6u1r1d4r1d1l2r3u2r1u3l3u1l1d5r10u3l1d3r1d1l8r8u4l2d3u4l1d4u3l1d3u4l1d4r4d1r2d1r2u1l3r3u1l6r6u1l5u1l1d1r6u1l4u1l1d2u1l12r3l3d1l4u1r2u1r1d2l1d1r5l7u6d3r7d1r2u3l1d3r1d1l1u2l1d2l5u4r1d4l3u4d1r2u1r1d3l1d1r3u1r1d1u1l4u5r1d5u3d1l3u5r3d6u2r1d3u3r1d2u2r1d1u1r1d2r1d2l2u1r5u1r1d1l5u1l2r14u4l2d5l1d1r1u1r2u1d1r2u7l5r1d6l1d1r1u7d2l2d1r1u1r1d4r2d1r2u1l9u1l1d2u2r1u1l1d1l2u2r1d4l1u2l9u1r8u1r1d3l1d1r4l4u5l1d3l1d1r5u1r1d1l2u4l4d2l1d1r5u1r1d2u1l2u3l4d2l1d1r5u1r1d2r3l6u4l3d2l1d1r1u1r1d1l5u2r5u1r1d3r10d1r3u1l11u1l1d1r9u3l1d3r1d1l7r6u4l1d3r1d1l4r4u4l3d3u3r1d3r5d1r3u1l12r9d1u1r1u1l5u1l1d1r1d1l3r6u3r1d3r3u2l3u1l1d2r1d1l5r8u1l3u1l1d1r1d1l4r3u5l5d3u3r1d3u3r1d4u4r1d4u4r1d4u4r2d4r1d1l1u2l3u1l5d1r6u1r1d1u1l5u2l2d3u2r6u1r1d2u1l7u1l2d3u2r7u1r1d3u1l6u2l4d1r3u1r1d2l2u1l2d1l1d1r2l4u3r1d1l1d1r5l1u2l2d1l1d1r3
+
+;34
+           ####
+          ##..##
+         ##.$..##
+        ##.$.$..##
+        #.$ $ $$ ######
+   ######  $ $  ##### ##
+  ## #####  $  ##### $.##
+ ##.$ #####   #####  $..##
+##..$  ##### ####   $ $..#
+#..$ $             $ $.$.#
+#.$.$ $##### ####   $ $.##
+##.$@$ ####   #####  $.##
+ ##.$  ###  $  ##### .##
+  ##. ###  $ $  ## ####
+   #### #.$ $ $$ #
+        ##.$.$..##
+         ##.$..##
+          ##..##
+           ####
+Solution: d1r2l2u1l1u1l1u2r1d3r1d1r2u1l1u1l1u1r13u1r1d1l12u1l3r2u1l1d2r1d3l1u2r1u1l3r2d2u2r14u1r1d1r2u1r2d1u1l2d1r2l1d1l1d1l2u1d1r2u2l18r1d3r2u2l1u1r14d2r2u2l16d1l1u1r1u1l1d2u1r17l2u2r3l2u1r1d3l2u1r2d1r1u1l1d3l1u2l1u1r3l5d2r2d1r1u1l1u1r2l9d2r1d1r1d3u1l1d2u1l1d1u1r2u2r1d1u1l1u1l1d1l1d2r1d1l1u1l1u1l1r2u1r1d1l1d1r1u4l1d3l2u1r2u1r1d3u4l1u4r1u1r1u1r1u1d1l1u2d1l1u2d1l1u1d1r2d3l1u3d2l1u1l1u1d1l1r3u1l2d1l1d1r3d1r1u2l1d3l1u3
+
+;35
+#####################
+#  #                #
+# $#  $ $ $ $$ #$#  #
+#  #.#####$ $  #.####
+# $#.#   #  ####.#
+#  #.# $ #$ #  ..#
+# $#.# # #  # $..#
+#  #.# $ #$ ## ..#
+# $#.### #   # #.#
+#  #. #  #$$ # #.#
+# $#* #$ #   #$#.#
+#  #. #  ##$ # #.#
+# $####$  #   @#.##
+# $ $ $  $### $...#
+# # # ## $ $ $....#
+#           ...#..#
+###################
+Solution: l1d1r1d1r2l2d1l2r2u1r3l1u9l3d1r1u1r1d1r1d8l2u7d7r3l1u9l3d1r1d9l2u1r1d1r1u9l1u1r1d8l1u1l1u4l1u7r8l3d12u12l5d7r1d4r1d1r1d1r2u1r1d1l4u1r3l2d2l5r1u1r6l4d1l4u1r7u1r1d1u1l3u1l1u4l1u7l4d1u1l3d9u9r3d1l2u1l1d8u8r5d1l4u1l1d7u7r7d1l6u1l1d6u6r7d3l1u1r1u1l6u1l1d5u5r7d3u3d7u2l1u3r1u1l6u1l1d4u4r8l1d7l1u5r1u1l6u1l1d3u3r7d7r1d2l2u7r1u1l6u1l1d2u1r7u1r3d2l3d1l1u1r1u1l6u1l1d1r6d8r2d2l1u1d1r3d1r2u9d9l2u8r1l1d9r2u10d1l2d9u1l1u1l2r1u4l2d2r1l1u2r2d3l1d1r2d1r3u8l3r2l1d8r1d1l1u1l1d1r1d1l4r3u3l2u2l1u1r1u1r1d3l1d1r2d1r3u8l2d8r1d1l1u1l1d1r1d1l2r2u4d1l3u11r3l1d1l1u1l1d7l1d1r1u1r1d3l1d1r2d1r3u8l2d8r1d1l1u1l1d1u1r3l3u1l2u11r3d2l2u1l1d6l1d1r1u1r1d2l1r1d1l1d1r2l2u11d11r2d1r3u8l2d7l1d2r1u8l1u1r1d9l6u2r1d1l1d1r5l5d1l4r1u2r3d1r2d1l2r1u1r3d1l2u1r4d1l2r1u2r3d1l1u1l2d2r1u1l1u1r2d1r1u9d9l8u2r1d1l1d1r5d1r1u1l1u1r2d1r1u8d8l8u1l3d2l2u2r5u1r1d1l1d1r5d1r1u1l1u1r2d1r1u7d7l8u1l5d2l2u2r7u1r1d1l1d1r5d1r1u1l1u1r2d1r1u6d6l8u3l1r1d1u1l1d1r1d3l3u2r3u1r1d1l1d1r5d1r1u1l1u1r2d1r1u5d5l8u6d1l1d3r1d3l3u2r3u1r1d1l1d1r5d1r1u1l1u1r2d1r1u4d4l8u10l2d1r1u1r1d8l1d1r1u1r1d1l1d1r5d1r1u1l1u1r2d1r1u3d3l8u10l2d3r1l1u3r2d8l1d1r1u1r1d1l1d1r5d1r1u1l1u1r2d1r1u2d2l7u1l8u2r1d1l1d1r7u1r1d1l1d1r5d1r1u1l1u1r2d1r1u1l3d1l5u1l7u4r1d3l1d1r7u1r1d1l1d1r5d1r1u1l1u1r2l2d1l5u1l7u8d2r1d5l1d1r7d1u2r1d1l1d1r5d1r1u1l1u1r1l1d1l5u1l7u9d1r1d7l1d1r7u1r1d1l1d1r7l7u1l7u12d2r1d9l1d1r7u1r1d1l1d1r6l6u1l7u12r1d11l1d1r7u1r1d1l1d1r5l3d1r3l1u1l4d1r4l7u2l2d2r8
+
+;36
+    ##########
+    #........#
+  ###$$####$ #
+  #... ...#  #
+  #.# #.###$ #
+  #.  #  $   #
+  #   $ $##$ #
+  #...#  #   #
+ ###### # $$ #
+## $  $ #$ $ #
+# $ $   # $  #
+#  $  # $   ##
+##  $ # @ ####
+ ##   ######
+  #####
+Solution: l1u6l3d1l1u2r2d1r2d6r2u1r2u1r1u9l7r1l1d2r2d3l2u2d2r2u3l3r1d3r2u3l2u2r7d4u4d4l4r4u4l7d2r2d2u2l2u2r7d9l1d1l2d1l2u5r1u1l4d1l1u1r4u1r1l1d5l2u1r1d1r1u3r1u1l2r1u3l2d2l1d2r1u3d2r2u3l2d3r2d6r2l2u3l2d4l2u1l1u1l1u1r1u1r4d1r1u3r1u1l3u1l1d1r1d1l1r1u1r2d5u2l5d3r1d1r2u2l1u1r1d3l2u1l1u3r4d1r1u3r1u1l3u1l1d1r3d6r2u1l1d1l1u5r1u2l1u2l2d3r1l1u3r2d2r1d1l2r1u3l2d3u3r2d8r4u1r1l1d1l2u1r1l1d1l2u8l2u2r7d7u1l2d1l1d2r1d1l2d1l1u5r1u2l1u2l2d3r2d4u1l5d2r1u1l1u1r3d1r2u7l2u2r1d1l1d4r2u3l1r1d7l2u1r1d1r1u6d7r2u3r1u1r2u6l6d2r2l1d6l4d3r1d1r1u3l1u1r2d1r1u6d7r2u3r1u1r2u6l6d2r1d6l4d3r1u2l1u1r3d1r1u6d7r3l1u3r1u1r2u2l4r4d2l2d1l1d3l2u6r5u2l1u1r1u1l6r6d4l1u3r1u1l5r5d6l1u5r1u1l4r4d1l1d3l4d2r1u1l1u1r4d1r1d2l1r1d2l1u8r1u1l3r2d10l2u1r1d1r1u9r1u1l2r1d10l2u2r1d1r1u8r1u1l1d8l2u1r1d1r1u7d4r1u4
+
+;37
+########       ########
+#      # ####  #      #
+# $$$$$###. ####$$$$$ #
+# $ $       $     $ $ #
+#     ####*######     #
+##### #  #.#    # #####
+#  $   .........   $  #
+#  $   .........   $  #
+#  $ #$.........$# $  #
+#  $ # ......... # $  #
+# $$   .........   $$ #
+#  $   .........   $  #
+##### #   #*#   # #####
+    # #####..#### #
+#####        $    #####
+#      ####@ ###      #
+# $$$$$#  #$ # #$$$$$ #
+#      # $ $ $ #      #
+# $$$$$#  $ $  #$$$$$ #
+#      #       #      #
+#######################
+Solution: u4r1u1l4r4l1d4r1d3l1u6r1l3d1l2u2d1r4u1r1u1l3r2d10r2u1l1d1l1u9r1u1l2r1d4u2r6d3l5d1l1u5l1u1r4l3d10r3u2l1d1l1u4d5l3u1r1d1r1u9l1u1r3l2d9l3u2r1d1l1d1r2d1r1u9l1u1r2l1d9l2u1r1d1r1u8l1u1r1d1r7u1r1l1u2r1l1d2r1u1l1u1l2d3r1d1l4r4u1r1u2r3d3l7r7u3l2d2u2r2d3l6r6u1l2u1l1d1r1d1l3r1d4r4d2l4u6r1u1l7d1l1u3r1u1l3r3d7r6d3l1u2r1u1l5d1l1u7r1u1l3r1d1r1d7u2d1l6d1l4d2r4u6l1u1r5d1r2u2l1d1l5d7l2u1r1d1r1u6l1u1r6u2r6d2l5d1l3r3u2l1d1r1d1l2u1l4d7l4u1r3d1r1u6l1u1r5d1r1u1d1u1l5d6l3u1r2d1r1u5l1u1r6l6u4r5d4u2r1d2r4l3u1d5l6d3r1u2l1u5r6d4l5d1l1u4l1u1r9l8d6l4d3r4u8l1u1r8l7d9l1u3l1u1r1d1r1u5l1u1r7l6d9r1u4l1u5r6d7u4d1l5d1l1u4l1u1r6l5d4r6u5l1u2r2d1l2u1l1d1r2d6l5d5l3u3l1u1r2d1r1u5l1u1r6l5d4r7l1u5l1u2r2d1l1u1l1d1r1d6l5d5l4u3l1u1r3d1r1u5l1u1r6l5d4r6u6r1u1l2r1d3u4l7d2u1l1r1d2l1u1r1u1r2d2u2l2d3r6l4u2r5d8r1d1l1u3r6d1r4d4l5u4r1u1l5r5u3d3l5d1l1u2d3r1d3l3u2r1d1r1u4l6u4l1u2l3d3r3u1r1d4r1d2l1u5l1u1r6l4u4r1d1u1r1d1u1r1d1r2d3l7d1l1u1d1l2u1r9l9u2r1d1l1d1r8l5u2l1d1l1d1r6l7u4r1d3l1d1r6l3u3l1d1l2u2r1d3l1d1r5l4u4r5u1r1d1l1d1r3u1r1d2u1r7d3r3u4l7u1l1d2r1d1l3r3u1r4d1r3u2l2d1u1r2d1l9u1l1d1r10d3l1u2r1u1l8u1l1d1r8d2l1u1r1u1l6u1l1d1r2d1r1d2r1d5l1d4r1u8l1u1r1d1r1u3r1u1l4u1l1d1r2d4r1d6r1u1l1d1r4u2l3d1l1u5l1u1r1d1r1u3r1u1l3u1l1d1r4d4l2d8r1l1u2r3u1r1u1l3d1l1u5l1u1r1d1r1u3r1u1l11r10d4l1d8u2r2u1r1u1l2d1l1u5l1u1r1d1r1u3r1u1l10r10d4l2d8r1u3r1u1l1d1l1u5l1u1r1d1r1u3r1u1l9r10d4l3u1l1u4l11u3r5d2u2l5d3r7l1d1r6u4l6r6d4l7u4d3r1d1r3u1l3d1l1u2d1r9d5l2d8r3u3r1u1l3d1l1u5l1u1r1d1r1u3r1u1d1l1r1u1d1l1u1r1u1l7d1u1l1d1l1u1r11d5l4d8r2u3r1u1l2d1l1u5l1u1r1d1r1u3r1u1l8r6u3r4u3l4d5r1d1l6r5u6l1d1r1d4l12u3r11u1r1d4r1d1l5u2d1l8u2l4u3r4d5r1d1l1u1l2r2d1l1u1l1d1r3u1l1u5r1d1l1d4r12u3l11u1l1d4r1d1l2r1u1r12u5r2d2u2r2d3l3r1u3l2d5r1d1l4r3u3r2u2l1u1l1d5r1d1l3r2u3r2u1l1u1l1d4r1d1l2r1u3r4u1l3u1l1d4l1d1r2d1r1u1r1u1l5r2u5r3d2r1d1l3u1l1d3l1d1r2d1r1u1r1u1l4r1u3l12d4l1d2l2u1r1d1r1u2d1l2u2r10l8d2l1u1l1u1r9l6u5d3l2u1r1l1d1l2u3r4d5r1d1l2d1l1u1l1u1r8l6r1u5l1d2l1d1r1u1r1d3r1d1l2d1l1u1l1u1r7l4u2l4u1r3u1r1d4r1d1l2u1l2d2r1u1l1u1r6l3u5l2d2l1d1r2u1r1d3r1d1l1u1l2d2r1u1l1u1r4l2u5l3d2l1d1r3u1r1d3l1r2d1l1u1l2d2r1u1l1u1r3
+
+;38
+      #####           #####
+      #   #           #   #
+      # # #           # # #
+   #### #$##         ##$# ####
+####..# #  #         #  # #..####
+#   ..# # $##       ##$ # #..   #
+#  #..# #   #       #   # #..#  #
+#  #  #    $##     ##$    #  # @#
+#  #  # ##   #     #   ## #  #  #
+#        #  $##   ##$  #        #
+#  ####  ##   #   #   ##  ####  #
+####   #  #  $## ##$  #  #   ####
+        #  #   # #   #  #
+         # #  $###$  # #
+         #             #
+         ###         ###
+           ###########
+Solution: d2l6u8l2d5l1d1r2l1u6r2d7u1l3d1l1d3l1d3r2u2r1u1r1u2r5l1u5d1r3d5l1u4r1u1l2r1l2u1l1d3r1d2l3u2l3d1l1d2l1d2l2d1r1d1l1r2u4l1d2u1r2u3l1d2r1d1l1r1u2r1u3l1d1r1d2l2u1r1d1r1u1l1u1r3l1u6r2d7u1l4d4l1d3r2u2r1u1r1u2r5l1u4r3d5l1u4r1u1l2r1l1r1d4l2u2l1u3r1l1d3r1d2r2u2d2l2u2l1u3r1d3u2r2d5u1l5u2l2u3l1d2l1d1r3l1u6r2d7u1l4d4l1d3r2u2r1u1r1u2r5l1u2l1u2r4d5l1u1r1u4l4r1d2u2r3d4l1u3r1u1l1d4l3r3u4l2d1l1u1r3d4l4r1u2d2l2u2l4d4l1d2u1l2r2u2l1d1r1d3l2u1r1d1r1u3l1u1r1d1r1u2l1u1r1d1r1u1l1u1r3l1u6r2d7u1l4d4l1d3r2u2r1u1r1u2r5l2u2r1u2r3d5l1u4r1u1l2r1d4l3u2r1u2d2l1d2l3d2l1d1l1d2l2u1l2u1r1d1r1u2l1u1r1d1r1u2l1u1r1d1r1u1l1u1r3l1u6r2d7u1l4d4l1d3r2u2r1u1r1u2r5l2u2r1u2r3d5l1u4r1u1l3d2l1d2l3d2l1d1l1d2l3d1l3u1r3d1r1u4l1u1r1d1r1u2l1u1r1d1r1u1l1u1r3l1u6r2d7u1l4d3l1d5u1r2u2r1u1r1u2r5l2u2r1u2r3d5l1u4r1u1l2r1d4l2u2d2l4d2l1d1l1d2l12r2u3l1u2l1u2l1u3d3r1d2r1l1u2l3u6r2d5r1d1l2r1u6l2d7u1r3d1r1d2r1d4l2u2l1u1l1u2l5r1u4l3d5r1u4l1u1r3u1r1d3l1d2r3u2r3d1r1d3r1d1r2d1l1d1r1l2u4r1d2l1u1l1u3r1d2u2l2u2r1d2u1l2u3r1d2r1d1l3r1u6l2d7u1r4d1r1d2r1d2l1d2l2u2l1u1l1u2l5r1u4l3d5r1u4l1u1r2l2d4r3u2r1u3l1d3u2l2d4r6d2r1d1r1d2u2l1u1l1u2l1u2r4d1r1d2l1u1r1u1l1d1l1u1r1u1l3r1u6l2d7u1r4d3r2d2l1d2l2u2l1u1l1u2l5r1u2r1u2l4d5r1u3l1u2r3d2u2l3d5r1u1r3l4r4u2l1r1d2l3u1d1r3u2l1u2r1d2u3d1l4d3r1u2l1u1r3d1r1u1l4d5r1u1r6l1u2r4d2r1d1r1d2l1u1r1u1l1d1l1u2r1u1l1d1l1u1r1u1l3r1u6l2d7u1r4d4r1d3l2u2l1u1l1u2l5r2u2l1u2l3d5r1u1l1u4r3l3d5r1u4l1u1r3l2d5u1r6d2r1d1r1d2r4u1l1d1l1u3r1u1l1d1l1u2r1u1l1d1l1u1r1u1l3r1u6l2d7u1r4d4r1d4u1l2u2l1u1l1u2l5r2u2l1u2l3d5r1u4l1u1r2l1d4r3u2l1u2d2r1d2r2d1r1d1r1d1r1d2r2d1r4u1l3d1l1u4r1u1l1d1l1u2r1u1l1d1l1u1r1u1l3r1u6l2d7u1r4d4r1d3l2u2l1u1l1u2l5r2u2l1u2l3d5r1u4l1u1r2l1d4r2u2
+
+;39
+    ########
+    #      #
+   ##  $   #
+ ###  $ $  #
+ #   $ $ $.#
+ #  $ $ $#.#
+ ##$ $@$ #.#
+  # $ $ ##.#
+  #  $  #..#
+### # ###.##
+#   # #...#
+#.     ...#
+#.### #  ##
+### #   ##
+    #####
+Solution: d1l1d3u2l2d3r4u1r2d1l7u1l1d1r5l1u4r2d1l1u1l1d4r2d2l2u1d1r2u2l5r3u3l2u1r1u2l1d5l1d1r5d1r1u1l1u1d1r2u3r1u7l4d1r3u1r1d6u5l3d1r2u1r1d4u3l2d1r1u1r1d2u3l5d1r4u1r1d2u1l5d1r4l5d4r2u2l1d5r2u1r1d1r1u2d2l2d2l2u2l2u4r1d1r1d2u2l2d3r4d1r1u1l1u1r1d1r1u1l2d1l2u4l2u2r1u1r1d6u2l2d3r4d1r1u1l1u1r1l1d1l2u6l1d2l1d1r1u1r1d3u2l2d3r3l1d2r2u2l2u5l2u1l1u1r2u1r1d7u2l2d3r4d1r1u1l3u7r1d3r1d1l1u1l1d3u2l2d3r5l3u4r2u1r1u1l2u1l1d6u2l2d3r4l2u8r4d1l4d1l2u1r1u1r1d7u2l2d3r3
+
+;40
+##########
+#        ###########
+# #$#$$$ $ $ $ $ $ #
+# $ $  $  @$     $ #
+# $  ..########. $ #
+# #$ ##........#$$ #
+# #  #.........# $ #
+# $$ ###...##### $ #
+#  $ *.#...#.* $ $ #
+##      $ $        #
+ #######   #########
+       #####
+Solution: l2u2l7d7r1d1r6d1r1u3r1u1l3r2d4r1u3l1u1r4l3d3r4u1l1d1r3u1l2d1r4u5l2d4u4r2d5l8d1l1u4l1u1r5l3d4l6u1r1d1l3u1r2l1r1u2l1d2l1d1r6d1r1u4r1u1l2d4l4u5l1d4l1d1r6d1r1u3r1u1l2r1d4l1u1l6u1l1u7r2d7l1d1r7d1r1u4l1u1r3l2d4l6u5r1u1l1d5l3u7r2d7l1d1r7d1r1u3l1u1r3l3d4u1l5u5d1u2l1u2r2d2u2r1d2u2r2d2l4r1u2l2d7l1d1r7d1r1u4l1u1r2l2d4r7u6l12r2u2l3d7l1d1r7d1r1u4l1u1r1d4l8u1l1u1r2u1r1d2l1d1r6d1r1u3l1u1r2l2d4u1r9u2l1d1r1d1l8d1l1u3l1u1r2d3r8u4l1d3r1d1l9d1l1u4d4r1u1r8u3l1d2r1d1l8d1l1u3d2r10u5l2d4r1d1l8d1l1u2d1r8l14u2l1u3r2u1r1d5l1d1r6l6u5l2u1r1l1u2r2d7l1d1r6d1r1u4d3l7u2r1u1r1u3r4u2l1d1r1d1l4r1u2l2d7l1d1r6d1r1u3d2l7r1u6r7u1l4u1l1d1r1d1l2r1u2l2d7l1d1r6d1r1u2d1l5u6r8u1l6u1l1d1r1d1l2r1u2l2d7l1d1r6d1r1u1d1r1u4d3r6u6l2u1l8u1l1d1r1d1l1r1l2r1u2l2d7l1d1r7d1r1u3d2r8l2u7l10u1l1d1r1d1l2r1u2l2d7l1d1r7d1r1u2d1r8u7l1d6r1d1l9d1l1u1r10u7l12u1l1d1r1d1l2r1u2l2d7l1d1r7d1r1u1
+
+;41
+###############
+#.  $     $  .#
+#  $ $   $ $  #
+# $ $ #.# $ $ #
+#  $ #...# $  #
+# $ #.....# $ #
+#  #.  .  .#  #
+#  $ $.+.$ $  #
+#  #. . . .#  #
+# $ #.....# $ #
+#  $ #...# $  #
+# $ $ #.# $ $ #
+#  $ $   $ $  #
+#.  $     $  .#
+###############
+Solution: u1r2d1r1d1l1u1l1d2u3l3d1l1d1r1u1r1d2r1d4r5u1r1u5l7u1l1d2u1r8d3l1u2r1u1l6u1l1d2r4u2l3u5r5l10r5d6r6d5l1u4r1u1l3u1l1r1d1l2u1l2d1r1u1r1d2u1r4d6l2u1r1d1r1u5r1u1l3u1l1d2l2d4r4d1r1u5r1u1l8u1l1d1r9d4l2d1l2u1r2d1r1u4r1u1l6u1l1d1r6d4l2u1r1d1r1u3r1u1l4u1l1d1l2r2u3l1u3l5d1l1d5r8u1r1d1l3u6r3d1l2u1l1d4r1d1l3r2u5l3d1r2u1r1d4l1d1r3l2u5r5d1l4u1l1d3l1d1r1d1r1u1l1u3r6d2l1u1r1u1l5u1l1d4l1d2r1u1r1u1l1d1l1u1r1u4r4d2r2d3l1u3r1u1l5u1l1d4l1d1r2d1r1u1d1r3u2l1u2r1u1l4u1l1d4r1d1l2d1l1u1r2u5r4d3l1u1r1u1l3u1l1d4l1d1r1d1r1u1l1u5l5d1r4u1r1d4l1d2r2u1l1d1l1u1d1l5u3r1u1l1u1r5u1r1d4u4l4d1l2d4r1u3l1u1r5u1r1d3u3l5d4r1u2l1u1r4u1r1d2u1l4d2r1u1l1u1r3u1r1d1l5d1l1d2u3r5u1r5d4r1d8l10r2u1r1d1u1r1d1r1u5d5l5u1r9d1r1u5r1u1l4r4d4l4d1l8u2r1u2l1u1r4l3d4l1d1r5d1r1u3d2l5u3r1d2l1d1r4d1r1u2d1l5u2r2d1l1d1r3d1r1u1
+
+;42
+        ######
+     ####    #########
+     #     $         #
+   ### $  $$$    $$  ###########
+   #  $$$  $   $...$    #      #
+   #   $      $.....$ $$$   $  #
+  ####     $$$$.$$..$ $..$ $$$ ####
+  #  ###  $...$.$ $. $.$$.$ $     #
+  #  $   $..... .$..$.....$    $  #
+  # $$$  $...$$.$.....$...$###$$$ #
+  #  $   $... $......$....$    $  #
+  #      $..........$$....$     ###
+ ####  $  $....$$$$$$.....$ $   #
+ #    $$$ $....   $......$ $$$  #
+ #  $  $  $..$.$$$......$   $   ##
+ # $$$   $...$.. $.....$$ #   $  #
+ #  $ # $...$ $. $..$....$ ##$$$ #
+ #    #  $$$  $. $.......$    $  #
+ ###  # $$    ..$ $...$...$$     #
+   #  #  $  $..$   $........$ $  #
+  ## $ $   $..$    $.......$ $$$ ###
+  # $$$ $ $..$  #$ $......$   $    #
+  #  $  $...$       $..$.$  ##  $  #
+  ##    $..$$$$$$    $$..$  $  $$$ #
+   #    $.......$$$$  $..$ $$$  $ @#
+   #  $  $.........$ $...$  $ # ####
+   # $$$  $.$$.....$ $...$    # #
+   #  $   .$$.............$ $$$ ##
+#######   .$.........$.....$  $  #
+#  #    $.$..$$$. .$ $......$ $$ #
+#  $    $.$.$  $. .$  $.....$  $ #
+# $$$ # $..$   $ ..$   $.....$ $ #
+#  $  # $...$   $...$   $$...$ $ #
+#    ## $. ..$  $. ..$$$....$  $ #
+####### $$$$$$$$$$$$$$ $$$$$$ $  #
+      #                          #
+      ############################
+Solution: u3l2u3l3u1l8u3r1u2r1u3l4u4l3u3r1d1u1r1d1r1d5u5l5d1r1l2d1r4l2d2u2l1u2r5d5l6r4u2d2l2u1r1u1l1d2l2u1r1d1r1u3d1r4u2r2d1l1r1d1l5r4u2l1u1l4d1u1r4d3l3d2r2l1d2r3u1r1u1l2u2d2r3u1l2u1d2l1u1r2d1l1d2l3u3l1u1r1d4r3u3l4r5d1r4u2l1d1l4r4d3u4l2d1l2u2r1d2l1u4d1r2d2u2r1d1l3d4r3u2d1u1r1u1r2u2l1d1r1d1l1u1l3d1l1r1u1r3u1r5d4l6d1l4u1r1u2r1u2l1d3l1d2r5u1r2u1l1u1l1d1r1d1l1r2l1r3u1r4d3l2d1l2u1l4d2l2u1r1d1r1u4r2l1u2l1d4l2u1l1d3r1d1l1r2u4r1u2l2d3r1d1l1u2r2u2l1d3u2r5u1l3u2r1d2r1d1l3d1l2u2r1d1l1d1r1u1r2d1l1d1r1u6r3d3r1d1l6r2l1d1l3r4l1u2r7d1l7u1l1d1r1d1l1r1u1r8d2l1u1r1u1l7u1l1d1r1d1l1r1u1r6d2l1u1r1u1l7r6d2l1u1r1u1l5u1l1d1u1r4u1l2u1l1d2r1d1l1r4d4u1l2u1d1r2u4l4d3l9r9u3r4d5u1l2u1l5r5d1r2u1l6r4d1l1d1l1u1r1u1l2r5d4l1u3r1u1l4r7l2d5r1d3l3u1l5r2u1l1u2r1u1l2u1l2d2r1u2l2r1d5r1d2r1d8l9u2l5u3l1u2r1u2r5u3l1u2r4d1r2l2u1l4u2r5u2d2l5d2r4d1r3l1u1r2l2d1l2u1r1u3r1u5r5d1u1l5d5l1d4r2u2l1u2r1d1l1d1r3l2d2l2u1r1d1r1u1l1u1r2l1d1l2u2l1u1r1l2d1l2u1r3l3u1r1u1r1d1l1d1r1l1r1d1r2d2l2u1r1d1r1u1l1d1l2u2r1l2u1r1d1r1u1l1d1l3u1r2d1r1u2l1u1l1d1r1d2l2u1r3l2u2l1d1l1d1r3u1r1d1l1d1r1d2l1u2l1u1r1d2l1d3r1u5l2u3l1d2l1d1r3d2r1d3r1u3d6r1d2l2u8r6d5r4u4r1u8l5u1l1u1l6d7u7l1d7u7d1l1d6u5l2d1r3u1r1d2l2u1l3d1r3l4d1r4l5d1r4l3d1r3d2u2l3d2r1u1l1u1r1d2r12d1u1l12u3r1d2l1d1r11l11d1r11d1r1d2l1r1d2l1u4d3l1u3r3l1d3r4u4l2r2d1l5r8l1u1l1u2r3d2l5r5u2l1d1r1d1l4d1l3d2r1u1l1u1r3d1l4d1l1u1r4u1r1u1r2d1l5r6u3l1d2r1d1l5r3u1r4d1l6d1r1d1u1l7u3l7u5r1l3u6r3d6l2u2l1u3r2u1r1d5u2l1r1u2l1d9l1d1r3l2u5l2u4r1u1r1d9l1d1r2l1u9l2d1r1u1r1d8l1d1r1u6l5u1r4u1r1d7u7l1u1l2d2l1d1r3u1r1d5l2u3l1r1u5l3d1r4u1r1d6u5l4d2l1d1r4u1r1d2l3u4l2d1l1d1r5u1r1d2l2d5r1l7u3r6d3l6u1r7l2u2l3d1r4l3u1l3d2r6l2u2l3d2l1d1r6d2r9d2r4d1u1l4u2l2d2r5l5u1r1l1d3r3l2u1l1u1r4l1d3r1u2l3d3r1u3r5d2l1d1l1u2r1u1l2d1l1u1l3d2l3u2r5l3d2l1u1l1u1r4u3l5d1r4u1r1d3l1d1r5d1u1r1d1r1u1l7u2d1u2l4d1r3u1r1d2l1d1r5d1u1r1d1r1u1l6u2l5d1r5u1r1d1l1d1r4d1r1u1r7d1r1d1l7r1u2l7u4l7d1r4l5d1r6l4u3l1u1l4d3r6u1r1d1l1d1r2l2u2l1u1l2d2l1d1r4d1r1u2l1u1r2l4d1l3u1r6l2u1l1u1l3d1l1d1r6l2u2l1d1u1l1d1l1d1r4d2l3d2r1u2l1u1r4l2u1l6d1r7d2r2d2l1u2l1u1r1d3l1u1r1u2l2d1r5l3d3l1d1l2u1r1d1r1u4l1u1r1d4l2u1r2d1r1u2d1l2u1d1l2u1r2d1r1u2d1l2u1r1u2l7d2r1u1l1u1r6u1r1d2l2d3r10d2l1u2r1u1l1d3l1d1l1u2l1u1r1d2l2u1l1u1r2d1r1d3l1u2l1u1r1d2l2u1l1u1r2l1d3l1u1l1u1r3l3u1l2d1u7l5d4r2d3r7d1r4u1r1u2r7d1r4u1r1u1l9r8d2l1u1r1u1l7r6d1r5u1l10r11u2l1d1r1d1l10r9u3l2d1r1u1r1d2r1d1l9r8u2l1d1r1d1l7r6u2l1d1r1d1l5r4l3d1l4d2l2u1r1l1u1l2d1r1l1d1r1l1d2r1u3l1u1r6d5l1u4d1l2u2r2d3l4d2r1u1l1u1r1d1r1u3d1l1d1l1u2d1r1u1r2d1r1u1r4u1r5d1l11d2l2u1l2d1u1l2d2r5u2r2u1r6d2l1u1r1u1l6r5d3l1u2r1u1l4r9d2l1u1r1u1l8r3d2r2u1l1u2r2d1l5r6d2l1u1r1u1l5r2d2r1u1r2d2l1u2r1u1l4r3u15l2d3l1d1r2u1r1d11r1d1l3d1r1d1l3d2l2d1l1u3r1u1l3r2d3r2u2r1u1l4r1d1l3d3r3d1r1u4r1u1l2d2u1l4d2r1d1r2u2d2l2u3r2d1r1u1l3d1r1l1d2r1u2d1r2u2l2d2r1u1r1u1l1r4d4l1u4r1u1l1d5r2u4r1u1l2r4d3l3d1l1u3d5r3u1l2d1u1d1l1u4r1u1l4r3d4r3u1l2d1l1u3r1u1l3r6d2l5d1l1u2r3u1r7d3l8d1l1u3d2l2d2r1u3r1u1l3d2l2d1r2d1r1u3r1u1l1d3l3d1r3d1r1u4r6u2r3d1l2u1l1d1u1d2u1r4d2l10d1l1u1r7u2r2d1l7r6u1r3d1l8u1l1d1r1d1l2r2u1r7d1l8d1l4d2l4u2l3u1l5d1l2r6l2d1u1l3d3r9u2d2r1u1r2d1r2l2u1l2d1r1u1l4u2l4d2l1d1r6l5u1r4l1u2l4u4r4d4u3l3u1l1d1r4d2l1u2r1u1l2r1d3l1u2d2l1u1d1l2u1r4l3d2l3u1r4l4u1r2l2u1r2u2l2d2l1d1r2l1u2r1u1r1d1l1d6u2r13u1r1d2u1l7d2l6u1l1u1r12l12u1l3d1r11l9u5l1d3r1d2r6u3r1d1u1r1d1u1r2d1l2u1d1l1u1l1d1l2d2r5d1r2u4d4l2u3d1r1l1d2r2u2r1l3d1r1l8u1l1u1l3d1r5l1d2r1u1r2d2u2r1d2u2r3d1r2d1r2u1l1u2l2d1l9d2l1u2l1u1r3l5d3r1u2l1u1r4l3u1l1u1r3u1r1d3l1d1r7l9d1r2d1r1u1l1u1r6l6u5l2d4l1d1r8l7u5d1r1d1l3u1r2u1r1d4l1d1r6l2d2l2u13l2d10l1d1r6l5u8l2u2r1u1r1d10l1d1r5l3r1d2r7d1r2u2r1u2l1d1r1d1l1u2r3u1l1u1l1d4u3l2u1r1l1u2r2d5u1r1u2r1u1l1u1l1d4u1r4d1l4u1l1d2u1r4d2r1u1r1u1l5u1l1d1r4d3l2d2l2u2l8u13l5r1d7l1d1r4u1r1d5l1d2r2l1r2u1r5d1r1d1r2u2r2u2r9u1r2d4r1d7l14u7r2d1l1u1l1d1l1d2r1u2r2d1l1u1l2d2r1d1r1u4r1u2r3d1r2u1r1u1l3r2d3r1u2r1u1l3d1l3d1r3d1r1u2r1u1l1d4r2u2l1u2r2d1l5d1l1d1u1l2d2r1u1l1u1r4d1r1u1r1u1l1d3r1l3u2l3d4l3u2l1u2l6d1l1d3u1d2r2u4l1u1r4l3d4r3u3d2l2u1r1l2u1d1r1d2u1r1u2r3d1r1l1u1l3d2r2l2u2r3d1r1d2l1u3d2l1u1d1l2u2r2d2l1u1d3r1u3l4u1r1d2r3u1r5u1r3d1l2d1l1u2d2u1l4d1r4d1r1u3r8d1l3d1l1u2r1u1l3r2d4r3u1r1u1l5d1l1u2l2d3r1u2l1u1r2d1r1u1l2d4r1u3l1u1r2d1r1u1d2r1d3l1u4r1u1l6d2r5d3l1u4r1u1l4r8d2r1d3l1d2r3u7l9r3u2r3d1l2u1l1d1r1d1l3r3u4r4d4l6r4u1r1l1r1d1l1d2r1u2r2d1l6d1l1u1r4u5r2d4r1d1l5d1l1u1r2u1r1u1r1l1u3r2d4l4d1l15u2l2u1l3d1r2d2r8l5d2l2u1l1u1r6l5d1r1d1r1u2l3u1l2d1r4l6r2d1r3d1r1u1l2u5l4d1r1l1d1r3u1r1d1l1d1r1d1l4d3l1d1l3u3r16l16d2r1u1l1u1r14l10d2l1u1d2l2u3r10l7d2l1d1l2u2r2d1r1u1l1u1r6l5d2l1d1l2u2d2r1u2l1u1r6u1r2d2l1u1d1u1d1u1l2d5r2u4d4l2u4r1l1d1r1l1d1r1l1d2r7u2r1u4l2d1r1d1l3r4d2l1d2l4u2d2r1u2d2l4u1r3d1r4u2l2r2d2l1u4d2u2l1u1r2u1r1d1l1d1r7d1r1u2l3d3r1u2l1u1r3d1r1u1l4d1l6d2r1u1l1u1r10d1r1u2d1l10d2u1r10d1r1u3l6d1l6d4r1u3d3r1u3l1u1r7d1r1l1u1r1d1r1u1r3u2r2u1r4d1l4d1l2d1l4u1r2d1u1r1d1r1u1r3l9d1l5d2l3r2d2l4u2r4d1r1u1l1u1r10d1r1u2r1u1l2d1l9d4l4u1r3u3l1d1u1l1d1r2d3r1u3l1u1r3l2d2r1l1d2r1u3l1u1r1d3r1d1r1u2r1u1l1d3r1u3r1u2l1d1r1d1l1d3r4l1u3l1u1r2d1r1u1l2d2l2r2d2l3u2d2r2u1r1u1l2r1d2l1u1d1r7u4d4l1u4d4l1u4r3u1r2d1l5r5d1l4d1l1u1d2u2r4u3r3d2l5r5u2l1d1r1d2u1l4r4d2l1u1r1u1l3r2d3l1u1r1u1l4r3d3l1u1r1l1d1u2r1u1l2r1d2l1u1d2l1u1l1d1l4u2r3d2l2u1l1u1r2l1d2r1u1
+
+;43
+      ##########  #####
+      #        # ##   ##
+ ###### $$  $  # #  $  #
+ #     $   $ $ ### $ $ #
+ # $$$ $  $ $ $   $  $ #
+ # $...$.$ $ $...$   $ ###
+ # $..  $ $ $...$..$ $   #
+ # $ $.$ $  $...... $$$$ #
+ #  . $ ....$$....$    $ #
+ ##  $ ..$...$...$@$#  $ #
+ #  $ .$..$.$.$...$ $ $$ #
+## $ ..$.$..$.....$   $  #
+# $#...$....$.....$  $$ ##
+#  $...$$$$$$.....$ $$  #
+#   $.....$......$$ $  ##
+## $$...........$    $ #
+ # $...$..$$....$$   $ #
+ # $...$..  ..$..$  ####
+ # $.$$..$$$..$..$$ #
+ # $..$...   ..$..$ #
+ # $$$$$$$$$$$$$$$$ #
+ #                  #
+ #####################
+Solution: l1d1l2u5r1d2u3r1d3u2r3d1l3u1l1d1r3l2d5u3d1u2r2d1l1r3d3l2u4l1u2r2d1l2u1l1d1r2d4l1u5d3u2r1u2l1u2r1d3r1d1l4u1l1d7u8r2d1r2u2l1d2r1d1l3u1l1d5u1l1d5u9r2l1d5l2d5l7u7l2u3r2u2r1u2r7d11u11l4d1r3u1r1d9u9l2d2r1u1r1d6u7l7r5l2d2r3u1r1d4l1u2r1u3l3d2r2u1r1d3u2l3d1r2u1r1d1r1d4u4l4u1l2d1r2l1d1r1d2l1u2d2r1d4l1u3l8u2r1l1u1r1l1r1d1l1d2r3u1d1l3u5r3d1r2u3r3d2l1d1l1d1l1u1r2u1r2d2l2u1l2d2r2l2d2r4u5r2d2r2l2d1r4u1r1d1l5u4l2d4r6l6u1r3u2l2d2l1d1r5l4u1l3d1r1u1r2d1l1d4r4l1u1d1l2u1r2d1r1u2d1l2u3l1u1r1l2d2r1l1d2r1u2l1u1r3l2u1l3d1r4l2d3u1l1u1r1u2l2d1r3d2l4d1r6d1r1u1l7u2r3u1r1d2l1d1r3l2d1l2d2l1u2l1u1r5d3r1u1l1u1r1l2r1d1l2d1l1u2r1u7l1d4l1d1r1u1r1d1u7l2d6l1d1r2u5d1l2d3l1d1r2u7l2d6u4l5d5r6u2r2l2r2u4d1u1l2d2u3l1d6u4l5d5r5l1d1r1l1d1r5d1r1u1l5u2l3d1r2l2u1l2u2r1d1l1d1r1d2r9l10d1r2d1u1r1d1r1u1l1u1r5d1l4d1l1u1l1u1r4l4d1l1u4l1u4r1d6r1d2l2u1r5l4u7r2d1l1u1l1d6r1d2l2u1r3d3u2r8d1r3u1r3d10l6u7l1d1l6u4r2d1l2d1l1u1l1d1l1d1l2u1r4d1r1u2r4l6u1l2d1l1d1r3u1r2d2l1u1r1u1l1r6u1r2d1r3u1l7r9u3r3d3l10r10u1l2u1l1d1r1d1l7r7u10r2d1r1d4r2d5l10r9l2u2r1l1d2r2d2l1u1r1u1l8r5d1l1d1l2r1u1r1u1l3d1l10d4u4r10u1r5u2r1d2r1d2l1u1r1u1l6r1l1r1d2l1u1l10d2u2r12u1r3d1l15r1l1d2r1u1d1r1u1d1r2d1r2u1l5r7l2d7r6u9l7d3l1u2d1l1u1r2u1r7d4u1l2u1d1u1l9u1l2r1l4d1r1u1r2d2l1u1d2l1u2r2u1r2d3u3d1l2d1l2u1r1d1r1u1r11d1r2u1l13d1r2d1r1u1r1u1l3r11u2r4d2l14r14u2l1d1r1d1l13r13u2l2d1r1d1l11r10u4d1r4u5l2d6r1d1l2u1l1d1r1d1l1d1l1u2r1u1l6r9u1r1u2l2u1l1d3r1d1l7r8u1r1u1l2u1l1d2r1d1l6r5u2r3u3l1u1l1d5r1d1l6r3u2r4u2l1u1l1d4r1d1l5r5u6l2d7r1d1l10r6l3d2l1u1r1u1l2d1l1d2u1r2u1r4u3r3u6l1u1l1d8r1d1l6r1d1r4u2r2u6l1u1l1d7r1d1l5r3u1r4u9l1d9r1d1l6r6u12l1d11r1d1l5d1l4d6u6l9u1l2d1r2d1r2u1r2d2l1u1r1u1l1r6d6l6u5d5r1u5d3r1u3d1r1u1d1r1u1r2d3l1u3r3d1l1u1l2d2r1u2d4u1r1u3r1u1r3u1r4d2l3d1l1u1r1u1l3d1l12d3r1u2l1u1r5l2d2u2l2d2r2d1r1u2l1u1d1l1u1l2u1l2d1r1l1d1r1l1d1r1l1d1r1l1d2r5u3l2u1r2d4l2u3d3l2u1r1d1r3u3l2d1r1u1r2d3l2u4d4l2u1r1d1r1u3d2l4u2r1d1l1d1r2d1r1u1r3u3r3u1l1d1l1d2l1d1l1u1r3u1d1r2u2l3d2r2u1r1u1l2d2l3d2r3u2r1u1l2r1d3r2u1r1u1l5r2d2r1u1r1u1l3r1d2l1u1r4d1r1l1u5r3u1r2d1l5r2d2r1u1l1u1r1u1r2d1l4r4d1l5r3d2r1u1l1u2r2d1l4r5u3r2d1r1d1l7r2u2r3d1r1d1l5r4u6r1u6l1u1l1d12r1d1l3u1l1d1r1d1l1r1u2r5u13l2u1l1d14r1d1l3u1l1d1r1d2l4d3r6u3l6r3d1l3d1l2u1r1d1r1u1d2r2u2d2r1u2d2r3u2l5r2d2r2u1r1u1l2r1d2l1u1d1l3u1
+
+;44
+      ###################
+  #####      #..........###
+  #     $$$# #. $$$$$   ..##
+  #   $$$..... $$ . $$$  ..#
+  # $$$...   ..$  .   $$##.#
+  # $  .$$$$  . $$.... $ #.#
+  # $ ..   $$ .. $$$ . $  .#
+  # $ ..... #$$... $$. $  .#
+### $     ..  $$ .  $. $  .#
+#   $ ......#  $ .  $. $$ .#
+#  $$..     #  $ .  $.  $ .#
+# $$ . $$$  # $$ . $$. $$ .#
+# $ ..$$  $$$$$ . $$.. $ ..#
+# $ .$$        ..$$.. $$ ..#
+# $..$  ....  .. $ . $$  .##
+# $. $$    ....  $ .$$ ...####
+# $.  $$    #    $ .$    ....#
+# $ .  $$$  #   $$ .$$.     .##
+# $ .... $$$$$$$   # $$$$   ..#
+# $$   ......   ####   .$$$  .#
+#  $$ $$$$  .......... .  $$ .#
+##  $$$  $$          . .   $ .#
+ ##       $$   $$$$$ ...   $ .#
+  #######   $$$    $$     $$ .#
+        ###      ## $$$$$$$ ..#
+          ########@.      ...##
+                 ###.......###
+                   #########
+Solution: r10u3l4d1l3d1u1r4u1r3d3l7u1l1d1r1u3l1d1u3l8u1l8u8r1u2r2u5r5u3l5d1l4d7l2d11r1d1r1d1r6d1r2d1r4u1r4d1r1u1r1d2u2r1d2u2r1d2u2r1d2u2r1d2u3r2d2l1r1u2l1d3u2l2d1r1u1r1d1u3r1d1r2u2l1d4u6l1d5l1d1r2l3u4r2u1r1d4l2r2u5l3d4l1d1r4l3u4r3u1r1d3l6u2r5u1r1d2u2l3u1l3d2u1r5l5d1l1d1r6l4d3l1r1u6l2d1r1d2l2u1r7l8u1r7l3u2l4d3r1d1l1d1l2u1r7d1r1u4l1u1r2l7d1r7l9u2r1u1r1d5r1d2l2u1r3u1r1d1l2u4l1u1r1l1u2r1d6l1d1r2d3l2u2l1u1r2d1r1u1l1u1r1u3l1u2r3u1r1d2l1d1r2l5u1r3u1r1d1l1d1r1l4u4r1d4l1d6l1d1l2u1r3u2l4d1r3l1d2l3u2d1r4l2u1l4u1r6d4r5u9l3u3r3l2d3l1d1r2l1u1l1u5r1d2l1d1r3u3l1d4l1d1r1u1r1u6l1d4r1d1l1u1l1d2u2l1u2r2u1r2d1l1u1l1d5u3l3u2r3u1r1d5l3u6r2u1r1d6u2l3u2r2u1r1d4u1l1u5l1r1d1l1r3u3l3d5l1d1r3u1r1d2u3l5u1r2u1r1d5l1d2r1u1l1u1r2l1u2l3u4r1d4l1d1r4u3r1u3l3d4l1d1r3l2u7l1d5l1d1r3d1r1u1l1u1r1d1r1u2d1l4u4l1d2l1d1r2u1r1d1l1d1r3d1r1u1l4u1l3u2r3u1r1d4l1d1r3l3u6l8d3r8d1r1u1l1u1r3l7d1l5u1r1u1r1d1r9l5u1d1l2u1d1r2u1r5l2d1l5u1r6l5u1r4l3d2l5u2r7l2d2l3u1l1u1r5l6d4r1u3l1u1r5l4d6r1u5l1u1r3d4l2d1l1u4l1u1r3l3d3l7d2r1u1l1u1r9d1r1u3d2l9d2r1u1l1u1r7d1r1u3d1l7d3r1u1l1u1r5d1r1u3d2l6d1r4d1r1u4d2l4d4r1u3l1u1r3d1r1u2d2r1d2r2u3l1u1r1d4r1u2d1r2l2d2r1u2r1l2u1r2l1d2r1l1d1r1l1d1r1l1d1r1d6r1d1u1l1d1u7l2d1r2d2l1u2l2d1r3l1d2l1u1r1u2l2d1r2l3d1r3l3d1r2d4l2u1l1u2r3d2r3d2l1u1r1u1l1u2r1u1r1u12l2d4l1d6l3d2l2d3r2u2l1u1r2d1r1u9l1u1r2l1d9l2d3r1d1r1u12l1u1r1d12l2u1r1d1r1u11l3u1l4d1r3l3d2r2u1r3l3d1l2u2r2d1r1l1d2r1u1r2l2d1r2l2d1r2d2l1u2l1u1r1d1r1u2l4r1u1r1d2l1d2r3l1d2l2u1r2u2d3l4u1r3u1r1d1l1d1r1l7u1r6u1r1d2l5u3r1d2l1d1r4u3l1d4l1d1r1u1l2u4l2d3l1d1r5l2u4l6d1l1d3r8u1r1d1l9d2r1u1l1u1r7u1r1d1l7d1r5u5l2d4l1d1r2d1r1u1l1u1r1u4l4d1r3u1r1d3u1l2d1l1u1r1u2l3d1r3u1r1d3l2d1l3u2r3u1r1d2l1u6r4u3r1u3l2d4l1d2r1u1l1u1r4l2u2r1u2l4r1d3r1d2l2u1r2d1r1u1l1u1r3l3u3l3d1r2u1r1d2l1d1r3l3u2l2d1r5l2u1l5d1r6l2d2l3u1d1r2u3l3d1r5l1d2l3u1r2d1r1u1l1u1r1l3d2l1u1r1u2l2d1r4l5d1r5l5d1r4d1r1u1l5d1r3d1r1u2l4d2r3d1r1u2l4d2r3d1r1u2r1u1l1d1l4d2r2d1r1u2d2r1d4l1u5l1u1r1d1r1u2d7l3u1r2d1r1u6d1l3d2r1d2l2u1r5d1r1u5r1u1l1d2l8d1r7d1r1u3l4d4l2u1r1u2l2d1r7d1r1u3d2u1l6r2l2d8r2u7l1u1r5d1r1u1l5d6r2d1l2d1l1u8l1u1r5l3d10r1u8l1u1r4l4d9u2r2u6l1u1r2l1d6r1u5l2d9r1u9d4r1d1r1d1l1r1d1l2d1l1u8d9r3u2r1u1l2d1l1u2d4r1u4d4r4l2u1d1r4u2l2d1l6d1l1u9d8r7u1r2d1l8d1l1u8d7r9d1u2r1u2l1d2r1d1l10d1l1u8l2u1l2d1r3l3d1r2l2d1r2l2d1r1l1d1r1l1d1r1l1d1r2l2d1r2l2u5r3d1r1u1l3d1r1l2d6r1u6l1u1r2d1r1d2r2d3l3u1l2d2r1u5d6r1d1r2u3d3r2u3d3l3r1u1r1u2d3r1u2d1r1u1r4l5d2r2u2r1u2l1u2r2d2r3d1l1r1d2l2u1r7l2d2l1d1l1u2l1u1r4l2d4l2u3l1u1r4l2d3l1d1l1u3l1u1r4l8d1r7d1r1u1l1d3l3u3l1u1r3l2d3l1u2l1u1r3l2d3l1u3l4u1l3r3d1r7u3r4u4r1u7r7l7d4l1d3r1d2l1u1r1u2l1d1r1d2l2u1r1d1r1u4l1u1r2d1r1u4l1u1r1l2d5l3u1r1d1r1d6l4d4r1u4l1u1r3d1r1u5d5l3d2u1l3u1l4u3l2r1d3r3d1r5d3l8u2l5u5r1d3r1d3r10l3d2l7u1l1u1r10l2d2l6u1l1u1r8
+
+;45
+###########################
+#                         #
+# $ # $ $$$$$ # $ # $$$$$ #
+# $  #$ $   #  $ $  $   $ #
+# $   $ $    #$   $ $ # $ #
+# #$$$$ $$$$  $$$$$ $ $$$ #
+#   #@$ $     $ # $ $ $   #
+#   # $ $ #   $ # $ $ #$$ #
+# $$$$$ $$$$$ $ # $ $ # $ #
+#                         #
+##.....#.....## . ##.....##
+ #    .#.   .# ..  #    .#
+ #    .#.   .#. .  #    .#
+ #.....#.   .#  .  #.....#
+ #.    #.   .#  .  #    .#
+ #.    #.   .#  .  #    .#
+ #.....#.....#.....#.....#
+ #########################
+Solution: d9l1d1r1l3u7l1u2r1d8u8r1d8u3r2u4l1d1l2u2r1d7l1d1r1u1r1d1u7l3u7r2d2r1d1r1d11u11l2d10r1d1l1u5r2u5l1u1l1d9r1d1l1u3r2l3u4l1u4r1l1u2r2d11l1d1r1u6l2u3r1u1r1d6r1d1l1d3r2l1u5l3u6r1u1r1d11r1d1l1r1u4r3u1l3d1l2u2r1d5u2r3u1r1u2l1d1l3u4r2d5r1d1l1u1l1d3u3r3u4l3u1l1d4l1d1r2u1r1d1r1d1l1r1u1r1u4l1d1r1d1l1u1l1d3u3r2u2l3u1l1d6r2d3u8r2u3l2d1r1d9u4d2r7u4d1l7u1l1d4u3r4d1l2u1l1d4u1r3u1l2u1l1d2u4d1r3d9r1d1l1r3u7r1u2l1d8u8l1d8u8d1l1d1l2u2r1d8u4r3u7l1d10r1d1l1u1l1d1u7r1u4l2d10r1d1l1u10r1u1d1r1u1r1d10u8l5u2r1d9u7r2u2l1u1l1d9u6l3u2r1u3r5d8l1d1r1u1r1d4u9l1u3r2d1l1u1l1d8l1d1r1u1r1d3u8l1u3l1d4r1d1l1u1l1d6r1d1l1u7r1u4l1d9r1d1l1u8r1u1l1u1l1d8u3l3r1u4d1r4u1r1d9l1d1r1u10l1u1l4d1r4u1r1d8l1d1r1u2r1d2u1r3u1l3u1l1d2r1d1l2r1u1r4u2l3u1l1d2r1l1d1r1d1l1u1r4u3l3u1l1d4r2u4l2u3r2u1r4l1d2l1d12l1d1r3l2u8l4r4u3l2d1l2u2r1d5u5l1u2r2d1r1l1u2r2d14l1d1r2l1u13l1d5l1d1r1u1r1d7l1d1r1u15d8r4u6l3u1l1d13u12r2d1l1u1l1d11r1d1l1u1l1d1u4r2l1u2l2u4r2u1r2d7u6l1u1l1d10l1d1r1u6r4u5l3u1l1d8l1d1r1d1r1u2l1u7r4d1l3u1l1d8l1d2r1u2l1u1r1l1r1u6r4d2l1d1r1d1l4u1l2d1r1u1r1d3l1d1r1u4d1r4u4l2d3r1d1l3u1l2d1r1u1r1d4l1d1r1l1u1r1u3r4u4l1d3r1d1l4u1l2d1r1u1r1d5l1d1r1u7d2r6u1l3u1l1d1r1d1l3u1l2d1r1u1r1d2u1r2d3l2r3d2l1u1r1u1l1u4r4u1d2r4u3l2d9l1d1r1u6r1u1r1u2l1d7u8l1d9u7d1l3u1r1u5r2d10l1d1r1u4l2u4r2l2u1r1l1u2r2d9r1d1l1u1l1d3u2r2u4r1u4l1d7u6l3u3r2d7r1d1l2u1l1d5u2r2u2r1u2r1u6l1d8u3r1u7l1d9l3u7r2d1r2u3l1d8u8l1d11l2u1r2u10l2d11l1d1r1u10r2u1l1u1l1d11u3l2u3r1d9u6r3u3l1u1l1d6r1d1l1u1l1d1u3l1u5r1d4r1d1l1u2r1u1r2u3l2d6l1d1r2l1u4l2u3r1l1u2r2d8l1d1r1l1u6l1u2r1u1r1d8u1l4d1r2u1r1d1
+
+;46
+       ############
+       #          #
+       # $ $ $ $..#
+######### #######.#
+#  .      #. $   .#
+#@$#$#$$$$.$.$.$..#
+#  .      #.     .#
+###################
+Solution: d1r8u1d1l2u1d1r2u1r2d1r3u1r2u1r1d1l2d1l4u2r2d1r1d1l2r1u2l2d1r5l2r1u1l3r5u3l3d1r1u1l3d1r1u1l4r1d1r1u1l3d1r1u1r8d3l1d1l7d1l2u1r8u1r2u3l9r1d3l1d1r5l5d1l7u2r7d1r5u1r4u3l8d3u3r8d3l4d1l4u1l2d2l1u1d1l5u2r7l1d2r2u1l1r1u1d1r3u1r5u3l8d3l1d1r3l2d1l3u1r3l2d1l3r5u5r6d1r1u1r1d2u2l4d1r3u1r1d1u1l6d1r5u1l8d1r7l7r1d2l4r1d2l3r1u1d1r2u2l2d2l3u2r1d1l1d1r1
+
+;47
+ #######             #######
+ #.    ####       ####     #
+ #...  $  #### ####    ... #
+##...$$$     ###     ... . ##
+#  . $  . $$  #  $$ $$   .. #
+#  ..$....  $ #   ..$ $   . #
+# $ .* $.$  ...  ...* $..** #
+# $ $$  .. $*$*. .$ *.**$$  #
+#  $     ..*. #** $ $..   $ #
+# $*$ $$$$$$  # $$$ $       #
+#   $$       @#     $   $   #
+###   #################   ###
+  #####               #####
+Solution: u4l3u1l3u1l3d1l1u3r1u1l1d3r5u2l5d3l2d2r1u3r1u1r1d1r2d1l2u1l2d2u1r1d1r1u3d1r2d4l2u4l1u3d3l1d4u1r1u2r3d3l2u3r1u1l1d1l1u2d2r3d2l1d1l1u3r1u1l1d1l1u1d2l2d4r1u4l1u1r1d1r1u1d1l1r2d2l1u1l2d2r1u3l1u1r1d2r6u5l3d2r1d1l1r1d1l1r2d1r1u2l3d2l4d3r2d1r2u4r1u2l1u3r1d2u2r1d2u1r2d2r1d2l1u1r1u1l1u2r3d2l1d1r4l2r4l5u2r1d1l1d1r3l2d2l1u1r1u3l1u1l2d1u1r2d2l2u1l1d1r1d1l1r1u1r2u1l2u1l1d1r1d3l5d3u3r6l1d1r1l6d2r6u1d1l1u1d1l1u2d2l1u2d2l2u1l1u1r3d1r5u3r2d1r2u2r2u2r7d1r1d5l3u6d6l1u6r3d1r1d3l1u1r1l1u1r1u1l1d1l1u2d1r1l2d3r1u3r2d4l1d1l1u4d3r1u3l2d3l3u2r4l4u1r4l3u2l3d3r5d2r2d2l1d1l1u4l1u1l2d1r1u1l3u1l2d1r5l1u2d2l2u3r3l3d1r2d1r1u1l3d1r1d1r1u2d2l2d4r4d1r1u2r1u1l2d1l2d1l2u2r1l1u1r2l2d3r1u2l1u1r1l1u1l2d1r2u2l4d1r4u3l1d1r1d2l2u1r2u1r2d1l1u2l4d1r1u1r1d1l1d3r2d3l2u3l1u1r2l1r1d1r1d2l1u2d3l1u5d5l2u1r1d1r1u3l1u2r1d1l1u3r1d2l2d1l2d1r1u1l1u1l2d1r2l2d1r2d2l5u1l1u2r5l6d2r2u1l1u1r4l3d1r3l4d1l1d2r1u2l1u1r2l7d3r3d1r1u3l1u1r3d1r1u1l2d3l2u2l1u1r4
+
+;48
+      #########################
+    ###                     ###
+    #   ..#   $$ $$$$$$ $$$$###
+    # $#..#$$$ #      $ $   ###
+    #  #..$    # $ $$$$ $ $ $ #
+    # $#..#$$$ $ $$ $ $ $ $   #
+    #  #..#    $ $  $ @ $ $ $ #
+##### $#..# ###$ $$ $ $ $ $$###
+# $    #..  #  $ $          #.#
+#  $$ $#..### $$ $ $*****$ ##.#
+#   $  #..###  $ $  *****  #..#
+##  $ $#..### $$   $*****###..#
+#   $  #...##  $ $$ *****.....#
+##$ $ $#....##   $  *****.....#
+#   $  #.....###  ##*****.....#
+##  $$$#.......#  $  .........#
+#      #.......#     .........#
+###############################
+Solution: r1d2l5d3l2d4r12d1r1u7d7l12u1l1u4r2d1l1d2l1d1r12d1r1u6d5l12u3r2d1l1u1l1d2l1d1r12d1r1u5d4l12u4r1u3r1u2l1d6r1d1l1u1l1d2l1d1r12d1r1u4d4u1l13u1r1u3l1u8r2d9r1d1l1u1l1d2l1d1r12d1r1u3d2l12u4l1u1r1l1u7r2d9r1d1l1u1l1d2l1d1r12d1r1u2d1l12u5l1u2r1d6l1d1r12d1r1u1l13r1u5l1u7r2d9r1d1l1u1l1d2l1d1r12l11u7l1u2r1d8l1d1r11u1r1d1l1d1r1u1l11u7r2u3l1d7r1d1l1u2l1d3l1d1r11d1r1u5d5u1l12r1u4d3l1u1l2u1l1u2r3u1r1d5l1d1r11d1r1u4d3l12u4d2l2u1r2u1r1d3l1d1r11d1r1u3d3l12r1u7l1d3l1d1r1u1r1d2l1d1r11d1r1u2d1l11u6r1l1u2l1u3r1d10l1d1r11d1r1u1l12u12r3d1l1u1l1d11l1d1r11l11u7r5u1l3u1l1d9l1d1r11l11u3r1u3r2u1l1u2r2d1l2u1l1d7l1d1r10d1r1u3d2l10u11r2d3r1d1l2u1l1d7l1d1r10d1r1u2d1l10u7r4u2l3u1l1d9l1d1r10d1r1u1l11u2r3u5r1u1l2u1l1d8l1d1r10l10u5l2d1l1d1r3u1r1d3l1d1r9u1r1d1l2d1r2l10u3l1u1l1u1r2u1r1d4l1d1r9d1r1u3d3u1l10u3l3u4r1d3l1d1r3u1r1d3l1d1r9d1r1u2d1l9u7r10l1d2l1u1r1u1l8u1l1d7l1d1r9d1r1u1l9u7r6u1l5u1l1d8l1d1r9l9u1r1u6r8u1l7u1l1d9l1d1r9l9u3r2u6r7u1l8u1l1d5l1d1r1u1r1d4l1d1r8d1r1u3d2l9u3r2u4r3u3l3u1l1d10l1d1r8d1r1u2d1l9u3r1u4r6u3l5u1l1d10l1d1r8d1r1u1l9u1r1u1r2u5r1l1u5r1d4r1d1l3u1l1d7l1d1r8l8u3r3u5r6u2l7u1l1d10l1d1r7l6u12r4d3r1d1l4u1l1d8l1d1r6l6u2r3u5r3u1r3u4r2d2l9u1l1d10l1d1r5l4u10r10d1l9u1l1d9l1d1r4l3u8r4u2r8d1l11u1l1d10l1d1r8l8u3r2u6r4d1r5u1l9u1l1d9l1d1r7l6u11r11d1l10u1l1d10l1d1r6l6u3r2u4r1u1r8u5l1d2r1d1l9u1l1d10l1d1r5l5u4r2u4r9u2r1u1r1u1l3u1l1d2r1d1l8u1l1d10l1d1r4l4u10l2u2l4r4d2r2u5l7d14u11d4r2u3d3u2r5l2u2l4r4d2l3d2l3u5r1d11l1d1r5l5d1u4d4r5l5r1u15r4d2r1d1l4r3u3l4d14l1d1r4l4r1u15r3d2r1d1l3r2u3l3d14l1d1r3l3u8r3u4r1u2l1d1r1d1l2r1u3l2d14l1d1r2l1u15r2d5r2u1r1u1l4r1u3l2d14l1d1r1u8r2u2r1u1r1u1l3r1u3l2d14u14d1u1r2d5r5u1l4d1l1u1r1u1l2r1u3l2d13l1d1r4l3u14r5d3l1d2r2u1l3d1l1u1r2u1l3r1u3l2d13l1d1r3l3u11r6d1r2d2r1u1r1u1l6d1l1u1r1u1l2r1u3l2d13l1d1r2l2u7r3u2r5d4l2u2r1u2r1u1l4d1l1u1r1u1l2r1u3l2d13l1d1r1u14d4u1r5d1r4d4l2u3r1u1l5d1l1u1r1u1l2r1u3l2d13u11d1r5d1r2u3l4u1l1d2r1d1l2r1u3l2d12l1d1r3l2u10r5d2r3d4l2u4r1u1l4d1l1u1r1u1l2r1u3l2d12l1d1r2l1u6r2u2r12u2l6u1l1d1r1d1l5d1l1u1r1u1l2r1u3l2d12l1d1r1u10r5d1r2u4r1d3r1d1l6d1l1u1r1u1l2r1u3l2d12u5r2u2r12u3l6u1l1d2r1d1l5d1l1u1r1u1l2r1u3l2d11l1d1r2l1u9r5d2r15u2l12u1l1d1r1d1l5d1l1u1r1u1l2r1u3l2d11l1d1r1u6d1r2u2r18u2l2u1l10u1l1d2r1d1l5d1l1u1r1u1l2r1u3l2d11u8r5d1r2u4r3d1l7u1l1d2r1d1l2r1u3l2d10l1d1r1u8r5d1r6u2l3d1l1u1r1u1l5u1l1d2r1d1l2r1u3l2d10u7r5d1r8u1r1u3l2d1l9u1l1d2r1d1l2r1u3l2d9u2r2u6r11u1r2d1l12u1l1d2r1d1l2r1u3l2d8u1r2u2r10u3r1u1l10u1l1d2r1d1l2r1u3l2d7r2u2r14u3l8d1l1u1r1u1l5u1l1d2r1d1l2r1u3l2d6u3r5d1r5u4r8d3r1d1l16d1l1u1r1u1l2r1u3l2d5u2r4d2r14u5l1d1l14u1l1d2r1d1l2r1u3l2d4u1r5d1r12u2r1u1l15u1l1d2r1d1l2r1u3l2d3u2l4d2r1u1l1u1r3u1r1d2u1l4d4r1u3l1u1r3u1r1d1l4d6r1u5l1u1r3l3d8r1u7l1u1r2u1r1d14u14l1d1l2d10r1u9l1u1r2u1r1d13u13d1l3d12r1u11l1u1r2u1r1d12u11l3d9l2u1r2d1r1u8l1u1r2u1r1d11u11d1l3d7u1l1d1r1d2l2u1r2d1r1u8l1u1r2u1r1d10u10d1l3d8l3u1r3d1r1u7l1u1r2u1r1d9u8l3d7l4u1r4d1r1u6l1u1r2u1r1d8u8l1d1l2d7l2d3l1u3l1u1r4d1r1u6l1u1r2u1r1d7u7l1d1l2d7l3r1d5l1u5l1u1r4d1r1u6l1u1r2u1r1d6u6d1l3d6l3d8r4u13l1u1r2u1r1d5u4l3d6r1d8l1u6l1u1r1d1r1u7l1u1r2u1r1d4u3l2d14l3u1r2d1r1u13l1u1r2u1r1d3u2l3d13l2u1r2d1r1u12l1u1r2u1r1d2u1l3d12l2u1r2d1r1u11l1u1r2u1r1d1l3d11l2u1r2d1r1u10l1u1r2
+
+;49
+#####         #####
+#   #     #####   #
+# $$#######   #$$ #
+#                 #
+### $$$$$#  ### ###
+  #      #  # # #
+### ######  ### ###
+#   #.#...   ##   #
+# $$#....  ..##$$ #
+#   #  #.# #.##  @#
+#####  #.#   ######
+    #   ....##
+##### $# # .#######
+#                 #
+# $$####   ####$$ #
+#   #  #####  #   #
+#####         #####
+Solution: u2l2u4r2u2l1d1r1d1l5u1l1d5l1d3r2u2l3r2l1d3l2u3l1u1r2d1r1u1r1u4r5u2l1d1r1d1l4u1l1d5r1d1l3r1d3l2u3r1u1l1r3u2l1d1r1d1l1d6l5u1d1r1u1l1u1r5u1d2r1u1l1u3r2d2l1d1l1u2d2l2u3r3u1r1d1l2d6u1r7d2l1u1r1u1l8d1l1u6d6u1r8d2l1u1r1u1l7d1l1u2d1l2u2r4u1r1d1l6d2l4d2r1u1l1u1r7d1r2u1l1d1l1u5d2r2u3l4d1l1u1d5l3d2r1u1l1u1r6d1r2u1l1d1l1r1u1l6r8u1l1u2r1d1u1l1u7l8r1d2r1u1l1u1r8u1r2d1l1u1l1d5r1d1l6r4u5l6d2r1u1l1u1r7u1r2d1l1u1l1d5r1d1l5r3u5l5d2r1u1l1u1r6u1r2d1l1u1l1d5r1d1l4r3u5l6d2r2u1l1u1r5u1r2d1l1u1l1d5r1d1l3r2u5l5d2r2u1l1u1r4u1r2d1l1u1l1d5r1d1l1u1l1d3r1d1l4r1d2l2u2r5l1u8l9u2r1d1l1d1r10u1r2d1l1u1l1d5r1d1l1u1l1d3r1d1l4r3u8l8u2r1d1l1d1r9u1r2d1l1u1l1d5r1d1l1u1l1d3r1d1l2r1d2l2u3d1r2u8l7d4l2d2r2u6l1u2r1d1l1d1r9u1r2d1l1u1l1d5r1d1l1u1l1d3r1d1l2r1d2l2u2d2l3u2r5l5u2r1d1l1d1r3d2l5d1l2u1r7d1r2u1l1d1l1u2d1r2u10l6d2l1d2l2d1r1d1r1u6l1u2r1d1l1d1r9u1r2d1l1u1l1d5r1d1l1u1l1d3u7r5d4r2d2l2u6r1u2l1d1r1d1l4u1l1d5l1d1r1u5r4d6r2u1l1d1l1u6r1u2l1d1r1d1l4u1l1d5
+
+;50
+     ################
+     #      ...     #
+     # $$$$$$$$$$$$@##
+     # $.. .......$$ ####
+     # $.   $$   . $    #
+   ### $.$$$..$$ ..$$$$ #
+   #   $.. .  .   ... $ #
+   # $$$ . . $$.$$$ ..$ #
+   # $   .$.   .  $$  $ #
+   # $$. $  $$$.  ....$ #
+ ### $  $  ....$.$...$$ #
+ #   $$ $ .....$ .. $ $ #
+ # $$$..$ ......$ $ $   #
+ # $  . $...  ...  .$$$ #
+ # $ .  $ .$$$$.$. $.$  #
+## $$.$$. ......$.  .$$ #
+#  $ .$... .$$ $... .$  #
+# $$$ .....$.$$....  $  #
+#                       #
+#########################
+Solution: u1l13d5l2d5l2d5l1d2r22u1l4u1l2d2l7u3r4d1r2d2r3u3l2d1l2u1r1l1u2r1d3l1d2l1u1d1l2u1r2l5u2r3d1u1r3d1r5d1r2u1l3u1l1u1l2d2u1l5d3r2u2r3u2l1u1l5d2r5u1r1d1l6d3l5u2r5l3d1r2l4u3r1d2l1d1r3l2u3r1d2l1d1r1l1d1l5u2r7l7d2r2u1r3l1d1l4u1r4l3u1r5u1r2u1l3u1l1d3l1d2r1u1l1u1r2u2l2d1r1d2l2u1r1u1r9d3r10u3d1u2l1d1r1d1l2d1l2u6d7r3u3l1r1u1l1r1d4l3u7l1d2r1d1l1u1l4d1u1l1d1u1l1d1u1l1d1l4u1r3l5d2l1d2l2u2r7l7u1r12u1r1d1l13r10u2l2r1d1r1d1l3u1l1d1l1u2r1d1r2u2l1d2r1d1l4u1l1d1l3u1r8u1r2d1l1u1l1d1l8u2r1d2l1d1r2u1r15d5r4u6l5d1l1u1r6l12r12d2l1u1r1u1l4u1l1d1r1d1l9r8u1r4d2l1u1l5u1l1d1u1r4d1r3u1l8u1l1d1r1d1l3r6l1u4r3d3r1d1l8r4u2r2u1r1d2u3l2d3u1l4u1l1d1r4u2l1d3r3d1l1u3l1u1l1u1l1d4u2l3d2r3l2u1l3d1r4u1r1u3l1d3u3l1d3l2d1l3u1r6l6d2l4u2r1d1r6l7d1r2u1r3u1l1u1r5u1r1d1r3d2r5u1l3r2d1r3u1l4u1l11d2l4u2r7u1r1d1l5r1u2r1d3l1d1r1u5r1d3l1d1r1l3u1l2d1l1d1r2l1u2r1d1l1r4u3l1u4r2d6u1r10d2r3u2l11u1l1d1r12d2l1u1l9r10u2l2r1d1r1d1l9r7u3l1d2r1d1l6r5u3l1d2r1d1l3u2r2u1r1d2r1d1l2u4l1d2l1d1r1u1r1d1u3l2d2l1d1r3u1r1d1u2l2u1l2d2l1d1r5l5u3l1d2l1d1r6l5u3l1d2l1d1r6l2u5l1d4l1d1r3u5l3d4l1d1r1u6l1d4l1d1r2u5l2d3l1d1r3u2l2u1l1d3l2u1l1u1r2u1r1d2l2d4l5u2r4l4d2r1u1r1d1r3u3d3l5u2r4u2r5l5d2l4u2r6l2d2l2u1d1l2u2r4l2d1r2l2d2l2u2r3d1r1u1l2u2r6u1r4d2r2d1r1d1r4u2d1l2r2u1l4r4u2l1d2r1d1l1r1u3l3d1u1r2d2l2r2u2l1d1r1d1l1u1l4u1l2u1l7d2l2u1r2u1r1d1r1d1l1u1r6d1l2u1r4d1l3r6u1l2d1l2u2d1u1r1d1l1d1r1u2l9d1l2u3r13d2r1d1l3u1l1d1l1d1r1u1r2l4u2d1l1u1d1l1u1d1l4d1l2u3r2d2u2l1r3d1u1l2d2r3l1u2r1d1u1l2d1u1l3d1r2l2d1r1u2r3d3r1u1r1l2u2r1d1l1d1r1u2l3d1r2u1r1d1l1d2r10u1l5r4u2l4d1u1r1d1u1r1d1u1r1d2r1d1l1
+
+;51
+#############
+#          @#
+##### # #####
+##.$  #  $.##
+# .$# # #$. #
+# .$  #  $. #
+# .#.###.#. #
+## # ### # ##
+# $#  #  #$ #
+# * * # * * #
+# *$. # .$* #
+# * .###. * #
+# $. # # .$ #
+#   #####   #
+##.*  #  *.##
+ ## * # * ##
+  #.$ # $.#
+ ## $ # $ ##
+ #.$  #  $.#
+ ## ##### ##
+###*#####*###
+# $.  #  .$ #
+# $.# # #.$ #
+# $.     .$ #
+# $*$ # $*$ #
+#     #     #
+#############
+Solution: l7r4l1d4r1d3l1d2r1d1r1d2r1d1u1l1d1l2d4r2d3l2d2r1l1u2r2u3l2u4r2u2l1u2l1u2r1u3l1u4l2d4l1d3r1d2l1d2l1d2r2d4l2d3r2d2r2u2r2u3l2u4r3u1l1u1l1u2l1u2r1u3r1l2u2r2d1u1l2d2r1d3l1d2r1d2r1d1r2u5d2u1l1r1d2l1r1u2l1d1r1d3l2u1l1u2l1u2r1u3l1u2r2d1r2d2l1d2u2r1u2l1d2u2l1u1l2d2r2u1r2d2l1u1l2d3l1d2r1d2r1d1r2u5l1u2d2r1d2l1u3d3r1d3l2u1l1u2l1r1u3d3u1r1l1d3r1d1r2u3l2r2d3l2u1l1u2d2r1u1d2r2u3l2r2d2u1d2l2d1l2d4r2u6d1r2u3l2d1u1r2l2d4u1r2u1l1u1l2d1r1d2l2d4r2u6d1r2u2l2d2r1u1l1d2l2d2r1l1d2r2u5d1l2d3r1d1r1u3d1l2u2r2d7l2d2r2u8d6l2d4r2u8d8l2u1r1d1r1u4d4r2u4l1r1d1l1r1d1l1r1d1l1d1l2u2l3u2l2u3r2u4l3r1u2r1u2r1u2l1u3r1u2l2r2d2l2r2u2l2d1l2d2r1u1r1u2r2d2l2r1d3r1d2l1u3d5l1d1l2u4r1u2d1l1d3r1l1u2r2l2d2r1u1d1l1d2r2u1r1l1d1l2u2r1d1r2u1d1l2u2r1l1d2r2u1l1d1l1u1r1d3r2d4l2u6l1u1r1d3l1u2d2r3d3l1d1l1u5d1r2d3u1d2l2d3r2d2l2u8d3r2u4l2d9r2d2l2u10d2r2u1l1d1l1d8r2u1l1d1l1u4d4l2u4r1l1d1r1l1d1r1l1d1r1
+

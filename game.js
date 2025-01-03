@@ -544,7 +544,7 @@
                 })
                 .then(levelsData => {
                     this._levels = XSBReader.parseMulti(levelsData);
-                    console.debug(`${this._levels.length} levels loaded.`);
+                    console.info(`${this._levels.length} levels loaded.`);
                     this._restartLevel();
                 })
                 .catch(err => console.error(err));

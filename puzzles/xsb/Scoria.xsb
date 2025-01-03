@@ -1,0 +1,205 @@
+;1
+  ####
+  #  #
+### .#
+#  * #
+# #@ #
+# $* #
+##   #
+ #####
+Solution: u1,3-6u1,1-5r1,3-1d1,4-3l1,2-5r1,4-6u3,3-3d1,1-3r1
+
+;2
+######
+#    #
+# #. ##
+#  $$ #
+###*+ #
+  #   #
+  #####
+Solution: u1l1,4-1d2,3-5u2,5-4l1,1-3r2,4-2d1
+
+;3
+ ####
+ # @#
+##$*###
+#  .  #
+# #.  #
+# $  ##
+###  #
+  ####
+Solution: d2,1-5r2,3-5u1,2-3r1,2-1d1,5-3l1,3-4u1,4-6u1,5-4l1,1-3r1
+
+;4
+ #####
+ #   #
+##..$##
+#  .  #
+#  $$ #
+####@ #
+   ####
+Solution: u1l1,5-3l1,3-4u1,4-1d1l1,5-3l1,3-4u1,1-4r2,4-5u1,5-3l1
+
+;5
+#######
+# .   #
+# #$  #
+# $.# #
+##.$@ #
+ #  ###
+ #  #
+ ####
+Solution: l1r2u3l2d1u1l2d2u2r3l1d2u2l2d2r1d1r1d2l1u1r1u3d1l2u2r2d4l1u1r1u3l2d2r1l1u2r2d1r2d2l2r2u3l2
+
+;6
+ #####
+ #   ###
+## #   #
+#@$. . #
+# $*# ##
+##    #
+ ######
+Solution: r3u1r2d1l1d2l3u2r2u1r1d1l3d2r1u1l1u1r2u2l2d2l1d1r1u3r2d1r2d1l2u2l2d4r3u1
+
+;7
+ #####
+ #   ##
+ # # .##
+##$ .  #
+#@$.$  #
+#   ####
+#####
+Solution: r1u1d2r1u1l1r2u3l2d2r1d1r1u1r2l3d2l2u1r1d1r1u1r1u1r2d1l3d1l2u1r1u1r2d1r1u1l3u2r2d1
+
+;8
+ ####
+##  ###
+#  $  #
+# +$  #
+## $###
+ #. . #
+ #    #
+ ######
+Solution: r1d1l1d1r1l1u4r1d3u2r2d1l2u1l1r1l1r1d2l1d2r1u2l1u1r1u2l1d3u2r3d1l2
+
+;9
+  ####
+ ##  #
+## . ##
+# $*$ #
+# #.  #
+#  @  #
+#######
+Solution: u2d2l2u2r1u1r1d1l2d2r4u2l2u2r1d2r1d2l2u2d2l2u2r1l1d2r4u1l1
+
+;10
+#####
+#   ###
+# $@  #
+##* . #
+# * # #
+#     #
+#######
+Solution: u1l2d1r1u1r1d1r2d3l4u1r1u1r1u2l1d2u1r3d3l2u2d2r2u3l2u1l1d1
+
+;11
+   #####
+####   #
+# $  #.#
+# #*   #
+#  @$. #
+###  ###
+  ####
+Solution: d1r1u1r2u3l2d1l1d1r1d2l1u1l2u2r2l2d2r5u3l2d2r1d1r1u1l2u1l3d2r3
+
+;12
+  ####
+###  #
+# +* ##
+# #$  #
+#   # #
+#   * #
+#######
+Solution: r1d1r2d2l2u1l2u2r2u1r1d1l3d2r2u1d2r2u2l1u1l1r1d1r1d2l2u2d1l2d1r2
+
+;13
+ ####
+##  #
+#  $###
+# .$  #
+# .*  #
+###@  #
+  #####
+Solution: r1u2l1r1d2l1u1l2u2r1d1l1d1r2d1r2u2l2d1l2u2r1d1u2r1d1l1d1r1d2r2u2l2r2d1l1
+
+;14
+   ####
+  ##  #
+### .$#
+#  $. ##
+#@ $.  #
+####   #
+   #####
+Solution: r3u1l1r1d2r2u1l1d1l1u1l1u2r1u1r1d2u1l2d2r1u1d2r2u1l1u1l2d1l2u1r2
+
+;15
+  #####
+###   #
+#  $#.##
+# #.   #
+#   *@ #
+####$ ##
+   #  #
+   ####
+Solution: u3l2d1u1r2d3l1r1d2l1u2r1u3l2d1l2d2r3d1r1u2d1l4u2r2d1r1l1u1l2d2r2u1r1d1r2u1l2r1d3l1u1
+
+;16
+#####
+#   ##
+# #@ ###
+#  **. #
+# $  # #
+####   #
+   #####
+Solution: r1d1l1r3d2l2u1l1u1,5-3l1,1-4r2,4-5u1l1u1r1,1-3r2,3-1d1
+
+;17
+#####
+#   ###
+#   $ #
+##$*  #
+ # ..##
+ #@ ##
+ ####
+Solution: 5-2l2u1l2d1r1d1r1,3-1d1r2l1d1u1l2d1r1d2l1u2r1u1r2d1l1u1l1d1u2l2d1r1u1r1d1
+
+;18
+######
+#  . ###
+# $$$@ #
+# .#.  #
+#    ###
+######
+Solution: d1l1d1l3u3r1d1u1r2d1l1u1l2d3r3u1d1l3u3r2d1r1u1l3d1r1l1d2r1u2d2r2u2l1r1d2l3u3r1d1r2u1l1r1d2r2u1l1d1l1d1l3u2r2u1r1d1l3u1r1
+
+;19
+  ####
+###  #
+#@. $#
+# #  ###
+# * *  #
+###    #
+  ######
+Solution: r2d2r1l1u2l2d2r1l1u2r2d1r1d2l1u1l2u2r2u1r1d2u1l3d2r2u1r1u1l1d3r1u1d1r2u1l3u2r1d1
+
+;20
+####
+#  ####
+#   $ #
+# *.# #
+##$.  #
+ #@ ###
+ #  #
+ ####
+Solution: r1u3l2d1r1d1r3u2l2r1l1d1l1d1r1l1u1l1u2r1d1l1d1r1d1u2d2r1d2l1u3l1u2r1d1r3d2l1
+
