@@ -423,6 +423,8 @@
 }
 .board {
     position: relative;
+    margin: 0 auto;
+    width: fit-content;
 }
 .disabled {
     opacity: 0.5;
@@ -500,13 +502,19 @@
     background-position: calc(-3 * var(--cell-size)) calc(-3 * var(--cell-size));
     cursor: pointer;
 }
+.titlebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: calc(var(--cell-size) / 2);
+}
 .toolbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: calc(var(--cell-size) / 2);
 }
-.move-count {
+.move-count, .title {
     transform: scale(0.5);
 }
 .char {
@@ -526,6 +534,12 @@
             this._shadow.appendChild(this._style);
             this._levelStyle = document.createElement("style");
             this._shadow.appendChild(this._levelStyle);
+            let titlebar = document.createElement("div");
+            titlebar.className = "titlebar";
+            this._levelNameEl = document.createElement("div");
+            this._levelNameEl.className = "title";
+            titlebar.appendChild(this._levelNameEl);
+            this._shadow.appendChild(titlebar);
             this._board = document.createElement("div");
             this._board.className = "board";
             this._shadow.appendChild(this._board);
@@ -642,6 +656,16 @@
             return result;
         }
 
+        _updateLevelName() {
+            let chars = [];
+            for (const digit of `${this._collection} ${(this._levelNum + 1).toString()}`) {
+                const div = document.createElement("div");
+                div.className = `char c${digit.charCodeAt(0)}`;
+                chars.push(div);
+            }
+            this._levelNameEl.replaceChildren(...chars);
+        }
+
         _updateDisplay() {
             let digits = [];
             for (const digit of this._moves.length.toString()) {
@@ -727,6 +751,7 @@
                 this._level = this._levels[this._levelNum].clone();
                 this._buildLevel();
                 this._updateDisplay();
+                this._updateLevelName();
             }
             else {
                 console.error("Invalid level number:", this._levelNum);
