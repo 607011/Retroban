@@ -790,7 +790,7 @@
             const param = parseHash({ level: "0", collection: "Novoban" });
             if (this._collection !== param.collection) {
                 this._collection = param.collection;
-                this.loadFromUrl(`puzzles/${this._collection}.xsb`);
+                this.loadFromUrl(`puzzles/xsb/${this._collection}.xsb`);
             }
             this.levelNum = parseInt(param.level) - 1;
             this._buildHash();
