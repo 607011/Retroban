@@ -140,23 +140,27 @@
          * @param {string[]} data - The level data.
          * @param {string} [title] - The title of the level.
          * @param {string} [author] - The author of the level.
+         * @param {string} [solution] - The solution to the level.
          */
-        constructor(data, title, author) {
+        constructor(data, title, author, solution) {
             this._rawData = data;
             this.data = data;
             this._title = title;
             this._author = author;
+            this._solution = solution;
         }
 
         clone() {
             return new SokobanLevel(
                 this._rawData.map(row => row.slice()), // deep copy
                 this._title,
-                this._author);
+                this._author,
+                this._solution);
         }
 
         get title() { return this._title; }
         get author() { return this._author; }
+        get solution() { return this._solution; }
         get width() { return this._width; }
         get height() { return this._height; }
         get data() { return this._data; }
@@ -295,10 +299,10 @@
             const reLE = /\n|\r\n|\r/;
             const reTitle = /^Title:\s*(.*)/g;
             const reAuthor = /^Author:\s*(.*)/g;
+            const reSolution = /^Solution:\s*(.*)/g;
             let levels = [];
             let level = [];
-            let title;
-            let author;
+            let title, author, solution;
             for (const line of data.split(reLE)) {
                 const titleMatch = [...line.matchAll(reTitle)];
                 if (titleMatch.length > 0) {
@@ -310,13 +314,19 @@
                     author = authorMatch[0][1];
                     continue;
                 }
+                const solutionMatch = [...line.matchAll(reSolution)];
+                if (solutionMatch.length > 0) {
+                    solution = solutionMatch[0][1];
+                    continue;
+                }
                 if (line.match(reRow)) {
                     level.push(line);
                 }
                 else if (level.length > 0) {
-                    levels.push(new SokobanLevel(level, title, author));
+                    levels.push(new SokobanLevel(level, title, author, solution));
                     title = undefined;
                     author = undefined;
+                    solution = undefined;
                     level = [];
                 }
             }
@@ -414,6 +424,10 @@
 .board {
     position: relative;
 }
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
 .tile, .char {
     position: absolute;
     display: inline-block;
@@ -471,6 +485,21 @@
     background-position: calc(-2 * var(--cell-size)) calc(-1 * var(--cell-size));
     cursor: pointer;
 }
+.tile.prev {
+    position: relative;
+    background-position: calc(-3 * var(--cell-size)) 0;
+    cursor: pointer;
+}
+.tile.next {
+    position: relative;
+    background-position: calc(-3 * var(--cell-size)) calc(-1 * var(--cell-size));
+    cursor: pointer;
+}
+.tile.question-mark {
+    position: relative;
+    background-position: calc(-3 * var(--cell-size)) calc(-3 * var(--cell-size));
+    cursor: pointer;
+}
 .toolbar {
     display: flex;
     flex-direction: row;
@@ -502,6 +531,11 @@
             this._shadow.appendChild(this._board);
             let toolbar = document.createElement("div");
             toolbar.className = "toolbar";
+            this._prevLevelButton = document.createElement("div");
+            this._prevLevelButton.className = "tile prev";
+            this._prevLevelButton.title = "P)revious level";
+            this._prevLevelButton.addEventListener("click", this.prevLevel.bind(this));
+            toolbar.appendChild(this._prevLevelButton);
             let resetButton = document.createElement("div");
             resetButton.className = "tile reset";
             resetButton.title = "R)estart level";
@@ -515,6 +549,11 @@
             undoButton.title = "U)ndo last move";
             undoButton.addEventListener("click", this._undo.bind(this));
             toolbar.appendChild(undoButton);
+            this._nextLevelButton = document.createElement("div");
+            this._nextLevelButton.className = "tile next";
+            this._nextLevelButton.title = "N)ext level";
+            this._nextLevelButton.addEventListener("click", this.nextLevel.bind(this));
+            toolbar.appendChild(this._nextLevelButton);
             this._shadow.appendChild(toolbar);
             this._activateEventListeners();
             this._updateDisplay();
@@ -611,6 +650,18 @@
                 digits.push(div);
             }
             this._moveCountEl.replaceChildren(...digits);
+            if (this._levelNum === 0) {
+                this._prevLevelButton.classList.add("disabled");
+            }
+            else {
+                this._prevLevelButton.classList.remove("disabled");
+            }
+            if (this._levelNum + 1 >= this._levels.length) {
+                this._nextLevelButton.classList.add("disabled");
+            }
+            else {
+                this._nextLevelButton.classList.remove("disabled");
+            }
         }
 
         _undo() {
@@ -653,9 +704,18 @@
             }
         }
 
+        prevLevel() {
+            if (this._levelNum > 0) {
+                --this._levelNum;
+                this._buildHash();
+                this._restartLevel();
+            }
+        }
+
         _activateEventListeners() {
             window.addEventListener("hashchange", this._onHashChange.bind(this));
             window.addEventListener("keydown", this._onKeyDown.bind(this));
+            window.addEventListener("keypress", this._onKeyPress.bind(this));
             window.addEventListener("touchstart", this._onTouchStart.bind(this));
             window.addEventListener("touchend", this._onTouchEnd.bind(this));
         }
@@ -760,27 +820,55 @@
         _onKeyDown(e) {
             switch (e.key) {
                 case "u":
+                // fallthrough
                 case "z":
                     this._undo();
                     break;
-                case "r":
-                    this._restartLevel();
-                    break;
                 case "ArrowUp":
+                // fallthrough
                 case "w":
                     this.move(Direction.Up);
                     break;
                 case "ArrowRight":
+                // fallthrough
                 case "d":
                     this.move(Direction.Right);
                     break;
                 case "ArrowDown":
+                // fallthrough
                 case "s":
                     this.move(Direction.Down);
                     break;
                 case "ArrowLeft":
+                // fallthrough
                 case "a":
                     this.move(Direction.Left);
+                    break;
+            }
+        }
+
+        /** @param {KeyboardEvent} e */
+        _onKeyPress(e) {
+            switch (e.key) {
+                case "?":
+                    if (this._level.solution) {
+                        this.play(this._level.solution);
+                    }
+                    break;
+                case "r":
+                    this._restartLevel();
+                    break;
+                case "n":
+                // fallthrough
+                case ".":
+                    this.nextLevel();
+                    break;
+                case "p":
+                // fallthrough
+                case ",":
+                    this.prevLevel();
+                    break;
+                default:
                     break;
             }
         }
