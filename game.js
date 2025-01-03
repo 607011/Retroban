@@ -992,11 +992,11 @@
             if (this._level.missionAccomplished()) {
                 setTimeout(() => {
                     if (this._levelNum + 1 < this._levels.length) {
-                        alert(`Congratulations! Mission accomplished within ${this._moves.length} moves: ${this._moves.join("")}. Head over to the next level by pressing OK.`);
+                        alert(`Congratulations! Mission accomplished with ${this._moves.length} moves: ${this._moves.join("")}. Head over to the next level by pressing OK.`);
                         this.nextLevel();
                     }
                     else {
-                        alert(`Congratulations! Mission accomplished within ${this._moves.length} moves: ${this._moves.join("")}`);
+                        alert(`Congratulations! Mission accomplished with ${this._moves.length} moves: ${this._moves.join("")}`);
                     }
                 }, 10);
             };
