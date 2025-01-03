@@ -250,6 +250,7 @@
             }
             if (!found)
                 return;
+            // Construct sequence of moves by going backwards from target to start
             let path = [];
             let current = b;
             let last = current;
