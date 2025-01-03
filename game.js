@@ -708,7 +708,7 @@
         }
 
         _buildHash() {
-            window.location.hash = `#collection=${this._collection};level=${this._levelNum}`;
+            window.location.hash = `#collection=${this._collection};level=${this._levelNum + 1}`;
         }
 
         /** @param {TouchEvent} _e  */
@@ -792,7 +792,7 @@
                 this._collection = param.collection;
                 this.loadFromUrl(`puzzles/${this._collection}.xsb`);
             }
-            this.levelNum = parseInt(param.level);
+            this.levelNum = parseInt(param.level) - 1;
             this._buildHash();
         }
 
