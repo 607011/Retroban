@@ -62,7 +62,77 @@
         add(v) {
             return new Vec2(this.x + v.x, this.y + v.y);
         }
+
+        /**
+         * Compare this vector to another vector.
+         * @param {Vec2} v - The vector to compare to.
+         * @returns {Boolean} `true` if vectors are equal, `false` otherwise.
+         */
+        equals(v) {
+            return this.x === v.x && this.y === v.y;
+        }
+
+        /**
+         * Convert the vector to a string.
+         * @returns {String} A string representation of the vector.
+         */
+        toString() {
+            return `${this.x},${this.y}`;
+        }
     };
+
+    /**
+     * A kind of enumeration of directions.
+     */
+    class Direction {
+        static Up = "U";
+        static Right = "R";
+        static Down = "D";
+        static Left = "L";
+    }
+
+    /**
+     * Movement vectors for each direction.
+     */
+    const MOVE = {
+        [Direction.Up]: new Vec2(0, -1),
+        [Direction.Right]: new Vec2(+1, 0),
+        [Direction.Down]: new Vec2(0, +1),
+        [Direction.Left]: new Vec2(-1, 0),
+    };
+
+    class SafeMap {
+        constructor() {
+            this._map = new Map();
+        }
+        set(v, value) {
+            this._map.set(v.toString(), value);
+        }
+        get(v) {
+            return this._map.get(v.toString());
+        }
+    }
+
+    /**
+     * Workaround class to store `Vec2` objects in a kind of set,
+     * because `Set` compares objects by reference.
+     */
+    class SafeSet {
+        constructor(arr) {
+            this._map = new Map();
+            if (arr instanceof Array) {
+                for (const v of arr) {
+                    this.add(v);
+                }
+            }
+        }
+        add(v) {
+            this._map.set(v.toString(), v);
+        }
+        has(v) {
+            return this._map.has(v.toString());
+        }
+    }
 
     class SokobanLevel {
         /**
@@ -77,12 +147,14 @@
             this._title = title;
             this._author = author;
         }
+
         clone() {
             return new SokobanLevel(
                 this._rawData.map(row => row.slice()), // deep copy
                 this._title,
                 this._author);
         }
+
         get title() { return this._title; }
         get author() { return this._author; }
         get width() { return this._width; }
@@ -96,32 +168,128 @@
                 .split("")
                 .map(tile => TileMap[tile]));
         }
-        /** @param {Vec2} pos */
+
+        /** 
+         * Get the tile at a given position.
+         * @param {Vec2} pos - Position in the level
+         * @returns {Tile} The tile at the given position
+         */
         at(pos) {
             return this._data[pos.y][pos.x];
         }
+
         /**
          * Move a crate or the player to the next field.
-         * @param {Vec2} a coordinate of the current field
-         * @param {Vec2} b coordinate of the destination field
-         * @param {Tile} what to move
+         * @param {Vec2} a - Coordinate of the current field
+         * @param {Vec2} b - Coordinate of the destination field
+         * @param {Tile} what - What/whom to move
+         * @returns {Vec2} The new position of the moved object
          */
         moveTo(a, b, what) {
             this._data[b.y][b.x] |= what;
             this._data[a.y][a.x] &= ~what;
+            return b;
         }
-        /** @return true, if all crates are placed on goals */
+
+        /**
+         * Move a crate or the player to the next field.
+         * @param {Vec2} pos - Coordinate of the current field
+         * @param {Direction} dir - Direction to move to
+         * @param {Tile} what - What/whom to move
+         * @returns {Vec2} The new position of the moved object
+         */
+        movePlayer(pos, dir) {
+            const d = MOVE[dir];
+            const dst = pos.add(d);
+            const dstTile = this.at(dst);
+            if (dstTile === Tile.Wall)
+                return pos; // Cannot move into a wall
+            if (!(dstTile & Tile.Crate))
+                return this.moveTo(pos, dst, Tile.Player); // Player can move freely
+            const d2 = d.mul(2);
+            const dst2 = pos.add(d2);
+            const dstTile2 = this.at(dst2);
+            if ((dstTile2 & Tile.Wall) || (dstTile2 & Tile.Crate))
+                return pos; // Cannot push crate into a wall or another crate
+            this.moveTo(pos, dst, Tile.Player);
+            this.moveTo(dst, dst2, Tile.Crate);
+            return dst;
+        }
+
+        /** 
+         * Breadth-first search through level.
+         * @param {Vec2} a start position
+         * @param {Vec2} b target position
+         */
+        shortestPath(a, b) {
+            let visited = new SafeSet([a]);
+            let parent = new SafeMap();
+            let found = false;
+            let queue = [a];
+            while (queue.length > 0) {
+                let current = queue.shift();
+                if (current.equals(b)) {
+                    found = true;
+                    break;
+                }
+                for (const dir of Object.values(MOVE)) {
+                    let next = current.add(dir);
+                    let neighbor = this.at(next);
+                    if ((neighbor & Tile.Wall) || (neighbor & Tile.Crate))
+                        continue;
+                    if (visited.has(next))
+                        continue;
+                    visited.add(next);
+                    parent.set(next, current);
+                    queue.push(next);
+                }
+            }
+            if (!found)
+                return;
+            let path = [];
+            let current = b;
+            let last = current;
+            while (current && !current.equals(a)) {
+                last = current;
+                current = parent.get(current);
+                if (last.x > current.x)
+                    path.unshift(Direction.Right);
+                else if (last.x < current.x)
+                    path.unshift(Direction.Left);
+                else if (last.y > current.y)
+                    path.unshift(Direction.Down);
+                else if (last.y < current.y)
+                    path.unshift(Direction.Up);
+            }
+            return path.join("");
+        }
+
+        /** 
+         * Check if all crates are placed on goals.
+         * @return {Boolean} `true`, if all crates are placed on goals, `false` otherwise
+         */
         missionAccomplished() {
             return !this._data.some(row => row.some(tile => (tile & Tile.Goal) && !(tile & Tile.Crate)))
         }
+
+        /**
+         * Convert the level to a string.
+         * @returns {String} A string representation of the level. 
+         */
         toString() {
             return this._data.map(row => row.map(tile => TileReverseMap[tile]).join("")).join("\n");
         }
     }
 
-    /** Read and parse XSokoban data into `SokobanLevel` objects. */
+    /** 
+     * Read and parse XSokoban (XSB) data into `SokobanLevel` objects.
+     */
     class XSBReader {
-        /** @param {string} data  */
+        /** 
+         * Parse data with multiple levels.
+         * @param {string} data - XSB data to parse.
+         * @returns {SokobanLevel[]} An array of `SokobanLevel` objects.
+         */
         static parseMulti(data) {
             const reRow = /^[@\+ \$\.\*#]{2,}$/;
             const reLE = /\n|\r\n|\r/;
@@ -169,43 +337,66 @@
         return Object.assign(defaults, result);
     }
 
-    class Direction {
-        static Up = "U";
-        static Right = "R";
-        static Down = "D";
-        static Left = "L";
-    }
-
-    const MOVE = {
-        [Direction.Up]: new Vec2(0, -1),
-        [Direction.Right]: new Vec2(+1, 0),
-        [Direction.Down]: new Vec2(0, +1),
-        [Direction.Left]: new Vec2(-1, 0),
-    };
-
+    /**
+     * Custom web element representing a Sokoban game.
+     */
     class SokobanGame extends HTMLElement {
-        static observedAttributes = ["xsb-file"];
-
-        /** @type {SokobanLevel[]} */
+        /** 
+         * Array of available Sokoban levels.
+         * @type {SokobanLevel[]}
+         */
         _levels = [];
-        /** @type {Number} */
+
+        /** 
+         * Current level number (counting from 0).
+         * @type {Number}
+         */
         _levelNum = 0;
-        /** @type {SokobanLevel} */
+
+        /** 
+         * Current Sokoban level.
+         * @type {SokobanLevel} */
         _level;
-        /** @type {String[]} */
+
+        /** 
+         * List of moves (URDL format).
+         * @type {String[]}
+         */
         _moves = [];
-        /** @type {Number} */
+
+        /** 
+         * Width and height in pixels of a single cell.
+         * @type {Number}
+         */
         _cellSize = CELL_SIZE;
-        /** @type {HTMLElement[][]} */
+
+        /**
+         * 2D array of HTML elements representing the game board. 
+         * @type {HTMLElement[][]}
+         */
         _tiles;
-        /** @type {Vec2} */
+
+        /** 
+         * The player's current position.
+         * @type {Vec2}
+         */
         _pos;
-        /** @type {HTMLElement} */
+
+        /** 
+         * The HTML element of the player 
+         * @type {HTMLElement}
+         */
         _player;
 
-        constructor() {
+        constructor(game) {
             super();
             this._undoStack = [];
+            if (game instanceof SokobanGame) {
+                this._level = game._level.clone();
+                this._pos = game._pos;
+                this._player = game._player;
+                this._tiles = game._tiles;
+            }
         }
 
         connectedCallback() {
@@ -296,13 +487,11 @@
     background-size: calc(16 * var(--cell-size)) calc(16 * var(--cell-size));
 }
 `;
+            // Generate CSS classes for characters
             for (let j = 2; j < 28; ++j) {
                 for (let i = 0; i < 16; ++i) {
                     const idx = j * 16 + i;
-                    this._style.textContent += 
-`.char.c${idx} {
-    background-position: calc(-${i} * var(--cell-size)) calc(-${j} * var(--cell-size));
-}`;
+                    this._style.textContent += `.char.c${idx} { background-position: calc(-${i} * var(--cell-size)) calc(-${j} * var(--cell-size)); }`;
                 }
             }
             this._shadow.appendChild(this._style);
@@ -315,7 +504,7 @@
             toolbar.className = "toolbar";
             let resetButton = document.createElement("div");
             resetButton.className = "tile reset";
-            resetButton.title = "[R]estart level";
+            resetButton.title = "R)estart level";
             resetButton.addEventListener("click", this.reset.bind(this));
             toolbar.appendChild(resetButton);
             this._moveCountEl = document.createElement("div");
@@ -323,7 +512,7 @@
             toolbar.appendChild(this._moveCountEl);
             let undoButton = document.createElement("div");
             undoButton.className = "tile undo";
-            undoButton.title = "[U]ndo last move";
+            undoButton.title = "U)ndo last move";
             undoButton.addEventListener("click", this._undo.bind(this));
             toolbar.appendChild(undoButton);
             this._shadow.appendChild(toolbar);
@@ -361,9 +550,57 @@
                 .catch(err => console.error(err));
         }
 
-        /** Reset game data to its initial state  */
+        /** 
+         * Reset game data to its initial state.
+         */
         reset() {
             this._restartLevel();
+        }
+
+
+        /**
+         * Convert a ksokoban.online solution to URDL format.
+         * E.g. the solution sequence for Warehouse level 3 is
+         * l3,6-1r1d1,8-4l1u1,8-2l4,3-3u1,2-1r3,7-6u3,8-2l4,3-3u1,2-1r2,5-4r1,7-5u2,8-2l4,3-3u1,2-1r1,5-6u1,4-4r2,7-5u2,8-2l1,1-4r5,7-5u2
+         * and the resulting URDL sequence is LLLUUURRRRDRDDLURULLLLULLLDDRRUDLLUURRRRDRRRDDDDLUUURULLLLULLLDDRRUDLLUURRRDLDDRRRLLLUURRRRRDDDLUURULLLLULLLDDRRUDLLUURRDRRRRDDDDLLUDRRUUUULLLLDDRRRLDDRRUUURULDDLLLLULLDRRRRRLDDRRUUU
+         * @param {String} seq 
+         * @returns {String} URDL sequence
+         */
+        convertToURDL(seq) {
+            const level = this._level.clone();
+            const tokenized = function* (seq) {
+                const re = /([URDL]\d+)|(\d+-\d+)/i;
+                let match;
+                while (match = re.exec(seq)) {
+                    yield match[0];
+                    seq = seq.slice(match.index + match[0].length);
+                }
+            };
+            let result = "";
+            let pos = this._pos;
+            for (const token of tokenized(seq)) {
+                if (token.match(/[URDL]\d+/i)) {
+                    const dir = token[0].toUpperCase();
+                    const n = parseInt(token.slice(1));
+                    for (let i = 0; i < n; ++i) {
+                        pos = level.movePlayer(pos, dir);
+                    }
+                    result += dir.repeat(n).toUpperCase();
+                }
+                else if (token.match(/\d+-\d+/i)) {
+                    const [x, y] = token.split("-").map(x => parseInt(x));
+                    const dst = new Vec2(x, y);
+                    const path = level.shortestPath(pos, dst);
+                    pos = level.moveTo(pos, dst, Tile.Player);
+                    if (!path) {
+                        console.error("No path found.");
+                        return null;
+                    }
+                    result += path;
+                }
+            }
+            console.info(`${seq} -> ${result}`);
+            return result;
         }
 
         _updateDisplay() {
@@ -624,27 +861,45 @@
                 }, 10);
             };
         }
+
+        /**
+         * Plays a sequence of moves in the game.
+         *
+         * @param {string} seq - A string representing the sequence of moves to be played.
+         */
+        play(seq) {
+            if (!seq.match(/^[URDL]+$/i)) {
+                // It's probably a ksokoban sequence, so we need to convert it to URDL format
+                seq = this.convertToURDL(seq);
+                if (!seq) {
+                    console.error("Invalid sequence.");
+                    return;
+                }
+            }
+            if (seq.length === 0)
+                return;
+            this.reset();
+            let moves = seq.split("");
+            let t0 = performance.now();
+            const autoplay = () => {
+                if (moves.length > 0 && performance.now() > t0 + 150) {
+                    const move = moves.shift();
+                    this.move(move.toUpperCase());
+                    t0 = performance.now()
+                }
+                requestAnimationFrame(autoplay);
+            }
+            requestAnimationFrame(autoplay);
+        }
     }
 
     /**
      * Plays a sequence of moves in the game.
      *
      * @param {string} seq - A string representing the sequence of moves to be played.
-     *                       Each character in the string corresponds to a move.
      */
     function play(seq) {
-        el.game.reset();
-        let moves = seq.split("");
-        let t0 = performance.now();
-        const autoplay = () => {
-            if (moves.length > 0 && performance.now() > t0 + 150) {
-                const move = moves.shift();
-                el.game.move(move.toUpperCase());
-                t0 = performance.now()
-            }
-            requestAnimationFrame(autoplay);
-        }
-        requestAnimationFrame(autoplay);
+        el.game.play(seq);
     }
 
     let el = {};
