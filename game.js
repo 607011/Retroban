@@ -479,7 +479,10 @@
     background-position: calc(-2 * var(--cell-size)) 0;
 }
 .tile.player.goal {
-    background-position: calc(-2 * var(--cell-size)) calc(-2 * var(--cell-size));
+    background-position: calc(-3 * var(--cell-size)) calc(-2 * var(--cell-size));
+}
+.tile.player.goal.relaxed {
+    background-position: calc(-1 * var(--cell-size)) calc(-4 * var(--cell-size));
 }
 .tile.player.goal.left {
     background-position: 0 calc(-3 * var(--cell-size));
