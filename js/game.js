@@ -509,6 +509,21 @@
 .tile.player.goal.relaxed {
     background-position: calc(-1 * var(--cell-size)) calc(-4 * var(--cell-size));
 }
+.tile.player.goal.waving {
+    animation-name: wave-on-goal;
+    animation-duration: 750ms;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-start;
+}
+@keyframes wave-on-goal {
+    0%, 100% {
+        background-position: calc(-3 * var(--cell-size)) calc(-2 * var(--cell-size));
+    }
+    50% {
+        background-position: calc(-3 * var(--cell-size)) calc(-4 * var(--cell-size));
+    }
+}
 .tile.player.goal.left {
     background-position: 0 calc(-3 * var(--cell-size));
 }
