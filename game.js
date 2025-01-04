@@ -925,6 +925,7 @@
             switch (e.key) {
                 case "?":
                     if (this._level.solution) {
+                        this.reset();
                         this.play(this._level.solution);
                     }
                     break;
