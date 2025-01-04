@@ -443,18 +443,20 @@
     pointer-events: none;
 }
 .tile, .char {
-    position: absolute;
     display: inline-block;
-    background-image: url("images/tileset-colors-8x8.png");
-    background-size: calc(6 * var(--cell-size)) calc(6 * var(--cell-size));
-    width: var(--cell-size);
-    height: var(--cell-size);
     box-sizing: content-box;
     background-repeat: no-repeat;
     image-rendering: -moz-pixelated;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: pixelated;
     -ms-interpolation-mode: nearest-neighbor;
+}
+.tile {
+    position: absolute;
+    background-image: url("images/tileset-colors-8x8.png");
+    background-size: calc(6 * var(--cell-size)) calc(6 * var(--cell-size));
+    width: var(--cell-size);
+    height: var(--cell-size);
 }
 .tile.floor {
     background-position: 0 calc(-2 * var(--cell-size));
@@ -521,38 +523,39 @@
     cursor: pointer;
 }
 .titlebar {
+    margin-bottom: calc(var(--cell-size) / 2);
+}
+.titlebar > div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: calc(var(--cell-size) / 2);
-    transform: scale(0.5);
-    gap: var(--cell-size);
+    align-items: center;
     opacity: 0.3;
-}
-.titlebar > div {
-    flex-grow: 1;
+    gap: var(--cell-size);
 }
 .toolbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin-top: calc(var(--cell-size) / 2);
 }
 .move-count {
-    transform: scale(0.5);
     opacity: 0.3;
 }
 .char {
     position: relative;
     background-image: url("images/font-8x8.png");
-    background-size: calc(16 * var(--cell-size)) calc(16 * var(--cell-size));
+    background-size: calc(16 * var(--font-size)) calc(16 * var(--font-size));
+    width: var(--font-size);
+    height: var(--font-size);
 }
 `;
             // Generate CSS classes for characters
             for (let j = 2; j < 28; ++j) {
                 for (let i = 0; i < 16; ++i) {
                     const idx = j * 16 + i;
-                    this._style.textContent += `.char.c${idx} { background-position: calc(-${i} * var(--cell-size)) calc(-${j} * var(--cell-size)); }`;
+                    this._style.textContent += `.char.c${idx} { background-position: calc(-${i} * var(--font-size)) calc(-${j} * var(--font-size)); }`;
                 }
             }
             // Build level's style, will be updated later in _setLevelStyles()
@@ -560,12 +563,14 @@
             // Build title bar
             let titlebar = document.createElement("div");
             titlebar.className = "titlebar";
+            let titlebarInner = document.createElement("div");
+            titlebar.appendChild(titlebarInner);
             this._levelNameEl = document.createElement("div");
             this._levelNameEl.setAttribute("role", "img");
-            titlebar.appendChild(this._levelNameEl);
+            titlebarInner.appendChild(this._levelNameEl);
             this._levelNumEl = document.createElement("div");
             this._levelNumEl.setAttribute("role", "img");
-            titlebar.appendChild(this._levelNumEl);
+            titlebarInner.appendChild(this._levelNumEl);
             this._board = document.createElement("div");
             this._board.setAttribute("role", "application");
             this._board.setAttribute("aria-label", "Sokoban Game Board (use arrow keys to move)");
@@ -648,6 +653,7 @@
             this._levelStyle.textContent = `
 :host {
     --cell-size: ${this._cellSize}px;
+    --font-size: calc(var(--cell-size) / 3);
 }
 .board {
     width: calc(var(--cell-size) * ${this._level.width});
@@ -734,7 +740,7 @@
         }
 
         _adjustCellSize() {
-            const MARGIN_FOR_TITLE_AND_TOOLBAR = 5;
+            const MARGIN_FOR_TITLE_AND_TOOLBAR = 4;
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
             const maxWidth = Math.floor(viewportWidth / this._level.width);
