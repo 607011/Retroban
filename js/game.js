@@ -482,6 +482,21 @@
 .tile.player.relaxed {
     background-position: 0 calc(-4 * var(--cell-size));
 }
+.tile.player.waving {
+    animation-name: wave;
+    animation-duration: 750ms;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-start;
+}
+@keyframes wave {
+    0%, 100% {
+        background-position: calc(-2 * var(--cell-size)) calc(-2 * var(--cell-size));
+    }
+    50% {
+        background-position: calc(-2 * var(--cell-size)) calc(-4 * var(--cell-size));
+    }
+}
 .tile.player.left {
     background-position: 0 0;
 }
@@ -1030,12 +1045,20 @@
 
         _relaxPlayer() {
             this._player.classList.add("relaxed");
-            this._player.classList.remove("left", "right");
+            this._player.classList.remove("waving", "left", "right");
             clearTimeout(this._inactivityTimer);
+            this._inactivityTimer = setTimeout(this._makePlayerWaving.bind(this), 5000);
+        }
+
+        _makePlayerWaving() {
+            this._player.classList.remove("relaxed");
+            this._player.classList.add("waving");
+            clearTimeout(this._inactivityTimer);
+            this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
         }
 
         _stimulatePlayer() {
-            this._player.classList.remove("relaxed");
+            this._player.classList.remove("relaxed", "waving");
             clearTimeout(this._inactivityTimer);
             this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
         }
