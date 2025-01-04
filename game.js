@@ -419,15 +419,9 @@
          */
         _inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
 
-        constructor(game) {
+        constructor() {
             super();
             this._undoStack = [];
-            if (game instanceof SokobanGame) {
-                this._level = game._level.clone();
-                this._pos = game._pos;
-                this._player = game._player;
-                this._tiles = game._tiles;
-            }
         }
 
         connectedCallback() {
