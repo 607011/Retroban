@@ -247,14 +247,11 @@
         shortestPath(a, b) {
             let visited = new SafeSet([a]);
             let parent = new SafeMap();
-            let found = false;
             let queue = [a];
             while (queue.length > 0) {
                 let current = queue.shift();
-                if (current.equals(b)) {
-                    found = true;
+                if (current.equals(b))
                     break;
-                }
                 for (const dir of Object.values(MOVE)) {
                     let next = current.add(dir);
                     let neighbor = this.at(next);
@@ -267,8 +264,6 @@
                     queue.push(next);
                 }
             }
-            if (!found)
-                return;
             // Construct sequence of moves by going backwards from target to start
             let path = [];
             let current = b;
