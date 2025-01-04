@@ -525,6 +525,12 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: calc(var(--cell-size) / 2);
+    transform: scale(0.5);
+    gap: var(--cell-size);
+    opacity: 0.3;
+}
+.titlebar > div {
+    flex-grow: 1;
 }
 .toolbar {
     display: flex;
@@ -532,11 +538,11 @@
     justify-content: space-between;
     margin-top: calc(var(--cell-size) / 2);
 }
-.move-count, .title {
+.move-count {
     transform: scale(0.5);
+    opacity: 0.3;
 }
 .char {
-    opacity: 0.2;
     position: relative;
     background-image: url("images/font-8x8.png");
     background-size: calc(16 * var(--cell-size)) calc(16 * var(--cell-size));
@@ -555,37 +561,83 @@
             let titlebar = document.createElement("div");
             titlebar.className = "titlebar";
             this._levelNameEl = document.createElement("div");
-            this._levelNameEl.className = "title";
+            this._levelNameEl.setAttribute("role", "img");
             titlebar.appendChild(this._levelNameEl);
-            this._shadow.appendChild(titlebar);
+            this._levelNumEl = document.createElement("div");
+            this._levelNumEl.setAttribute("role", "img");
+            titlebar.appendChild(this._levelNumEl);
             this._board = document.createElement("div");
+            this._board.setAttribute("role", "application");
+            this._board.setAttribute("aria-label", "Sokoban Game Board (use arrow keys to move)");
             this._board.className = "board";
             // Build tool bar
             let toolbar = document.createElement("div");
+            toolbar.setAttribute("role", "toolbar");
             toolbar.className = "toolbar";
             this._prevLevelButton = document.createElement("div");
+            this._prevLevelButton.setAttribute("role", "button");
+            this._prevLevelButton.setAttribute("aria-label", "Previous level (P or ,)");
+            this._prevLevelButton.setAttribute("tabindex", 0);
             this._prevLevelButton.className = "tile prev";
-            this._prevLevelButton.title = "P)revious level";
-            this._prevLevelButton.addEventListener("click", this.prevLevel.bind(this));
+            this._prevLevelButton.title = "Previous level (P or ,)";
+            this._prevLevelButton.addEventListener("click", this._prevLevel.bind(this));
+            this._prevLevelButton.addEventListener("keydown", e => {
+                this._stimulatePlayer();
+                if (e.key === "Enter" || e.key === " ") {
+                    this._prevLevel();
+                }
+            });
             toolbar.appendChild(this._prevLevelButton);
             let resetButton = document.createElement("div");
+            resetButton.setAttribute("role", "button");
+            resetButton.setAttribute("aria-label", "Reset game (R)");
+            resetButton.setAttribute("tabindex", 0);
             resetButton.className = "tile reset";
-            resetButton.title = "R)estart level";
+            resetButton.title = "Restart level (R)";
             resetButton.addEventListener("click", this.reset.bind(this));
+            resetButton.addEventListener("keydown", e => {
+                this._stimulatePlayer();
+                if (e.key === "Enter" || e.key === " ") {
+                    this.reset();
+                }
+            });
             toolbar.appendChild(resetButton);
             this._moveCountEl = document.createElement("div");
             this._moveCountEl.className = "move-count"
             toolbar.appendChild(this._moveCountEl);
             let undoButton = document.createElement("div");
+            undoButton.setAttribute("role", "button");
+            undoButton.setAttribute("aria-label", "Undo last move (Z or U)");
+            undoButton.setAttribute("tabindex", 0);
             undoButton.className = "tile undo";
-            undoButton.title = "U)ndo last move";
+            undoButton.title = "Undo last move (U)";
             undoButton.addEventListener("click", this._undo.bind(this));
+            undoButton.addEventListener("keydown", e => {
+                this._stimulatePlayer();
+                if (e.key === "Enter" || e.key === " ") {
+                    this._undo();
+                }
+            });
             toolbar.appendChild(undoButton);
             this._nextLevelButton = document.createElement("div");
+            this._nextLevelButton.setAttribute("role", "button");
+            this._nextLevelButton.setAttribute("aria-label", "Next level (N or .)");
+            this._nextLevelButton.setAttribute("tabindex", 0);
             this._nextLevelButton.className = "tile next";
-            this._nextLevelButton.title = "N)ext level";
-            this._nextLevelButton.addEventListener("click", this.nextLevel.bind(this));
+            this._nextLevelButton.title = "Next level (N or .)";
+            this._nextLevelButton.addEventListener("click", this._nextLevel.bind(this));
+            this._nextLevelButton.addEventListener("keydown", e => {
+                this._stimulatePlayer();
+                if (e.key === "Enter" || e.key === " ") {
+                    this._nextLevel();
+                }
+            });
             toolbar.appendChild(this._nextLevelButton);
+
+            this._shadow.appendChild(this._style);
+            this._shadow.appendChild(this._levelStyle);
+            this._shadow.appendChild(titlebar);
+            this._shadow.appendChild(this._board);
             this._shadow.appendChild(toolbar);
             this._activateEventListeners();
             this._updateDisplay();
@@ -695,12 +747,22 @@
 
         _updateLevelName() {
             let chars = [];
-            for (const digit of `${this._collection} ${(this._levelNum + 1).toString()}`) {
-                const div = document.createElement("div");
-                div.className = `char c${digit.charCodeAt(0)}`;
-                chars.push(div);
+            for (const c of this._collection) {
+                const span = document.createElement("span");
+                span.className = `char c${c.charCodeAt(0)}`;
+                chars.push(span);
             }
+            this._levelNameEl.setAttribute("aria-label", `Collection: ${this._collection}`);
             this._levelNameEl.replaceChildren(...chars);
+            let digits = [];
+            const levelNum = (this._levelNum + 1).toString();
+            for (const digit of levelNum) {
+                const span = document.createElement("span");
+                span.className = `char c${digit.charCodeAt(0)}`;
+                digits.push(span);
+            }
+            this._levelNumEl.setAttribute("aria-label", `Level: ${levelNum}`);
+            this._levelNumEl.replaceChildren(...digits);
         }
 
         _updateDisplay() {
@@ -798,12 +860,22 @@
             }
         }
 
+        _getTileDescription(tile) {
+            if (tile & Tile.Wall) return "Wall";
+            if (tile & Tile.Crate) return "Crate";
+            if (tile & Tile.Goal) return "Goal";
+            if (tile & Tile.Player) return "Player";
+            return "Floor";
+        }
+
         _buildLevel() {
             this._setLevelStyles();
             let tiles = [];
             for (const [row, rowObjs] of this._level.data.entries()) {
                 for (const [col, tile] of rowObjs.entries()) {
                     let div = document.createElement("div");
+                    div.setAttribute("role", "gridcell");
+                    div.setAttribute("aria-label", this._getTileDescription(tile));
                     div.style.top = `calc(var(--cell-size) * ${row})`;
                     div.style.left = `calc(var(--cell-size) * ${col})`;
                     div.className = "tile";
