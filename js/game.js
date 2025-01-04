@@ -1006,7 +1006,9 @@
                     this._move(Direction.Left);
                     break;
                 case "?":
-                    this._showSolution();
+                    if (prompt("If you really want me to show the solution for this level, type 'YES'.", "no") === "YES") {
+                        this._showSolution();
+                    }
                     break;
                 case "r":
                     this._restartLevel();
