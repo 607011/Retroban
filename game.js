@@ -572,9 +572,9 @@
             this._levelNumEl.setAttribute("role", "img");
             titlebarInner.appendChild(this._levelNumEl);
             this._board = document.createElement("div");
-            this._board.setAttribute("role", "application");
-            this._board.setAttribute("aria-label", "Sokoban Game Board (use arrow keys to move)");
             this._board.className = "board";
+            this._board.setAttribute("role", "application");
+            this._board.setAttribute("aria-label", "Minimalist Sokoban Game (use arrow keys or WASD to move)");
             // Build tool bar
             let toolbar = document.createElement("div");
             toolbar.setAttribute("role", "toolbar");
@@ -866,22 +866,12 @@
             }
         }
 
-        _getTileDescription(tile) {
-            if (tile & Tile.Wall) return "Wall";
-            if (tile & Tile.Crate) return "Crate";
-            if (tile & Tile.Goal) return "Goal";
-            if (tile & Tile.Player) return "Player";
-            return "Floor";
-        }
-
         _buildLevel() {
             this._setLevelStyles();
             let tiles = [];
             for (const [row, rowObjs] of this._level.data.entries()) {
                 for (const [col, tile] of rowObjs.entries()) {
                     let div = document.createElement("div");
-                    div.setAttribute("role", "gridcell");
-                    div.setAttribute("aria-label", this._getTileDescription(tile));
                     div.style.top = `calc(var(--cell-size) * ${row})`;
                     div.style.left = `calc(var(--cell-size) * ${col})`;
                     div.className = "tile";
