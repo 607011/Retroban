@@ -853,7 +853,6 @@
             window.addEventListener("hashchange", this._onHashChange.bind(this));
             window.addEventListener("resize", this._onResize.bind(this));
             window.addEventListener("keydown", this._onKeyDown.bind(this));
-            window.addEventListener("keypress", this._onKeyPress.bind(this));
             window.addEventListener("touchstart", this._onTouchStart.bind(this));
             window.addEventListener("touchend", this._onTouchEnd.bind(this));
         }
@@ -991,18 +990,8 @@
                 case "a":
                     this._move(Direction.Left);
                     break;
-            }
-        }
-
-        /** @param {KeyboardEvent} e */
-        _onKeyPress(e) {
-            this._stimulatePlayer();
-            switch (e.key) {
                 case "?":
-                    if (this._level.solution) {
-                        this.reset();
-                        this.play(this._level.solution);
-                    }
+                    this._showSolution();
                     break;
                 case "r":
                     this._restartLevel();
