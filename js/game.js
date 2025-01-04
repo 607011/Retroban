@@ -1098,6 +1098,7 @@
                     if (this._levelNum + 1 < this._levels.length) {
                         alert(`Congratulations! Mission accomplished with ${this._moves.length} moves: ${this._moves.join("")}. Head over to the next level by pressing OK.`);
                         this._nextLevel();
+                        this._stimulatePlayer();
                     }
                     else {
                         alert(`Congratulations! Mission accomplished with ${this._moves.length} moves: ${this._moves.join("")}`);
