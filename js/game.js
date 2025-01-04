@@ -666,7 +666,9 @@
          * @param {String} url
          */
         _loadFromUrl(url) {
-            fetch(url)
+            const headers = new Headers();
+            headers.append("Cache-Control", "max-age=2592000, public");
+            fetch(url, { headers: headers})
                 .then(async response => {
                     if (response.headers.get("Content-Type") === "application/octet-stream") {
                         return response.arrayBuffer().then(buffer => {
