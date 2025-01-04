@@ -116,17 +116,33 @@
      * because `Set` compares objects by reference.
      */
     class SafeSet {
-        constructor(arr) {
+        /**
+         * 
+         * @param {*|*[]} elements - The element(s) to add to the set.
+         */
+        constructor(elements) {
             this._map = new Map();
-            if (arr instanceof Array) {
-                for (const v of arr) {
+            if (elements instanceof Array) {
+                for (const v of elements) {
                     this.add(v);
                 }
             }
+            else {
+                this.add(elements)
+            }
         }
+        /**
+         * Add a single element to the set.
+         * @param {*} v - The element to add.
+         */
         add(v) {
             this._map.set(v.toString(), v);
         }
+        /**
+         * Check if the set contains a given element.
+         * @param {*} v - The element to check for.
+         * @returns {Boolean} `true` if the set contains the element, `false` otherwise.
+         */
         has(v) {
             return this._map.has(v.toString());
         }
@@ -135,10 +151,10 @@
     class SokobanLevel {
         /**
          * Create a Sokoban level.
-         * @param {string[]} data - The level data.
+         * @param {string[]} data - The level data, each element is a row of the level.
          * @param {string} [title] - The title of the level.
          * @param {string} [author] - The author of the level.
-         * @param {string} [solution] - The solution to the level.
+         * @param {string} [solution] - The moves to solve the level.
          */
         constructor(data, title, author, solution) {
             this._rawData = data;
@@ -148,6 +164,10 @@
             this._solution = solution;
         }
 
+        /**
+         * Create a deep copy of the level.
+         * @returns {SokobanLevel} Deep copy of the level.
+         */
         clone() {
             return new SokobanLevel(
                 this._rawData.map(row => row.slice()), // deep copy
@@ -222,6 +242,7 @@
          * Breadth-first search through level.
          * @param {Vec2} a start position
          * @param {Vec2} b target position
+         * @returns {String} URDL sequence of moves to get from `a` to `b`
          */
         shortestPath(a, b) {
             let visited = new SafeSet([a]);
@@ -539,9 +560,9 @@
                     this._style.textContent += `.char.c${idx} { background-position: calc(-${i} * var(--cell-size)) calc(-${j} * var(--cell-size)); }`;
                 }
             }
-            this._shadow.appendChild(this._style);
+            // Build level's style, will be updated later in _setLevelStyles()
             this._levelStyle = document.createElement("style");
-            this._shadow.appendChild(this._levelStyle);
+            // Build title bar
             let titlebar = document.createElement("div");
             titlebar.className = "titlebar";
             this._levelNameEl = document.createElement("div");
@@ -550,7 +571,7 @@
             this._shadow.appendChild(titlebar);
             this._board = document.createElement("div");
             this._board.className = "board";
-            this._shadow.appendChild(this._board);
+            // Build tool bar
             let toolbar = document.createElement("div");
             toolbar.className = "toolbar";
             this._prevLevelButton = document.createElement("div");
@@ -593,16 +614,20 @@
 }`;
         }
 
-        /** @param {String} url */
-        loadFromUrl(url) {
+        /** 
+         * Load a set of levels from a given URL.
+         * @param {String} url
+         */
+        _loadFromUrl(url) {
             fetch(url)
                 .then(async response => {
                     if (response.headers.get("Content-Type") === "application/octet-stream") {
                         return response.arrayBuffer().then(buffer => {
-                            const decoder = new TextDecoder('utf-8');
+                            const decoder = new TextDecoder("utf-8");
                             return decoder.decode(buffer);
                         });
-                    } else {
+                    }
+                    else {
                         return response.text();
                     }
                 })
