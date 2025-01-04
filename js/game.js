@@ -865,6 +865,7 @@
         }
 
         _activateEventListeners() {
+            window.addEventListener("visibilitychange", this._onVisibilityChange.bind(this));
             window.addEventListener("hashchange", this._onHashChange.bind(this));
             window.addEventListener("resize", this._onResize.bind(this));
             window.addEventListener("keydown", this._onKeyDown.bind(this));
@@ -925,7 +926,13 @@
             window.location.hash = `#collection=${this._collection};level=${this._levelNum + 1}`;
         }
 
-        _onResize(e) {
+        _onVisibilityChange(_e) {
+            if (document.visibilityState === "visible") {
+                this._stimulatePlayer();
+            }
+        }
+
+        _onResize(_e) {
             this._adjustCellSize();
         }
 
