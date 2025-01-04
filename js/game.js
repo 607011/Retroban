@@ -419,6 +419,9 @@
          */
         _inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
 
+        _autoplaying = false;
+        _cancelAutoplay = false;
+
         constructor() {
             super();
             this._undoStack = [];
@@ -692,6 +695,8 @@
          * Reset game data to its initial state.
          */
         reset() {
+            this._cancelAutoplay = false;
+            this._autoplaying = false;
             this._restartLevel();
         }
 
@@ -1012,6 +1017,12 @@
                 case ",":
                     this._prevLevel();
                     break;
+                case "Escape":
+                    if (this._autoplaying) {
+                        this._cancelAutoplay = true;
+                        this.reset();
+                    }
+                    break;
                 default:
                     break;
             }
@@ -1124,6 +1135,7 @@
             if (seq.length === 0)
                 return;
             this.reset();
+            this._autoplaying = true;
             let moves = seq.split("");
             let t0 = performance.now();
             const autoplay = () => {
@@ -1132,9 +1144,25 @@
                     this._move(move.toUpperCase());
                     t0 = performance.now()
                 }
-                requestAnimationFrame(autoplay);
+                if (moves.length > 0 && !this._cancelAutoplay) {
+                    requestAnimationFrame(autoplay);
+                }
+                else {
+                    this._autoplaying = false;
+                    this._cancelAutoplay = false;
+                }
             }
             requestAnimationFrame(autoplay);
+        }
+
+        _showSolution() {
+            if (this._level.solution) {
+                this.reset();
+                this.play(this._level.solution);
+            }
+            else {
+                console.info("No solution available.");
+            }
         }
     }
 
