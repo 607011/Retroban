@@ -5,17 +5,14 @@ source .env
 DIST=dist
 
 mkdir -p ${DIST}
-mkdir -p ${DIST}/puzzles/xsb
 echo Copying files ...
-rsync -rav puzzles/xsb ${DIST}/puzzles
-cp -r index.html game.js images ${DIST}
+rsync -Rrav puzzles/xsb ${DIST}
+cp -r index.html js images ${DIST}
 echo Minifying ...
-cd ${DIST}
-minify index.html -o index.html
-minify game.js -o game.js
+minify ${DIST}/index.html -o ${DIST}/index.html
+minify ${DIST}/js/game.js -o ${DIST}/js/game.js
 echo Optimizing images ...
-cd images
-optipng -quiet -o7 *.png
-cd ..
+optipng -quiet -o7 ${DIST}/images/*.png
 echo Syncing to ${DST} ...
+cd ${DIST}
 rsync -Rrav . ${DST}
