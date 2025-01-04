@@ -644,7 +644,7 @@
          * @param {String} seq 
          * @returns {String} URDL sequence
          */
-        convertToURDL(seq) {
+        _convertToURDL(seq) {
             const level = this._level.clone();
             const tokenized = function* (seq) {
                 const re = /([URDL]\d+)|(\d+-\d+)/i;
@@ -755,7 +755,7 @@
             return this._levelNum;
         }
 
-        nextLevel() {
+        _nextLevel() {
             if (this._levelNum + 1 < this._levels.length) {
                 ++this._levelNum;
                 this._buildHash();
@@ -766,7 +766,7 @@
             }
         }
 
-        prevLevel() {
+        _prevLevel() {
             if (this._levelNum > 0) {
                 --this._levelNum;
                 this._buildHash();
@@ -873,16 +873,16 @@
             if ((inXRange && inYRange) || (!inXRange && !inYRange))
                 return;
             if (clientX < playerRect.left) {
-                this.move(Direction.Left);
+                this._move(Direction.Left);
             }
             else if (clientX > playerRect.right) {
-                this.move(Direction.Right);
+                this._move(Direction.Right);
             }
             else if (clientY < playerRect.top) {
-                this.move(Direction.Up);
+                this._move(Direction.Up);
             }
             else if (clientY > playerRect.bottom) {
-                this.move(Direction.Down);
+                this._move(Direction.Down);
             }
             this._stimulatePlayer();
         }
@@ -899,22 +899,22 @@
                 case "ArrowUp":
                 // fallthrough
                 case "w":
-                    this.move(Direction.Up);
+                    this._move(Direction.Up);
                     break;
                 case "ArrowRight":
                 // fallthrough
                 case "d":
-                    this.move(Direction.Right);
+                    this._move(Direction.Right);
                     break;
                 case "ArrowDown":
                 // fallthrough
                 case "s":
-                    this.move(Direction.Down);
+                    this._move(Direction.Down);
                     break;
                 case "ArrowLeft":
                 // fallthrough
                 case "a":
-                    this.move(Direction.Left);
+                    this._move(Direction.Left);
                     break;
             }
         }
@@ -934,12 +934,12 @@
                 case "n":
                 // fallthrough
                 case ".":
-                    this.nextLevel();
+                    this._nextLevel();
                     break;
                 case "p":
                 // fallthrough
                 case ",":
-                    this.prevLevel();
+                    this._prevLevel();
                     break;
                 default:
                     break;
@@ -951,7 +951,7 @@
             const param = parseHash({ level: "1", collection: "Novoban" });
             if (this._collection !== param.collection) {
                 this._collection = param.collection;
-                this.loadFromUrl(`puzzles/xsb/${this._collection}.xsb`);
+                this._loadFromUrl(`puzzles/xsb/${this._collection}.xsb`);
             }
             this.levelNum = parseInt(param.level) - 1;
             this._buildHash();
@@ -969,7 +969,7 @@
             this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
         }
 
-        animatePlayer(direction) {
+        _animatePlayer(direction) {
             switch (direction) {
                 case Direction.Up:
                 case Direction.Down:
@@ -989,7 +989,7 @@
         }
 
         /** @param {string} direction */
-        move(direction) {
+        _move(direction) {
             const d = MOVE[direction];
             const dst = this._pos.add(d);
             const dstTile = this._level.at(dst);
@@ -1002,7 +1002,7 @@
                 this._moves.push(direction);
                 this._updateDisplay();
                 this._buildLevel();
-                this.animatePlayer(direction);
+                this._animatePlayer(direction);
                 return;
             }
             // destination field is a crate
@@ -1021,12 +1021,12 @@
             this._moves.push(direction);
             this._updateDisplay();
             this._buildLevel(); // XXX: Expensive operation! Should be optimized by moving only the necessary tiles.
-            this.animatePlayer(direction);
+            this._animatePlayer(direction);
             if (this._level.missionAccomplished()) {
                 setTimeout(() => {
                     if (this._levelNum + 1 < this._levels.length) {
                         alert(`Congratulations! Mission accomplished with ${this._moves.length} moves: ${this._moves.join("")}. Head over to the next level by pressing OK.`);
-                        this.nextLevel();
+                        this._nextLevel();
                     }
                     else {
                         alert(`Congratulations! Mission accomplished with ${this._moves.length} moves: ${this._moves.join("")}`);
@@ -1043,7 +1043,7 @@
         play(seq) {
             if (!seq.match(/^[URDL]+$/i)) {
                 // It's probably a ksokoban sequence, so we need to convert it to URDL format
-                seq = this.convertToURDL(seq);
+                seq = this._convertToURDL(seq);
                 if (!seq) {
                     console.error("Invalid sequence.");
                     return;
@@ -1057,7 +1057,7 @@
             const autoplay = () => {
                 if (moves.length > 0 && performance.now() > t0 + 150) {
                     const move = moves.shift();
-                    this.move(move.toUpperCase());
+                    this._move(move.toUpperCase());
                     t0 = performance.now()
                 }
                 requestAnimationFrame(autoplay);
