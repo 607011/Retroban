@@ -267,17 +267,17 @@
             // Construct sequence of moves by going backwards from target to start
             let path = [];
             let current = b;
-            let last = current;
+            let next = current;
             while (current && !current.equals(a)) {
-                last = current;
+                next = current;
                 current = parent.get(current);
-                if (last.x > current.x)
+                if (next.x > current.x)
                     path.unshift(Direction.Right);
-                else if (last.x < current.x)
+                else if (next.x < current.x)
                     path.unshift(Direction.Left);
-                else if (last.y > current.y)
+                else if (next.y > current.y)
                     path.unshift(Direction.Down);
-                else if (last.y < current.y)
+                else if (next.y < current.y)
                     path.unshift(Direction.Up);
             }
             return path.join("");
@@ -491,10 +491,13 @@
 }
 @keyframes wave {
     0%, 100% {
-        background-position: calc(-2 * var(--cell-size)) calc(-2 * var(--cell-size));
+        background-position: 0 calc(-5 * var(--cell-size));
+    }
+    25%, 75% {
+        background-position: calc(-2 * var(--cell-size)) calc(-4 * var(--cell-size));
     }
     50% {
-        background-position: calc(-2 * var(--cell-size)) calc(-4 * var(--cell-size));
+        background-position: calc(-2 * var(--cell-size)) calc(-5 * var(--cell-size));
     }
 }
 .tile.player.left {
@@ -518,10 +521,13 @@
 }
 @keyframes wave-on-goal {
     0%, 100% {
-        background-position: calc(-3 * var(--cell-size)) calc(-2 * var(--cell-size));
+        background-position: calc(-1 * var(--cell-size)) calc(-5 * var(--cell-size));
+    }
+    25%, 75% {
+        background-position: calc(-3 * var(--cell-size)) calc(-4 * var(--cell-size));
     }
     50% {
-        background-position: calc(-3 * var(--cell-size)) calc(-4 * var(--cell-size));
+        background-position: calc(-3 * var(--cell-size)) calc(-5 * var(--cell-size));
     }
 }
 .tile.player.goal.left {
@@ -881,7 +887,7 @@
         }
 
         _activateEventListeners() {
-            window.addEventListener("visibilitychange", this._onVisibilityChange.bind(this));
+            document.addEventListener("visibilitychange", this._onVisibilityChange.bind(this));
             window.addEventListener("hashchange", this._onHashChange.bind(this));
             window.addEventListener("resize", this._onResize.bind(this));
             window.addEventListener("keydown", this._onKeyDown.bind(this));
