@@ -1,8 +1,6 @@
 (function (window) {
     "use strict";
 
-    const CELL_SIZE = 32;
-
     class Tile {
         static Floor = 1 << 0;
         static Player = 1 << 1;
@@ -379,7 +377,7 @@
          * Width and height in pixels of a single cell.
          * @type {Number}
          */
-        _cellSize = CELL_SIZE;
+        _cellSize;
 
         /**
          * 2D array of HTML elements representing the game board. 
@@ -420,9 +418,6 @@
             this._shadow = this.attachShadow({ mode: "open" });
             this._style = document.createElement("style");
             this._style.textContent = `
-:host {
-    --cell-size: ${this._cellSize}px;
-}
 * {
     margin: 0;
     padding: 0;
@@ -589,6 +584,9 @@
 
         _setLevelStyles() {
             this._levelStyle.textContent = `
+:host {
+    --cell-size: ${this._cellSize}px;
+}
 .board {
     width: calc(var(--cell-size) * ${this._level.width});
     height: calc(var(--cell-size) * ${this._level.height});
@@ -667,6 +665,18 @@
             }
             console.info(`${seq} -> ${result}`);
             return result;
+        }
+
+        _adjustCellSize() {
+            const MARGIN_FOR_TITLE_AND_TOOLBAR = 5;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const maxWidth = Math.floor(viewportWidth / this._level.width);
+            const maxHeight = Math.floor(viewportHeight / (this._level.height + MARGIN_FOR_TITLE_AND_TOOLBAR));
+            let newSize = Math.min(maxWidth, maxHeight);
+            newSize -= newSize % 8;
+            this._cellSize = newSize;
+            this._setLevelStyles();
         }
 
         _updateLevelName() {
@@ -752,6 +762,7 @@
 
         _activateEventListeners() {
             window.addEventListener("hashchange", this._onHashChange.bind(this));
+            window.addEventListener("resize", this._onResize.bind(this));
             window.addEventListener("keydown", this._onKeyDown.bind(this));
             window.addEventListener("keypress", this._onKeyPress.bind(this));
             window.addEventListener("touchstart", this._onTouchStart.bind(this));
@@ -763,6 +774,7 @@
                 this._moves = [];
                 this._undoStack = [];
                 this._level = this._levels[this._levelNum].clone();
+                this._adjustCellSize();
                 this._buildLevel();
                 this._updateDisplay();
                 this._updateLevelName();
@@ -778,8 +790,8 @@
             for (const [row, rowObjs] of this._level.data.entries()) {
                 for (const [col, tile] of rowObjs.entries()) {
                     let div = document.createElement("div");
-                    div.style.top = `${row * this._cellSize}px`;
-                    div.style.left = `${col * this._cellSize}px`;
+                    div.style.top = `calc(var(--cell-size) * ${row})`;
+                    div.style.left = `calc(var(--cell-size) * ${col})`;
                     div.className = "tile";
                     if (tile & Tile.Wall) {
                         div.classList.add("wall");
@@ -808,6 +820,10 @@
 
         _buildHash() {
             window.location.hash = `#collection=${this._collection};level=${this._levelNum + 1}`;
+        }
+
+        _onResize(e) {
+            this._adjustCellSize();
         }
 
         /** @param {TouchEvent} _e  */
