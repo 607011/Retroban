@@ -417,7 +417,7 @@
          * Handle for inactivity timer.
          * @type {number}
          */
-        _inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
+        _inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 12345);
 
         _autoplaying = false;
         _cancelAutoplay = false;
@@ -1078,20 +1078,20 @@
             this._player.classList.add("relaxed");
             this._player.classList.remove("waving", "left", "right");
             clearTimeout(this._inactivityTimer);
-            this._inactivityTimer = setTimeout(this._makePlayerWaving.bind(this), 5000);
+            this._inactivityTimer = setTimeout(this._makePlayerWaving.bind(this), 3000 + Math.random() * 5000);
         }
 
         _makePlayerWaving() {
             this._player.classList.remove("relaxed");
             this._player.classList.add("waving");
             clearTimeout(this._inactivityTimer);
-            this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
+            this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5100);
         }
 
         _stimulatePlayer() {
             this._player.classList.remove("relaxed", "waving");
             clearTimeout(this._inactivityTimer);
-            this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5000);
+            this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 8000 + Math.random() * 5000);
         }
 
         _animatePlayer(direction) {
