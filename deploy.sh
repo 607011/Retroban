@@ -7,6 +7,7 @@ DIST=dist
 mkdir -p ${DIST}
 echo Copying files ...
 rsync -Rrav puzzles/xsb ${DIST}
+cp puzzles/list.txt ${DIST}/puzzles
 cp -r index.html js images ${DIST}
 echo Minifying ...
 minify ${DIST}/index.html -o ${DIST}/index.html

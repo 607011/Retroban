@@ -414,17 +414,37 @@
         _player;
 
         /** 
+         * Is the player allowed to relax and wave hands?
+         * @type {Boolean}
+         */
+        _playerAnimated = true;
+
+        /** 
          * Handle for inactivity timer.
          * @type {number}
          */
         _inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 12345);
 
+        /** 
+         * Is autoplay currently running?
+         * @type {Boolean}
+         */
         _autoplaying = false;
+
+        /** 
+         * Should autoplay be stopped?
+         * @type {Boolean}
+         */
         _cancelAutoplay = false;
+
+        /**
+         * Stack for moves that can be undone.
+         * @type {object[][]}
+         */
+        _undoStack = [];
 
         constructor() {
             super();
-            this._undoStack = [];
         }
 
         connectedCallback() {
@@ -624,11 +644,11 @@
             this._prevLevelButton.setAttribute("tabindex", 0);
             this._prevLevelButton.className = "tile prev";
             this._prevLevelButton.title = "Previous level (P or ,)";
-            this._prevLevelButton.addEventListener("click", this._prevLevel.bind(this));
+            this._prevLevelButton.addEventListener("click", this.prevLevel.bind(this));
             this._prevLevelButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
                 if (e.key === "Enter" || e.key === " ") {
-                    this._prevLevel();
+                    this.prevLevel();
                 }
             });
             toolbar.appendChild(this._prevLevelButton);
@@ -655,11 +675,11 @@
             undoButton.setAttribute("tabindex", 0);
             undoButton.className = "tile undo";
             undoButton.title = "Undo last move (U)";
-            undoButton.addEventListener("click", this._undo.bind(this));
+            undoButton.addEventListener("click", this.undo.bind(this));
             undoButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
                 if (e.key === "Enter" || e.key === " ") {
-                    this._undo();
+                    this.undo();
                 }
             });
             toolbar.appendChild(undoButton);
@@ -669,11 +689,11 @@
             this._nextLevelButton.setAttribute("tabindex", 0);
             this._nextLevelButton.className = "tile next";
             this._nextLevelButton.title = "Next level (N or .)";
-            this._nextLevelButton.addEventListener("click", this._nextLevel.bind(this));
+            this._nextLevelButton.addEventListener("click", this.nextLevel.bind(this));
             this._nextLevelButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
                 if (e.key === "Enter" || e.key === " ") {
-                    this._nextLevel();
+                    this.nextLevel();
                 }
             });
             toolbar.appendChild(this._nextLevelButton);
@@ -692,7 +712,7 @@
             this._levelStyle.textContent = `
 :host {
     --cell-size: ${this._cellSize}px;
-    --font-size: calc(var(--cell-size) / 3);
+    --font-size: ${Math.floor(this._cellSize / 3)}px;
 }
 .board {
     width: calc(var(--cell-size) * ${this._level.width});
@@ -735,7 +755,6 @@
             this._autoplaying = false;
             this._restartLevel();
         }
-
 
         /**
          * Convert a ksokoban.online solution to URDL format.
@@ -837,7 +856,7 @@
             }
         }
 
-        _undo() {
+        undo() {
             const moves = this._undoStack.pop();
             if (!moves)
                 return;
@@ -850,6 +869,19 @@
             }
             this._buildLevel();
             this._updateDisplay();
+        }
+
+        /**
+         * @param {String} collection
+         */
+        set collection(collection) {
+            this._collection = collection;
+            this._loadFromUrl(`puzzles/xsb/${collection}.xsb`);
+        }
+
+        /** @returns {String} */
+        get collection() {
+            return this._collection;
         }
 
         /**
@@ -867,7 +899,7 @@
             return this._levelNum;
         }
 
-        _nextLevel() {
+        nextLevel() {
             if (this._levelNum + 1 < this._levels.length) {
                 ++this._levelNum;
                 this._buildHash();
@@ -878,7 +910,7 @@
             }
         }
 
-        _prevLevel() {
+        prevLevel() {
             if (this._levelNum > 0) {
                 --this._levelNum;
                 this._buildHash();
@@ -1009,54 +1041,17 @@
         _onKeyDown(e) {
             this._stimulatePlayer();
             switch (e.key) {
-                case "u":
-                // fallthrough
-                case "z":
-                    this._undo();
-                    break;
                 case "ArrowUp":
-                // fallthrough
-                case "w":
                     this._move(Direction.Up);
                     break;
                 case "ArrowRight":
-                // fallthrough
-                case "d":
                     this._move(Direction.Right);
                     break;
                 case "ArrowDown":
-                // fallthrough
-                case "s":
                     this._move(Direction.Down);
                     break;
                 case "ArrowLeft":
-                // fallthrough
-                case "a":
                     this._move(Direction.Left);
-                    break;
-                case "?":
-                    if (prompt("If you really want me to show the solution for this level, type 'YES'.", "no") === "YES") {
-                        this._showSolution();
-                    }
-                    break;
-                case "r":
-                    this._restartLevel();
-                    break;
-                case "n":
-                // fallthrough
-                case ".":
-                    this._nextLevel();
-                    break;
-                case "p":
-                // fallthrough
-                case ",":
-                    this._prevLevel();
-                    break;
-                case "Escape":
-                    if (this._autoplaying) {
-                        this._cancelAutoplay = true;
-                        this.reset();
-                    }
                     break;
                 default:
                     break;
@@ -1074,24 +1069,37 @@
             this._buildHash();
         }
 
+        cancelAutoplay() {
+            if (this._autoplaying) {
+                this._cancelAutoplay = true;
+                this.reset();
+            }
+        }
+
         _relaxPlayer() {
             this._player.classList.add("relaxed");
             this._player.classList.remove("waving", "left", "right");
             clearTimeout(this._inactivityTimer);
-            this._inactivityTimer = setTimeout(this._makePlayerWaving.bind(this), 3000 + Math.random() * 5000);
+            if (this._playerAnimated) {
+                this._inactivityTimer = setTimeout(this._makePlayerWaving.bind(this), 3000 + Math.random() * 5000);
+            }
         }
 
         _makePlayerWaving() {
             this._player.classList.remove("relaxed");
             this._player.classList.add("waving");
             clearTimeout(this._inactivityTimer);
-            this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5100);
+            if (this._playerAnimated) {
+                this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5100);
+            }
         }
 
         _stimulatePlayer() {
             this._player.classList.remove("relaxed", "waving");
             clearTimeout(this._inactivityTimer);
-            this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 8000 + Math.random() * 5000);
+            if (this._playerAnimated) {
+                this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 8000 + Math.random() * 5000);
+            }
         }
 
         _animatePlayer(direction) {
@@ -1111,6 +1119,15 @@
                 default:
                     break;
             }
+        }
+
+        togglePlayerAnimation() {
+            this._playerAnimated = !this._playerAnimated;
+            console.info(`Player's animation ${this._playerAnimated ? "started" : "stopped"}.`)
+            if (!this._playerAnimated) {
+                clearTimeout(this._inactivityTimer);
+            }
+            this._stimulatePlayer();
         }
 
         /** @param {string} direction */
@@ -1151,7 +1168,7 @@
                 setTimeout(() => {
                     if (this._levelNum + 1 < this._levels.length) {
                         alert(`Congratulations! Mission accomplished with ${this._moves.length} moves: ${this._moves.join("")}. Head over to the next level by pressing OK.`);
-                        this._nextLevel();
+                        this.nextLevel();
                         this._stimulatePlayer();
                     }
                     else {
@@ -1198,7 +1215,7 @@
             requestAnimationFrame(autoplay);
         }
 
-        _showSolution() {
+        showSolution() {
             if (this._level.solution) {
                 this.reset();
                 this.play(this._level.solution);
@@ -1218,12 +1235,89 @@
         el.game.play(seq);
     }
 
+    function loadCollectionList() {
+        fetch("puzzles/list.txt")
+            .then(response => response.text())
+            .then(data => {
+                let collectionList = el.collectionDialog.querySelector("#collection-list");
+                let n = 0;
+                for (const line of data.split(/\n|\r\n|\r/)) {
+                    let option = document.createElement("option");
+                    option.value = line;
+                    collectionList.appendChild(option);
+                    ++n;
+                }
+                el.collectionDialog.appendChild(collectionList);
+                console.info(`List of ${n} collections loaded.`);
+            })
+            .catch(err => console.error(err));
+    }
+
     let el = {};
 
+    function onKeyUp(e) {
+        switch (e.key) {
+            case "?":
+            // fallthrough
+            case "h":
+                el.help.showModal();
+                break;
+            case "c":
+                el.collectionDialog.showModal();
+                break;
+            case "n":
+            // fallthrough
+            case ".":
+                el.game.nextLevel();
+                break;
+            case "p":
+            // fallthrough
+            case ",":
+                el.game.prevLevel();
+                break;
+            case "u":
+            // fallthrough
+            case "z":
+                el.game.undo();
+                break;
+            case "r":
+                el.game.reset();
+                break;
+            case "a":
+                el.game.togglePlayerAnimation();
+                break;
+            case "s":
+                if (prompt("If you really want me to show the solution for this level, type 'YES'.", "no") === "YES") {
+                    el.game.showSolution();
+                }
+                break;
+            case "Escape":
+                el.game.cancelAutoplay();
+                break;
+            default:
+                break;
+        }
+    }
+
     function main() {
-        console.info("%cMinimalist Sokoban started.", "color: green; font-weight: bold");
+        console.info("%cMinimalist Sokoban %cstarted.", "color: #DE2B2B; font-weight: bold", "color: initial; font-weight: normal;");
         customElements.define("sokoban-game", SokobanGame);
         el.game = document.querySelector("sokoban-game");
+        el.collectionDialog = document.querySelector("#collection-selector");
+        el.collectionDialog.querySelector("button").addEventListener("click", _e => {
+            el.collectionDialog.close();
+            el.game.collection = el.collectionDialog.querySelector("#collection-input").value;
+            el.game.levelNum = 1;
+        });
+        el.collectionDialog.addEventListener("keydown", e => e.stopPropagation());
+        el.collectionDialog.addEventListener("keyup", e => e.stopPropagation());
+        el.help = document.querySelector("#help-dialog");
+        const helpOk = el.help.querySelector("button");
+        helpOk.addEventListener("click", _e => {
+            el.help.close();
+        });
+        window.addEventListener("keyup", onKeyUp);
+        loadCollectionList();
     }
 
     window.addEventListener("load", main);
