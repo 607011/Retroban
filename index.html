@@ -68,15 +68,25 @@
             overflow: auto;
         }
 
-        dialog > h2 {
+        dialog>div {
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        dialog h2 {
             margin: 0 0 1ex 0;
         }
 
-        dialog > p {
+        dialog h2:not(:first-child) {
+            margin-top: 2ex;
+        }
+
+
+        dialog p {
             margin: 0 0 1ex 0;
         }
 
-        dialog > p:last-child {
+        dialog>p:last-child {
             margin-top: 2ex;
         }
 
@@ -109,54 +119,67 @@
         <sokoban-game></sokoban-game>
 
         <dialog id="collection-selector">
-            <h2>Choose a collection</h2>
-            <p><input type="text" list="collection-list"  id="collection-input" placeholder="Type collection name"></p>
-            <p>
-                <button data-id="cancel">Cancel</button>
-                <button data-id="ok">OK</button>
-            </p>
+            <div>
+                <h2>Choose a collection</h2>
+                <p><input type="text" list="collection-list" id="collection-input" placeholder="Type collection name">
+                </p>
+                <p>
+                    <button data-id="cancel">Cancel</button>
+                    <button data-id="ok">OK</button>
+                </p>
+            </div>
             <datalist id="collection-list"></datalist>
         </dialog>
 
         <dialog id="help-dialog">
-            <h2>How to play</h2>
-            <p>Push the boxes onto the goals to win. The fewer moves, the better.</p>
-            <p>Use the arrow keys to move the player.</p>
-            <p><strong>R</strong>: Restart level.</p>
-            <p><strong>U</strong> or <strong>Z</strong>: Undo last step.</p>
-            <p><strong>N</strong> or <strong>.</strong>: Go to next level.</p>
-            <p><strong>P</strong> or <strong>,</strong>: Go to previous level.</p>
-            <p><strong>C</strong> or click on collection name on the top of the page: Choose level collection.</p>
-            <p><strong>A</strong>: Toggle player's animation.</p>
-            <p><strong>S</strong>: Show solution.</p>
-            <p><strong>H</strong> or <strong>?</strong>: Show this help dialog.</p>
-            <p><button>Got it</button></p>
+            <div>
+                <h2>How to play</h2>
+                <p>Push the boxes onto the goals to win. The fewer moves, the better.</p>
+                <p>Use the arrow keys to move the player.</p>
+                <p><strong>R</strong>: Restart level.</p>
+                <p><strong>U</strong> or <strong>Z</strong>: Undo last step.</p>
+                <p><strong>N</strong> or <strong>.</strong>: Go to next level.</p>
+                <p><strong>P</strong> or <strong>,</strong>: Go to previous level.</p>
+                <p><strong>C</strong> or click on collection name on the top of the page: Choose level collection.</p>
+                <p><strong>A</strong>: Toggle player's animation.</p>
+                <p><strong>S</strong>: Show solution.</p>
+                <p><strong>H</strong> or <strong>?</strong>: Show this help dialog.</p>
+                <p><button>Got it</button></p>
+            </div>
         </dialog>
 
         <dialog id="level-complete-dialog">
-            <h2>Level complete</h2>
-            <p></p>
-            <p><button></button></p>
+            <div>
+                <h2>Level complete</h2>
+                <p></p>
+                <p><button></button></p>
+            </div>
         </dialog>
 
         <dialog id="settings-dialog">
-            <h2>Settings</h2>
-            <p><input type="checkbox" name="animated-player" id="animated-player"></input>
-                <label for="animated-player">Animate player</label></p>
-            <p><button data-id="show-solution">Show solution</button></p>
-            <p><button data-id="choose-collection">Choose collection</button></p>
-            <p>
-                <button data-id="cancel">Cancel</button>
-                <button data-id="apply">Apply</button>
-            </p>            
+            <div>
+                <h2>Settings</h2>
+                <p><input type="checkbox" name="animated-player" id="animated-player"></input>
+                    <label for="animated-player">Animate player</label>
+                </p>
+                <p>
+                    <button data-id="cancel">Cancel</button>
+                    <button data-id="apply">Apply</button>
+                </p>
+                <h2>Actions</h2>
+                <p><button data-id="show-solution">Show solution</button></p>
+                <p><button data-id="choose-collection">Choose collection</button></p>
+            </div>
         </dialog>
 
         <dialog id="show-solution-dialog">
-            <p>Do you really want me to show you the solution?</p>
-            <p>
-                <button data-id="no">No</button>
-                <button data-id="yes">Yes</button>
-            </p>
+            <div>
+                <p>Do you really want me to show you the solution?</p>
+                <p>
+                    <button data-id="no">No</button>
+                    <button data-id="yes">Yes</button>
+                </p>
+            </div>
         </dialog>
     </main>
     <script src="js/game.js" defer></script>
