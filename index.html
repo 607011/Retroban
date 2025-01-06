@@ -112,8 +112,8 @@
             <h2>Choose a collection</h2>
             <p><input type="text" list="collection-list"  id="collection-input" placeholder="Type collection name"></p>
             <p>
-                <button>Cancel</button>
-                <button>OK</button>
+                <button data-id="cancel">Cancel</button>
+                <button data-id="ok">OK</button>
             </p>
             <datalist id="collection-list"></datalist>
         </dialog>
@@ -140,17 +140,18 @@
             <h2>Settings</h2>
             <p><input type="checkbox" name="animated-player" id="animated-player"></input>
                 <label for="animated-player">Animate player</label></p>
+            <p><button data-id="show-solution">Show solution</button></p>
             <p>
-                <button>Cancel</button>
-                <button>Apply</button>
+                <button data-id="cancel">Cancel</button>
+                <button data-id="apply">Apply</button>
             </p>            
         </dialog>
 
         <dialog id="show-solution-dialog">
             <p>Do you really want me to show you the solution?</p>
             <p>
-                <button>No</button>
-                <button>Yes</button>
+                <button data-id="no">No</button>
+                <button data-id="yes">Yes</button>
             </p>
         </dialog>
     </main>

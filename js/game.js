@@ -1419,12 +1419,12 @@
             el.collectionDialog.showModal();
         });
         el.collectionDialog = document.querySelector("#collection-selector");
-        el.collectionDialog.querySelector("button:nth-child(1)").addEventListener("click", e => {
+        el.collectionDialog.querySelector('button[data-id="cancel"]').addEventListener("click", e => {
             el.collectionDialog.close();
             e.preventDefault();
             e.stopPropagation();
         });
-        el.collectionDialog.querySelector("button:nth-child(2)").addEventListener("click", e => {
+        el.collectionDialog.querySelector('button[data-id="ok"]').addEventListener("click", e => {
             el.collectionDialog.close();
             const collectionList = el.collectionDialog.querySelector("#collection-list");
             const inputValue = el.collectionDialog.querySelector("#collection-input").value;
@@ -1442,14 +1442,17 @@
 
     function enableShowSolutionDialog() {
         el.showSolutionDialog = document.querySelector("#show-solution-dialog");
-        const noButton = el.showSolutionDialog.querySelector("button:nth-child(1)")
+        const noButton = el.showSolutionDialog.querySelector('button[data-id="no"]')
         noButton.addEventListener("click", e => {
             el.showSolutionDialog.close();
             e.stopImmediatePropagation();
         });
-        const yesButton = el.showSolutionDialog.querySelector("button:nth-child(2)")
+        const yesButton = el.showSolutionDialog.querySelector('button[data-id="yes"]')
         yesButton.addEventListener("click", e => {
             el.showSolutionDialog.close();
+            if (el.settingsDialog.open) {
+                el.settingsDialog.close();
+            }
             el.game.showSolution();
             e.stopImmediatePropagation();
         });
@@ -1469,15 +1472,20 @@
 
     function enableSettingsDialog() {
         el.settingsDialog = document.querySelector("#settings-dialog");
-        const cancelButton = el.settingsDialog.querySelector("button:nth-child(1)");
+        const cancelButton = el.settingsDialog.querySelector('button[data-id="cancel"]');
         cancelButton.addEventListener("click", e => {
             el.settingsDialog.close();
             e.stopImmediatePropagation();
         });
-        const applyButton = el.settingsDialog.querySelector("button:nth-child(2)");
+        const applyButton = el.settingsDialog.querySelector('button[data-id="apply"]');
         applyButton.addEventListener("click", e => {
             el.game.playerAnimated = el.settingsDialog.querySelector("input[name='animated-player']").checked;
             el.settingsDialog.close();
+            e.stopImmediatePropagation();
+        });
+        const showSolutionButton = el.settingsDialog.querySelector('button[data-id="show-solution"]');
+        showSolutionButton.addEventListener("click", e => {
+            el.showSolutionDialog.showModal();
             e.stopImmediatePropagation();
         });
         window.addEventListener("showsettings", () => {
@@ -1485,7 +1493,6 @@
             el.settingsDialog.showModal();
         });
     }
-
 
     function main() {
         console.info("%cRetroban %cstarted.", "color: #DE2B2B; font-weight: bold", "color: initial; font-weight: normal;");
