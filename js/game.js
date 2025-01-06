@@ -566,6 +566,11 @@
     background-position: calc(-2 * var(--cell-size)) calc(-1 * var(--cell-size));
     cursor: pointer;
 }
+.tile.hamburger {
+    position: relative;
+    background-position: calc(-4 * var(--cell-size)) 0;
+    cursor: pointer;
+}
 .tile.prev {
     position: relative;
     background-position: calc(-3 * var(--cell-size)) 0;
@@ -576,7 +581,17 @@
     background-position: calc(-3 * var(--cell-size)) calc(-1 * var(--cell-size));
     cursor: pointer;
 }
-.tile.question-mark {
+.tile.radio {
+    position: relative;
+    background-position: calc(-4 * var(--cell-size)) calc(-1 * var(--cell-size));
+    cursor: pointer;
+}
+.tile.radio.on {
+    position: relative;
+    background-position: calc(-5 * var(--cell-size)) calc(-1 * var(--cell-size));
+    cursor: pointer;
+}
+.tile.help {
     position: relative;
     background-position: calc(-3 * var(--cell-size)) calc(-3 * var(--cell-size));
     cursor: pointer;
@@ -624,9 +639,16 @@
             titlebar.className = "titlebar";
             let titlebarInner = document.createElement("div");
             titlebar.appendChild(titlebarInner);
-            this._levelNameEl = document.createElement("div");
-            this._levelNameEl.setAttribute("role", "img");
-            titlebarInner.appendChild(this._levelNameEl);
+            this._collectionNameEl = document.createElement("div");
+            this._collectionNameEl.setAttribute("role", "img");
+            this._collectionNameEl.addEventListener("click", this._onClick.bind(this));
+            this._collectionNameEl.addEventListener("touchstart", this._onTouchStart.bind(this));
+            this._collectionNameEl.addEventListener("touchend", this._onTouchEnd.bind(this));
+            this._collectionNameEl.style.cursor = "pointer";
+            titlebarInner.appendChild(this._collectionNameEl);
+            this._moveCountEl = document.createElement("div");
+            this._moveCountEl.className = "move-count"
+            titlebarInner.appendChild(this._moveCountEl);
             this._levelNumEl = document.createElement("div");
             this._levelNumEl.setAttribute("role", "img");
             titlebarInner.appendChild(this._levelNumEl);
@@ -644,7 +666,10 @@
             this._prevLevelButton.setAttribute("tabindex", 0);
             this._prevLevelButton.className = "tile prev";
             this._prevLevelButton.title = "Previous level (P or ,)";
-            this._prevLevelButton.addEventListener("click", this.prevLevel.bind(this));
+            this._prevLevelButton.addEventListener("click", e => {
+                this.prevLevel();
+                e.stopImmediatePropagation();
+            });
             this._prevLevelButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
                 if (e.key === "Enter" || e.key === " ") {
@@ -658,7 +683,10 @@
             resetButton.setAttribute("tabindex", 0);
             resetButton.className = "tile reset";
             resetButton.title = "Restart level (R)";
-            resetButton.addEventListener("click", this.reset.bind(this));
+            resetButton.addEventListener("click", e => {
+                this.reset();
+                e.stopImmediatePropagation();
+            });
             resetButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
                 if (e.key === "Enter" || e.key === " ") {
@@ -666,16 +694,53 @@
                 }
             });
             toolbar.appendChild(resetButton);
-            this._moveCountEl = document.createElement("div");
-            this._moveCountEl.className = "move-count"
-            toolbar.appendChild(this._moveCountEl);
+
+            let hamburger = document.createElement("div");
+            hamburger.setAttribute("role", "button");
+            hamburger.setAttribute("aria-label", "Menu");
+            hamburger.setAttribute("tabindex", 0);
+            hamburger.className = "tile hamburger";
+            hamburger.title = "Menu";
+            hamburger.addEventListener("click", e => {
+                this.showSettings();
+                e.stopImmediatePropagation();
+            });
+            hamburger.addEventListener("keydown", e => {
+                this._stimulatePlayer();
+                if (e.key === "Enter" || e.key === " ") {
+                    this.showSettings();
+                }
+            });
+            toolbar.appendChild(hamburger);
+
+            let helpButton = document.createElement("div");
+            helpButton.setAttribute("role", "button");
+            helpButton.setAttribute("aria-label", "Menu");
+            helpButton.setAttribute("tabindex", 0);
+            helpButton.className = "tile help";
+            helpButton.title = "Menu";
+            helpButton.addEventListener("click", e => {
+                this.showHelp();
+                e.preventDefault();
+            });
+            helpButton.addEventListener("keydown", e => {
+                this._stimulatePlayer();
+                if (e.key === "Enter" || e.key === " ") {
+                    this.showHelp();
+                }
+            });
+            toolbar.appendChild(helpButton);
+
             let undoButton = document.createElement("div");
             undoButton.setAttribute("role", "button");
             undoButton.setAttribute("aria-label", "Undo last move (Z or U)");
             undoButton.setAttribute("tabindex", 0);
             undoButton.className = "tile undo";
             undoButton.title = "Undo last move (U)";
-            undoButton.addEventListener("click", this.undo.bind(this));
+            undoButton.addEventListener("click", e => {
+                this.undo();
+                e.stopImmediatePropagation();
+            });
             undoButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
                 if (e.key === "Enter" || e.key === " ") {
@@ -683,13 +748,17 @@
                 }
             });
             toolbar.appendChild(undoButton);
+
             this._nextLevelButton = document.createElement("div");
             this._nextLevelButton.setAttribute("role", "button");
             this._nextLevelButton.setAttribute("aria-label", "Next level (N or .)");
             this._nextLevelButton.setAttribute("tabindex", 0);
             this._nextLevelButton.className = "tile next";
             this._nextLevelButton.title = "Next level (N or .)";
-            this._nextLevelButton.addEventListener("click", this.nextLevel.bind(this));
+            this._nextLevelButton.addEventListener("click", e => {
+                this.nextLevel();
+                e.stopImmediatePropagation();
+            });
             this._nextLevelButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
                 if (e.key === "Enter" || e.key === " ") {
@@ -821,8 +890,8 @@
                 span.className = `char c${c.charCodeAt(0)}`;
                 chars.push(span);
             }
-            this._levelNameEl.setAttribute("aria-label", `Collection: ${this._collection}`);
-            this._levelNameEl.replaceChildren(...chars);
+            this._collectionNameEl.setAttribute("aria-label", `Collection: ${this._collection}`);
+            this._collectionNameEl.replaceChildren(...chars);
             let digits = [];
             const levelNum = (this._levelNum + 1).toString();
             for (const digit of levelNum) {
@@ -832,6 +901,11 @@
             }
             this._levelNumEl.setAttribute("aria-label", `Level: ${levelNum}`);
             this._levelNumEl.replaceChildren(...digits);
+            dispatchEvent(new CustomEvent("collectionchange", {
+                detail: {
+                    name: this._collection
+                }
+            }));
         }
 
         _updateDisplay() {
@@ -872,14 +946,18 @@
         }
 
         /**
-         * @param {String} collection
+         * If given collection is the same as the current one, do nothing.
+         * Otherweise set the collection as the current one and load it.
+         * @param {String} collection - name of collection
          */
         set collection(collection) {
+            if (this._collection === collection)
+                return;
             this._collection = collection;
             this._loadFromUrl(`puzzles/xsb/${collection}.xsb`);
         }
 
-        /** @returns {String} */
+        /** @returns {String} name of current collection */
         get collection() {
             return this._collection;
         }
@@ -902,7 +980,7 @@
         nextLevel() {
             if (this._levelNum + 1 < this._levels.length) {
                 ++this._levelNum;
-                this._buildHash();
+                this.buildHash();
                 this._restartLevel();
             }
             else {
@@ -913,7 +991,7 @@
         prevLevel() {
             if (this._levelNum > 0) {
                 --this._levelNum;
-                this._buildHash();
+                this.buildHash();
                 this._restartLevel();
             }
         }
@@ -976,13 +1054,16 @@
             this._board.replaceChildren(...tiles);
         }
 
-        _buildHash() {
+        buildHash() {
             window.location.hash = `#collection=${this._collection};level=${this._levelNum + 1}`;
         }
 
         _onVisibilityChange(_e) {
             if (document.visibilityState === "visible") {
                 this._stimulatePlayer();
+            }
+            else {
+                clearTimeout(this._inactivityTimer);
             }
         }
 
@@ -1005,7 +1086,7 @@
         }
 
         /** @param {TouchEvent|PointerEvent} e  */
-        _onClick(e) {
+        _onBoardClick(e) {
             let clientX, clientY;
             if (e.touches && e.touches.length > 0) {
                 clientX = e.touches[0].clientX;
@@ -1037,6 +1118,18 @@
             this._stimulatePlayer();
         }
 
+        /** @param {TouchEvent|PointerEvent} e  */
+        _onClick(e) {
+            if (e.target.parentNode === this._collectionNameEl) {
+                dispatchEvent(new CustomEvent("choosecollection"));
+                e.stopImmediatePropagation();
+            }
+            else if (e.target === this._board) {
+                this._onBoardClick(e);
+            }
+            e.stopPropagation();
+        }
+
         /** @param {KeyboardEvent} e */
         _onKeyDown(e) {
             this._stimulatePlayer();
@@ -1058,15 +1151,12 @@
             }
         }
 
-        /** @param {HashChangeEvent} _e  */
+        /** @param {HashChangeEvent} _e - not used */
         _onHashChange(_e) {
             const param = parseHash({ level: "1", collection: "Novoban" });
-            if (this._collection !== param.collection) {
-                this._collection = param.collection;
-                this._loadFromUrl(`puzzles/xsb/${this._collection}.xsb`);
-            }
+            this.collection = param.collection;
             this.levelNum = parseInt(param.level) - 1;
-            this._buildHash();
+            this.buildHash();
         }
 
         cancelAutoplay() {
@@ -1122,12 +1212,25 @@
         }
 
         togglePlayerAnimation() {
-            this._playerAnimated = !this._playerAnimated;
-            console.info(`Player's animation ${this._playerAnimated ? "started" : "stopped"}.`)
-            if (!this._playerAnimated) {
-                clearTimeout(this._inactivityTimer);
+            this.playerAnimated = !this.playerAnimated;
+        }
+
+        /**
+         * @param {Boolean} animated - `true` if player can be animated, `false` otherwise
+         */
+        set playerAnimated(animated) {
+            this._playerAnimated = animated;
+            if (animated) {
+                this._relaxPlayer();
             }
-            this._stimulatePlayer();
+            else {
+                this._stimulatePlayer();
+            }
+        }
+
+        /** @returns {Boolean} `true` if player can be animated, `false` otherwise */
+        get playerAnimated() {
+            return this._playerAnimated;
         }
 
         /** @param {string} direction */
@@ -1215,6 +1318,14 @@
             requestAnimationFrame(autoplay);
         }
 
+        showSettings() {
+            dispatchEvent(new CustomEvent("showsettings"));
+        }
+
+        showHelp() {
+            dispatchEvent(new CustomEvent("showhelp"));
+        }
+
         showSolution() {
             if (this._level.solution) {
                 this.reset();
@@ -1225,6 +1336,14 @@
             }
         }
     }
+
+    /************************/
+    /*                      */
+    /* Global space of code */
+    /*                      */
+    /************************/
+
+    let el = {};
 
     /**
      * Plays a sequence of moves in the game.
@@ -1253,14 +1372,12 @@
             .catch(err => console.error(err));
     }
 
-    let el = {};
-
     function onKeyUp(e) {
         switch (e.key) {
             case "?":
             // fallthrough
             case "h":
-                el.help.showModal();
+                el.game.showHelp();
                 break;
             case "c":
                 el.collectionDialog.showModal();
@@ -1287,9 +1404,7 @@
                 el.game.togglePlayerAnimation();
                 break;
             case "s":
-                if (prompt("If you really want me to show the solution for this level, type 'YES'.", "no") === "YES") {
-                    el.game.showSolution();
-                }
+                el.showSolutionDialog.showModal();
                 break;
             case "Escape":
                 el.game.cancelAutoplay();
@@ -1299,24 +1414,89 @@
         }
     }
 
-    function main() {
-        console.info("%cMinimalist Sokoban %cstarted.", "color: #DE2B2B; font-weight: bold", "color: initial; font-weight: normal;");
-        customElements.define("sokoban-game", SokobanGame);
-        el.game = document.querySelector("sokoban-game");
+    function enableCollectionSelector() {
+        window.addEventListener("choosecollection", () => {
+            el.collectionDialog.showModal();
+        });
         el.collectionDialog = document.querySelector("#collection-selector");
-        el.collectionDialog.querySelector("button").addEventListener("click", _e => {
+        el.collectionDialog.querySelector("button:nth-child(1)").addEventListener("click", e => {
+            el.collectionDialog.close();
+            e.preventDefault();
+            e.stopPropagation();
+        });
+        el.collectionDialog.querySelector("button:nth-child(2)").addEventListener("click", e => {
             el.collectionDialog.close();
             el.game.collection = el.collectionDialog.querySelector("#collection-input").value;
             el.game.levelNum = 1;
+            el.game.buildHash();
+            e.preventDefault();
+            e.stopPropagation();
         });
         el.collectionDialog.addEventListener("keydown", e => e.stopPropagation());
         el.collectionDialog.addEventListener("keyup", e => e.stopPropagation());
-        el.help = document.querySelector("#help-dialog");
-        const helpOk = el.help.querySelector("button");
-        helpOk.addEventListener("click", _e => {
-            el.help.close();
+    }
+
+    function enableShowSolutionDialog() {
+        el.showSolutionDialog = document.querySelector("#show-solution-dialog");
+        const noButton = el.showSolutionDialog.querySelector("button:nth-child(1)")
+        noButton.addEventListener("click", e => {
+            el.showSolutionDialog.close();
+            e.stopImmediatePropagation();
         });
+        const yesButton = el.showSolutionDialog.querySelector("button:nth-child(2)")
+        yesButton.addEventListener("click", e => {
+            el.showSolutionDialog.close();
+            el.game.showSolution();
+            e.stopImmediatePropagation();
+        });
+    }
+
+    function enableHelpDialog() {
+        el.help = document.querySelector("#help-dialog");
+        const okButton = el.help.querySelector("button");
+        okButton.addEventListener("click", e => {
+            el.help.close();
+            e.stopImmediatePropagation();
+        });
+        window.addEventListener("showhelp", () => {
+            el.help.showModal();
+        });
+    }
+
+    function enableSettingsDialog() {
+        el.settingsDialog = document.querySelector("#settings-dialog");
+        const cancelButton = el.settingsDialog.querySelector("button:nth-child(1)");
+        cancelButton.addEventListener("click", e => {
+            el.settingsDialog.close();
+            e.stopImmediatePropagation();
+        });
+        const applyButton = el.settingsDialog.querySelector("button:nth-child(2)");
+        applyButton.addEventListener("click", e => {
+            el.game.playerAnimated = el.settingsDialog.querySelector("input[name='animated-player']").checked;
+            el.settingsDialog.close();
+            e.stopImmediatePropagation();
+        });
+        window.addEventListener("showsettings", () => {
+            el.settingsDialog.querySelector("input[name='animated-player']").checked = el.game.playerAnimated;
+            el.settingsDialog.showModal();
+        });
+    }
+
+
+    function main() {
+        console.info("%cRetroban %cstarted.", "color: #DE2B2B; font-weight: bold", "color: initial; font-weight: normal;");
+        customElements.define("sokoban-game", SokobanGame);
+        el.game = document.querySelector("sokoban-game");
+
+        enableCollectionSelector();
+        enableHelpDialog();
+        enableSettingsDialog();
+        enableShowSolutionDialog()
+
         window.addEventListener("keyup", onKeyUp);
+        window.addEventListener("collectionchange", e => {
+            document.title = `Retroban - ${e.detail.name}`;
+        });
         loadCollectionList();
     }
 
