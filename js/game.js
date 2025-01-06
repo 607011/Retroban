@@ -1554,7 +1554,7 @@
         loadCollectionList();
     }
 
-    window.addEventListener("load", main);
+    window.addEventListener("pageshow", main);
 
     window.exports = {
         play
