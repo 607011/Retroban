@@ -1428,14 +1428,7 @@
             el.collectionDialog.close();
             const collectionList = el.collectionDialog.querySelector("#collection-list");
             const inputValue = el.collectionDialog.querySelector("#collection-input").value;
-            let isValid = false;
-            for (let option of collectionList.options) {
-                if (option.value === inputValue) {
-                    isValid = true;
-                    break;
-                }
-            }
-            if (isValid) {
+            if (Array.from(collectionList.options).some(option => option.value === inputValue)) {
                 el.game.collection = el.collectionDialog.querySelector("#collection-input").value;
                 el.game.levelNum = 1;
                 el.game.buildHash();
