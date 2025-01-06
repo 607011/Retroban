@@ -1003,6 +1003,7 @@
             window.addEventListener("keydown", this._onKeyDown.bind(this));
             window.addEventListener("touchstart", this._onTouchStart.bind(this));
             window.addEventListener("touchend", this._onTouchEnd.bind(this));
+            window.addEventListener("click", this._onClick.bind(this));
         }
 
         _restartLevel() {
@@ -1086,18 +1087,7 @@
         }
 
         /** @param {TouchEvent|PointerEvent} e  */
-        _onBoardClick(e) {
-            let clientX, clientY;
-            if (e.touches && e.touches.length > 0) {
-                clientX = e.touches[0].clientX;
-                clientY = e.touches[0].clientY;
-            } else if (e.changedTouches && e.changedTouches.length > 0) {
-                clientX = e.changedTouches[0].clientX;
-                clientY = e.changedTouches[0].clientY;
-            } else {
-                clientX = e.clientX;
-                clientY = e.clientY;
-            }
+        _onBoardClick(clientX, clientY) {
             const playerRect = this._player.getBoundingClientRect();
             const inXRange = (playerRect.left < clientX) && (clientX < playerRect.right);
             const inYRange = (playerRect.top < clientY) && (clientY < playerRect.bottom);
@@ -1120,12 +1110,28 @@
 
         /** @param {TouchEvent|PointerEvent} e  */
         _onClick(e) {
-            if (e.target.parentNode === this._collectionNameEl) {
+            const boardRect = this._board.getBoundingClientRect();
+            let clientX, clientY;
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            }
+            else if (e.changedTouches && e.changedTouches.length > 0) {
+                clientX = e.changedTouches[0].clientX;
+                clientY = e.changedTouches[0].clientY;
+            }
+            else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+            const inXRange = (boardRect.left < clientX) && (clientX < boardRect.right);
+            const inYRange = (boardRect.top < clientY) && (clientY < boardRect.bottom);
+            if (inXRange && inYRange) {
+                this._onBoardClick(clientX, clientY);
+            }
+            else if (e.target.parentNode === this._collectionNameEl) {
                 dispatchEvent(new CustomEvent("choosecollection"));
                 e.stopImmediatePropagation();
-            }
-            else if (e.target === this._board) {
-                this._onBoardClick(e);
             }
             e.stopPropagation();
         }
