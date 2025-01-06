@@ -1192,6 +1192,10 @@
             }
         }
 
+        cancelPlayerAnimation() {
+            clearTimeout(this._inactivityTimer);
+        }
+
         _animatePlayer(direction) {
             switch (direction) {
                 case Direction.Up:
@@ -1268,16 +1272,13 @@
             this._buildLevel(); // XXX: Expensive operation! Should be optimized by moving only the necessary tiles.
             this._animatePlayer(direction);
             if (this._level.missionAccomplished()) {
-                setTimeout(() => {
-                    if (this._levelNum + 1 < this._levels.length) {
-                        alert(`Congratulations! Mission accomplished with ${this._moves.length} moves: ${this._moves.join("")}. Head over to the next level by pressing OK.`);
-                        this.nextLevel();
-                        this._stimulatePlayer();
+                dispatchEvent(new CustomEvent("levelcomplete", {
+                    detail: {
+                        moves: this._moves,
+                        gameOver: this._levelNum + 1 >= this._levels.length,
+                        autoplayed: this._autoplaying,
                     }
-                    else {
-                        alert(`Congratulations! Mission accomplished with ${this._moves.length} moves: ${this._moves.join("")}`);
-                    }
-                }, 10);
+                }));
             };
         }
 
@@ -1476,6 +1477,27 @@
         });
     }
 
+    function enableLevelCompleteDialog() {
+        el.levelComplete = document.querySelector("#level-complete-dialog");
+        const okButton = el.levelComplete.querySelector("button");
+        okButton.addEventListener("click", e => {
+            el.levelComplete.close();
+            el.game.nextLevel();
+            e.stopImmediatePropagation();
+        });
+        window.addEventListener("levelcomplete", e => {
+            const moves = e.detail.moves;
+            if (e.detail.autoplayed) {
+                console.info(`Autoplay finished after ${moves.length} moves: ${moves.join("")}`);
+                el.game.cancelPlayerAnimation();
+                return;
+            }
+            el.levelComplete.querySelector("p").textContent = `Congratulations! Mission accomplished with ${moves.length} moves: ${moves.join("")}.`;
+            el.levelComplete.querySelector("button").textContent = e.detail.gameOver ? "OK" : "Continue with next level";
+            el.levelComplete.showModal();
+        });
+    }
+
     function enableSettingsDialog() {
         el.settingsDialog = document.querySelector("#settings-dialog");
         const cancelButton = el.settingsDialog.querySelector('button[data-id="cancel"]');
@@ -1514,6 +1536,7 @@
         enableHelpDialog();
         enableSettingsDialog();
         enableShowSolutionDialog();
+        enableLevelCompleteDialog();
 
         window.addEventListener("keyup", onKeyUp);
         window.addEventListener("collectionchange", e => {
