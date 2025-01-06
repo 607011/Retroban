@@ -1322,7 +1322,6 @@
                     this._cancelAutoplay = false;
                     this._relaxPlayer();
                     this.cancelPlayerAnimation();
-                    this.reset();
                 }
             }
             requestAnimationFrame(autoplay);
