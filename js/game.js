@@ -1421,11 +1421,17 @@
         el.collectionDialog = document.querySelector("#collection-selector");
         el.collectionDialog.querySelector('button[data-id="cancel"]').addEventListener("click", e => {
             el.collectionDialog.close();
+            if (el.settingsDialog.open) {
+                el.settingsDialog.close();
+            }
             e.preventDefault();
             e.stopPropagation();
         });
         el.collectionDialog.querySelector('button[data-id="ok"]').addEventListener("click", e => {
             el.collectionDialog.close();
+            if (el.settingsDialog.open) {
+                el.settingsDialog.close();
+            }
             const collectionList = el.collectionDialog.querySelector("#collection-list");
             const inputValue = el.collectionDialog.querySelector("#collection-input").value;
             if (Array.from(collectionList.options).some(option => option.value === inputValue)) {
@@ -1488,6 +1494,11 @@
             el.showSolutionDialog.showModal();
             e.stopImmediatePropagation();
         });
+        const chooseCollectionButton = el.settingsDialog.querySelector('button[data-id="choose-collection"]');
+        chooseCollectionButton.addEventListener("click", e => {
+            el.collectionDialog.showModal();
+            e.stopImmediatePropagation();
+        });
         window.addEventListener("showsettings", () => {
             el.settingsDialog.querySelector("input[name='animated-player']").checked = el.game.playerAnimated;
             el.settingsDialog.showModal();
@@ -1502,7 +1513,7 @@
         enableCollectionSelector();
         enableHelpDialog();
         enableSettingsDialog();
-        enableShowSolutionDialog()
+        enableShowSolutionDialog();
 
         window.addEventListener("keyup", onKeyUp);
         window.addEventListener("collectionchange", e => {
