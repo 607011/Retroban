@@ -131,6 +131,13 @@
     <main>
         <sokoban-game></sokoban-game>
 
+        <dialog id="splash-screen">
+            <div>
+                <h2 style="margin: 3ex auto; text-align: center;">Welcome to Retroban!</h2>
+                <p style="margin: 3ex auto; text-align: center;"><button>Click to start</button></p>
+            </div>
+        </dialog>
+
         <dialog id="collection-selector">
             <div>
                 <h2>Choose a collection</h2>
@@ -166,15 +173,23 @@
             <div>
                 <h2>Level complete</h2>
                 <p></p>
-                <p><button></button></p>
+                <p style="margin-top: 4ex;">
+                    <button></button>
+                    <button data-id="try-again">Try again</button>
+                </p>
             </div>
         </dialog>
 
         <dialog id="settings-dialog">
             <div>
                 <h2>Settings</h2>
-                <p><input type="checkbox" name="animated-player" id="animated-player"></input>
+                <p>
+                    <input type="checkbox" name="animated-player" id="animated-player"></input>
                     <label for="animated-player">Animate player</label>
+                </p>
+                <p>
+                    <input type="checkbox" name="sound-enabled" id="sound-enabled"></input>
+                    <label for="sound-enabled">Sound</label>
                 </p>
                 <p>
                     <button data-id="cancel">Cancel</button>

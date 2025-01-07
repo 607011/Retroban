@@ -475,33 +475,37 @@
         _audioCtx = null;
 
         /**
-         * @type {String[]}
+         * @type {object}
          */
         _sounds = {
             completed: {
                 buffer: null,
-                source: null,
                 filename: "sounds/completed.mp3",
             },
             step: {
                 buffer: null,
-                source: null,
                 filename: "sounds/step.mp3",
             },
             push: {
                 buffer: null,
-                source: null,
                 filename: "sounds/push.mp3",
             },
-        }
+        };
+
+        /** 
+         * Should we play sounds?
+         * @type {Boolean}
+         */
+        _soundEnabled = true;
 
         constructor() {
             super();
             if (localStorage.getItem("retroban-player-animated") !== null) {
                 this._playerAnimated = localStorage.getItem("retroban-player-animated") === "true";
             }
-            this._initAudio();
-            this._loadSounds();
+            if (localStorage.getItem("retroban-sound-enabled") !== null) {
+                this._soundEnabled = localStorage.getItem("retroban-sound-enabled") === "true";
+            }
         }
 
         connectedCallback() {
@@ -832,6 +836,8 @@
             this._activateEventListeners();
             this._updateDisplay();
             dispatchEvent(new HashChangeEvent("hashchange"));
+
+            this._initAudio();
         }
 
         _setLevelStyles() {
@@ -1301,6 +1307,21 @@
         }
 
         /**
+         * @param {Boolean} enabled - `true` if sound should be player, `false` otherwise
+         */
+        set soundEnabled(enabled) {
+            this._soundEnabled = enabled;
+            localStorage.setItem("retroban-sound-enabled", this._soundEnabled);
+        }
+
+        /**
+         * @returns {Boolean} `true` if sound will be played
+         */
+        get soundEnabled() {
+            return this._soundEnabled;
+        }
+
+        /**
          * @param {Boolean} paused - `true` if game should be paused, `false` otherwise
          */
         set paused(paused) {
@@ -1361,59 +1382,41 @@
         }
 
         _playSound(name) {
-            if (this._audioCtx === null)
+            if (!this._soundEnabled)
                 return;
-            console.debug(`_playSound("${name}")`);
-            // must create new source every time a sound is being played
-            // (see http://updates.html5rocks.com/2012/01/Web-Audio-FAQ)
-            let source = this._audioCtx.createBufferSource();
-            let sound = this._sounds[name];
-            source.buffer = sound.buffer;
+            // According to https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode,
+            // an `AudioBufferSourceNode` can only be played once; after each call to `start()`,
+            // you have to create a new node if you want to play the same sound again.
+            const source = this._audioCtx.createBufferSource();
+            source.buffer = this._sounds[name].buffer;
             source.connect(this._gainNode);
-            source.loop = false;
-            source.start(0);
-            sound.source = source;
+            source.start();
         }
 
-        _stopSound(name) {
-            if (this._audioCtx === null)
-                return;
-            let sound = this._sounds[name];
-            if (sound.source) {
-                sound.source.stop(0);
-                sound.source = null;
-            }
+        async resumeAudio() {
+            await this._audioCtx.resume();
+            return this._audioCtx;
         }
 
-        _loadSounds() {
-            Object.keys(this._sounds).forEach(name => {
-                fetch(this._sounds[name].filename)
-                    .then(response => {
-                        if (!response.ok) {
-                            console.error(`Loading ${s.filename} failed.`);
-                        }
-                        return response.arrayBuffer();
-                    })
-                    .then(arrayBuffer => {
-                        return this._audioCtx.decodeAudioData(arrayBuffer);
-                    })
-                    .then(audioBuffer => {
-                        let source = this._sounds[name].source;
-                        source = this._audioCtx.createBufferSource();
-                        source.buffer = audioBuffer;
-                    })
-                    .catch(error => {
-                        console.error('Fetch error:', error);
-                    });
-            });
-        }
-
-        _initAudio() {
+        async _initAudio() {
             this._audioCtx = new AudioContext();
+            this._audioCtx.onstatechange = () => {
+                console.debug(`Audio ${this._audioCtx.state === "running" ? "enabled" : "suspended"}`);
+            };
             this._gainNode = this._audioCtx.createGain();
-            this._gainNode.gain.value = parseFloat(localStorage.getItem("retroban-sound-gain") || SokobanGame.DEFAULT_GAIN_VALUE);
-            localStorage.setItem("retroban-sound-gain", this._gainNode.gain.value);
+            this._gainNode.gain.value = parseFloat(localStorage.getItem("retroban-sound-volume") || SokobanGame.DEFAULT_GAIN_VALUE.toString());
             this._gainNode.connect(this._audioCtx.destination);
+            const loadSound = async (url) => {
+                return fetch(url)
+                    .then(response => response.arrayBuffer())
+                    .then(arrayBuffer => this._audioCtx.decodeAudioData(arrayBuffer))
+                    .catch(error => {
+                        console.error("Failed to load sound:", error);
+                    });
+            };
+            for (const name of Object.keys(this._sounds)) {
+                this._sounds[name].buffer = await loadSound(`sounds/${name}.mp3`);
+            }
         }
 
         /**
@@ -1551,6 +1554,19 @@
         }
     }
 
+    function enableSplashScreen() {
+        el.splash = document.querySelector("#splash-screen");
+        const okButton = el.splash.querySelector("button");
+        okButton.addEventListener("click", e => {
+            el.splash.close();
+            el.game.resumeAudio().then(() => {
+                el.game.paused = false;
+            });
+            e.stopImmediatePropagation();
+        });
+        return el.splash;
+    }
+
     function enableCollectionSelector() {
         window.addEventListener("choosecollection", () => {
             el.collectionDialog.showModal();
@@ -1621,6 +1637,12 @@
             el.game.nextLevel();
             e.stopImmediatePropagation();
         });
+        const tryAgainButton =  el.levelComplete.querySelector("button[data-id='try-again']");
+        tryAgainButton.addEventListener("click", e => {
+            el.levelComplete.close();
+            el.game.reset();
+            e.stopImmediatePropagation();
+        });
         window.addEventListener("levelcomplete", e => {
             const moves = e.detail.moves;
             if (e.detail.autoplayed) {
@@ -1644,8 +1666,10 @@
         const applyButton = el.settingsDialog.querySelector('button[data-id="apply"]');
         applyButton.addEventListener("click", e => {
             el.game.playerAnimated = el.settingsDialog.querySelector("input[name='animated-player']").checked;
+            el.game.soundEnabled = el.settingsDialog.querySelector("input[name='sound-enabled']").checked;
             el.settingsDialog.close();
-            e.stopImmediatePropagation();
+            e.stopPropagation();
+            e.preventDefault();
         });
         const showSolutionButton = el.settingsDialog.querySelector('button[data-id="show-solution"]');
         showSolutionButton.addEventListener("click", e => {
@@ -1659,6 +1683,7 @@
         });
         window.addEventListener("showsettings", () => {
             el.settingsDialog.querySelector("input[name='animated-player']").checked = el.game.playerAnimated;
+            el.settingsDialog.querySelector("input[name='sound-enabled']").checked = el.game.soundEnabled;
             el.settingsDialog.showModal();
         });
     }
@@ -1685,17 +1710,19 @@
         enableShowSolutionDialog();
         enableLevelCompleteDialog();
 
+        window.addEventListener("keyup", onKeyUp);
+        window.addEventListener("collectionchange", e => {
+            document.title = `Retroban - ${e.detail.name}`;
+        });
+        loadCollectionList();
+        enableSplashScreen().showModal();
+
         window.addEventListener("blur", e => {
             el.game.paused = true;
         });
         window.addEventListener("focus", e => {
             el.game.paused = false;
         });
-        window.addEventListener("keyup", onKeyUp);
-        window.addEventListener("collectionchange", e => {
-            document.title = `Retroban - ${e.detail.name}`;
-        });
-        loadCollectionList();
     }
 
     window.addEventListener("pageshow", main);
