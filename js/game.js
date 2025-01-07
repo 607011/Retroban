@@ -144,9 +144,7 @@
         constructor(elements) {
             this._map = new Map();
             if (elements instanceof Array) {
-                for (const v of elements) {
-                    this.add(v);
-                }
+                elements.forEach(v => this.add(v));
             }
             else {
                 this.add(elements)
@@ -387,6 +385,8 @@
      * Custom web element representing a Sokoban game.
      */
     class SokobanGame extends HTMLElement {
+        static DEFAULT_GAIN_VALUE = 0.5;
+
         /** 
          * Array of available Sokoban levels.
          * @type {SokobanLevel[]}
@@ -469,11 +469,39 @@
          */
         _undoStack = [];
 
+        /**
+         * @type {AudioContext}
+         */
+        _audioCtx = null;
+
+        /**
+         * @type {String[]}
+         */
+        _sounds = {
+            completed: {
+                buffer: null,
+                source: null,
+                filename: "sounds/completed.mp3",
+            },
+            step: {
+                buffer: null,
+                source: null,
+                filename: "sounds/step.mp3",
+            },
+            push: {
+                buffer: null,
+                source: null,
+                filename: "sounds/push.mp3",
+            },
+        }
+
         constructor() {
             super();
             if (localStorage.getItem("retroban-player-animated") !== null) {
                 this._playerAnimated = localStorage.getItem("retroban-player-animated") === "true";
             }
+            this._initAudio();
+            this._loadSounds();
         }
 
         connectedCallback() {
@@ -1296,6 +1324,7 @@
                 this._undoStack.push([{ from: this._pos, to: dst, what: Tile.Player }]);
                 this._pos = dst;
                 this._moves.push(direction);
+                this._playSound("step");
                 this._updateDisplay();
                 this._buildLevel();
                 this._animatePlayer(direction);
@@ -1315,10 +1344,12 @@
             ]);
             this._pos = dst;
             this._moves.push(direction);
+            this._playSound("push");
             this._updateDisplay();
             this._buildLevel(); // XXX: Expensive operation! Should be optimized by moving only the necessary tiles.
             this._animatePlayer(direction);
             if (this._level.missionAccomplished()) {
+                this._playSound("completed");
                 dispatchEvent(new CustomEvent("levelcomplete", {
                     detail: {
                         moves: this._moves,
@@ -1327,6 +1358,62 @@
                     }
                 }));
             };
+        }
+
+        _playSound(name) {
+            if (this._audioCtx === null)
+                return;
+            console.debug(`_playSound("${name}")`);
+            // must create new source every time a sound is being played
+            // (see http://updates.html5rocks.com/2012/01/Web-Audio-FAQ)
+            let source = this._audioCtx.createBufferSource();
+            let sound = this._sounds[name];
+            source.buffer = sound.buffer;
+            source.connect(this._gainNode);
+            source.loop = false;
+            source.start(0);
+            sound.source = source;
+        }
+
+        _stopSound(name) {
+            if (this._audioCtx === null)
+                return;
+            let sound = this._sounds[name];
+            if (sound.source) {
+                sound.source.stop(0);
+                sound.source = null;
+            }
+        }
+
+        _loadSounds() {
+            Object.keys(this._sounds).forEach(name => {
+                fetch(this._sounds[name].filename)
+                    .then(response => {
+                        if (!response.ok) {
+                            console.error(`Loading ${s.filename} failed.`);
+                        }
+                        return response.arrayBuffer();
+                    })
+                    .then(arrayBuffer => {
+                        return this._audioCtx.decodeAudioData(arrayBuffer);
+                    })
+                    .then(audioBuffer => {
+                        let source = this._sounds[name].source;
+                        source = this._audioCtx.createBufferSource();
+                        source.buffer = audioBuffer;
+                    })
+                    .catch(error => {
+                        console.error('Fetch error:', error);
+                    });
+            });
+        }
+
+        _initAudio() {
+            this._audioCtx = new AudioContext();
+            this._gainNode = this._audioCtx.createGain();
+            this._gainNode.gain.value = parseFloat(localStorage.getItem("retroban-sound-gain") || SokobanGame.DEFAULT_GAIN_VALUE);
+            localStorage.setItem("retroban-sound-gain", this._gainNode.gain.value);
+            this._gainNode.connect(this._audioCtx.destination);
         }
 
         /**
