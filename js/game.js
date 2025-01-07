@@ -1132,9 +1132,8 @@
                 clientX = e.clientX;
                 clientY = e.clientY;
             }
-            const inXRange = (boardRect.left < clientX) && (clientX < boardRect.right);
-            const inYRange = (boardRect.top < clientY) && (clientY < boardRect.bottom);
-            if (inXRange && inYRange) {
+            if ((boardRect.left < clientX) && (clientX < boardRect.right)
+                && (boardRect.top < clientY) && (clientY < boardRect.bottom)) {
                 this._onBoardClick(clientX, clientY);
             }
             else if (e.target.parentNode === this._collectionNameEl) {
