@@ -1395,9 +1395,8 @@
             source.start();
         }
 
-        async resumeAudio() {
-            await this._audioCtx.resume();
-            return this._audioCtx;
+        resumeAudio() {
+            return this._audioCtx.resume();
         }
 
         async _initAudio() {
@@ -1561,9 +1560,10 @@
         const okButton = el.splash.querySelector("button");
         okButton.addEventListener("click", e => {
             el.splash.close();
-            el.game.resumeAudio().then(() => {
-                el.game.paused = false;
-            });
+            el.game.resumeAudio()
+                .then(() => {
+                    el.game.paused = false;
+                });
             e.stopImmediatePropagation();
         });
         return el.splash;
@@ -1639,7 +1639,7 @@
             el.game.nextLevel();
             e.stopImmediatePropagation();
         });
-        const tryAgainButton =  el.levelComplete.querySelector("button[data-id='try-again']");
+        const tryAgainButton = el.levelComplete.querySelector("button[data-id='try-again']");
         tryAgainButton.addEventListener("click", e => {
             el.levelComplete.close();
             el.game.reset();
