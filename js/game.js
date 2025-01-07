@@ -111,6 +111,27 @@
         }
     }
 
+    class Queue {
+        constructor(elements) {
+            this._queue = new Array();
+            if (elements instanceof Array) {
+                elements.forEach(v => this.push(v));
+            }
+            else {
+                this.push(elements)
+            }
+        }
+        push(element) {
+            this._queue.push(element);
+        }
+        pop() {
+            return this._queue.shift();
+        }
+        get length() {
+            return this._queue.length;
+        }
+    }
+
     /**
      * Workaround class to store `Vec2` objects in a kind of set,
      * because `Set` compares objects by reference.
@@ -245,11 +266,11 @@
          * @returns {String} URDL sequence of moves to get from `a` to `b`
          */
         shortestPath(a, b) {
-            let visited = new SafeSet([a]);
+            let visited = new SafeSet(a);
             let parent = new SafeMap();
-            let queue = [a];
+            let queue = new Queue(a);
             while (queue.length > 0) {
-                let current = queue.shift();
+                let current = queue.pop();
                 if (current.equals(b))
                     break;
                 for (const dir of Object.values(MOVE)) {
