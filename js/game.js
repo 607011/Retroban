@@ -443,7 +443,7 @@
         /**
          * @type {Boolean}
          */
-        _paused = false;
+        _paused = true;
 
         /** 
          * Handle for inactivity timer.
@@ -1335,6 +1335,8 @@
 
         /** @param {string} direction */
         _move(direction) {
+            if (this._paused)
+                return;
             const d = MOVE[direction];
             const dst = this._pos.add(d);
             const dstTile = this._level.at(dst);
