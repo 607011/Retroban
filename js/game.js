@@ -419,6 +419,11 @@
          */
         _playerAnimated = true;
 
+        /**
+         * @type {Boolean}
+         */
+        _paused = false;
+
         /** 
          * Handle for inactivity timer.
          * @type {number}
@@ -445,6 +450,9 @@
 
         constructor() {
             super();
+            if (localStorage.getItem("retroban-player-animated") !== null) {
+                this._playerAnimated = localStorage.getItem("retroban-player-animated") === "true";
+            }
         }
 
         connectedCallback() {
@@ -642,8 +650,8 @@
             this._collectionNameEl = document.createElement("div");
             this._collectionNameEl.setAttribute("role", "img");
             this._collectionNameEl.addEventListener("click", this._onClick.bind(this));
-            this._collectionNameEl.addEventListener("touchstart", this._onTouchStart.bind(this));
-            this._collectionNameEl.addEventListener("touchend", this._onTouchEnd.bind(this));
+            this._collectionNameEl.addEventListener("touchstart", this._onTouchStart.bind(this), { passive: true });
+            this._collectionNameEl.addEventListener("touchend", this._onTouchEnd.bind(this), { passive: true });
             this._collectionNameEl.style.cursor = "pointer";
             titlebarInner.appendChild(this._collectionNameEl);
             this._moveCountEl = document.createElement("div");
@@ -1236,11 +1244,24 @@
             else {
                 this._stimulatePlayer();
             }
+            localStorage.setItem("retroban-player-animated", this._playerAnimated);
         }
 
         /** @returns {Boolean} `true` if player can be animated, `false` otherwise */
         get playerAnimated() {
             return this._playerAnimated;
+        }
+
+        /**
+         * @param {Boolean} paused - `true` if game should be paused, `false` otherwise
+         */
+        set paused(paused) {
+            this._paused = paused;
+        }
+
+        /** @returns {Boolean} `true` if game is paused, `false` otherwise */
+        get paused() {
+            return this._paused;
         }
 
         /** @param {string} direction */
@@ -1537,6 +1558,17 @@
 
     function main() {
         console.info("%cRetroban %cstarted.", "color: #DE2B2B; font-weight: bold", "color: initial; font-weight: normal;");
+
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js")
+                .then(registration => {
+                    console.log("Service Worker registered with scope:", registration.scope);
+                })
+                .catch(error => {
+                    console.log("Service Worker registration failed:", error);
+                });
+        }
+
         customElements.define("sokoban-game", SokobanGame);
         el.game = document.querySelector("sokoban-game");
 
@@ -1546,6 +1578,12 @@
         enableShowSolutionDialog();
         enableLevelCompleteDialog();
 
+        window.addEventListener("blur", e => {
+            el.game.paused = true;
+        });
+        window.addEventListener("focus", e => {
+            el.game.paused = false;
+        });
         window.addEventListener("keyup", onKeyUp);
         window.addEventListener("collectionchange", e => {
             document.title = `Retroban - ${e.detail.name}`;

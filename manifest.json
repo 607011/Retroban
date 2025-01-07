@@ -1,0 +1,100 @@
+{
+    "name": "Retroban - Retro-styled version of the classic Sokoban game",
+    "short_name": "Retroban",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#222222",
+    "theme_color": "#222222",
+    "icons": [
+        {
+            "src": "/images/retroban-1024.png",
+            "type": "image/png",
+            "sizes": "1024x1024"
+        },
+        {
+            "src": "/images/retroban-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/images/retroban-256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "/images/retroban-120.png",
+            "type": "image/png",
+            "sizes": "120x120"
+        },
+        {
+            "src": "/images/retroban-167.png",
+            "type": "image/png",
+            "sizes": "167x167"
+        },
+        {
+            "src": "/images/retroban-152.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "/images/retroban-80.png",
+            "type": "image/png",
+            "sizes": "80x80"
+        },
+        {
+            "src": "/images/retroban-58.png",
+            "type": "image/png",
+            "sizes": "58x58"
+        },
+        {
+            "src": "/images/retroban-76.png",
+            "type": "image/png",
+            "sizes": "76x76"
+        },
+        {
+            "src": "/images/retroban-180.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "/images/retroban-120.png",
+            "type": "image/png",
+            "sizes": "120x120"
+        },
+        {
+            "src": "/images/retroban-87.png",
+            "type": "image/png",
+            "sizes": "87x87"
+        },
+        {
+            "src": "/images/retroban-114.png",
+            "type": "image/png",
+            "sizes": "114x114"
+        },
+        {
+            "src": "/images/retroban-256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "/images/retroban-128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/images/retroban-32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "/images/retroban-16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        },
+        {
+            "src": "/images/retroban-384.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        }
+    ]
+}
