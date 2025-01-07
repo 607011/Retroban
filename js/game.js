@@ -1650,7 +1650,7 @@
                 el.game.cancelPlayerAnimation();
                 return;
             }
-            el.levelComplete.querySelector("p").textContent = `Congratulations! Mission accomplished with ${moves.length} moves: ${moves.join("")}.`;
+            el.levelComplete.querySelector("p").innerHTML = `Congratulations! Mission accomplished with ${moves.length} moves: <span class="moves">${moves.join("")}</span>.`;
             el.levelComplete.querySelector("button").textContent = e.detail.gameOver ? "OK" : "Continue with next level";
             el.levelComplete.showModal();
         });
