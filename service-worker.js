@@ -2,6 +2,9 @@ const CACHE_NAME = "my-cache-v1";
 const urlsToCache = [
     "/",
     "/js/game.js",
+    "/sounds/completed.mp3",
+    "/sounds/push.mp3",
+    "/sounds/step.mp3",
     "/images/font-8x8.png",
     "/images/tileset-colors-8x8.png",
     "/puzzles/list.txt",
