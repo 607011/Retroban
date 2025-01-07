@@ -79,6 +79,7 @@
         }
 
         dialog h2 {
+            font-size: clamp(24px, 3vw, 48px);
             margin: 0 0 1ex 0;
         }
 
@@ -105,12 +106,19 @@
         dialog button {
             font-family: 'Courier New', Courier, monospace;
             font-weight: bold;
-            font-size: 16px;
+            font-size: clamp(16px, 2vw, 24px);
             padding: 1ex 1em;
             background: #eaeaea;
             color: #232323;
             border: none;
             cursor: pointer;
+        }
+
+        dialog span.moves {
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            word-break: break-all;
+            white-space: normal;
         }
 
         dialog::backdrop {
