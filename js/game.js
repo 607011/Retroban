@@ -1401,9 +1401,6 @@
 
         async _initAudio() {
             this._audioCtx = new AudioContext();
-            this._audioCtx.onstatechange = () => {
-                console.debug(`Audio ${this._audioCtx.state === "running" ? "enabled" : "suspended"}`);
-            };
             this._gainNode = this._audioCtx.createGain();
             this._gainNode.gain.value = parseFloat(localStorage.getItem("retroban-sound-volume") || SokobanGame.DEFAULT_GAIN_VALUE.toString());
             this._gainNode.connect(this._audioCtx.destination);
