@@ -38,6 +38,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            touch-action: manipulation;
+            user-select: none;
         }
 
         html,
@@ -73,6 +75,10 @@
             overflow: auto;
         }
 
+        dialog * {
+            user-select: text;
+        }
+
         dialog>div {
             margin: 0 auto;
             width: fit-content;
@@ -86,7 +92,6 @@
         dialog h2:not(:first-child) {
             margin-top: 2ex;
         }
-
 
         dialog p {
             margin: 0 0 1ex 0;
@@ -185,11 +190,11 @@
             <div>
                 <h2>Settings</h2>
                 <p>
-                    <input onclick="event.stopPropagation();" type="checkbox" name="animated-player" id="animated-player"></input>
+                    <input type="checkbox" name="animated-player" id="animated-player"></input>
                     <label for="animated-player">Animate player</label>
                 </p>
                 <p>
-                    <input onclick="event.stopPropagation();" type="checkbox" name="sound-enabled" id="sound-enabled"></input>
+                    <input type="checkbox" name="sound-enabled" id="sound-enabled"></input>
                     <label for="sound-enabled">Sound</label>
                 </p>
                 <p>

@@ -492,6 +492,9 @@
             },
         };
 
+        /** @type {Number} */
+        _lastTapTime = 0;
+
         /** 
          * Should we play sounds?
          * @type {Boolean}
@@ -516,6 +519,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    touch-action: manipulation;
 }
 .board {
     position: relative;
@@ -729,7 +733,7 @@
             this._prevLevelButton.title = "Previous level (P or ,)";
             this._prevLevelButton.addEventListener("click", e => {
                 this.prevLevel();
-                e.stopImmediatePropagation();
+                e.stopPropagation();
             });
             this._prevLevelButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
@@ -746,7 +750,7 @@
             resetButton.title = "Restart level (R)";
             resetButton.addEventListener("click", e => {
                 this.reset();
-                e.stopImmediatePropagation();
+                e.stopPropagation();
             });
             resetButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
@@ -764,7 +768,7 @@
             hamburger.title = "Menu";
             hamburger.addEventListener("click", e => {
                 this.showSettings();
-                e.stopImmediatePropagation();
+                e.stopPropagation();
             });
             hamburger.addEventListener("keydown", e => {
                 this._stimulatePlayer();
@@ -800,7 +804,7 @@
             undoButton.title = "Undo last move (U)";
             undoButton.addEventListener("click", e => {
                 this.undo();
-                e.stopImmediatePropagation();
+                e.stopPropagation();
             });
             undoButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
@@ -818,7 +822,7 @@
             this._nextLevelButton.title = "Next level (N or .)";
             this._nextLevelButton.addEventListener("click", e => {
                 this.nextLevel();
-                e.stopImmediatePropagation();
+                e.stopPropagation();
             });
             this._nextLevelButton.addEventListener("keydown", e => {
                 this._stimulatePlayer();
@@ -929,7 +933,7 @@
                     result += path;
                 }
             }
-            console.info(`${seq} -> ${result}`);
+            console.info(`${seq} -> ${result} (${result.length} moves)`);
             return result;
         }
 
@@ -1064,7 +1068,7 @@
             window.addEventListener("hashchange", this._onHashChange.bind(this));
             window.addEventListener("resize", this._onResize.bind(this));
             window.addEventListener("keydown", this._onKeyDown.bind(this));
-            window.addEventListener("touchstart", this._onTouchStart.bind(this));
+            window.addEventListener("touchstart", this._onTouchStart.bind(this), { passive: false });
             window.addEventListener("touchend", this._onTouchEnd.bind(this));
             window.addEventListener("click", this._onClick.bind(this));
         }
@@ -1136,17 +1140,29 @@
         }
 
         /** @param {TouchEvent} _e  */
-        _onTouchStart(_e) {
+        _onTouchStart(e) {
+            console.debug(e);
+            if (e.touches.length > 1) {
+                e.preventDefault();
+                return;
+            }
             this._touchStartTime = performance.now();
             this._stimulatePlayer();
+
         }
 
         /** @param {TouchEvent} e  */
         _onTouchEnd(e) {
-            const touchDuration = performance.now() - this._touchStartTime;
+            const currentTime = performance.now();
+            const touchDuration = currentTime - this._touchStartTime;
             if (touchDuration < 400) {
                 this._onClick(e);
             }
+            const tapLength = currentTime - this._lastTapTime;
+            if (tapLength < 500 && tapLength > 0) {
+                e.preventDefault();
+            }
+            this._lastTapTime = currentTime;
         }
 
         /** @param {TouchEvent|PointerEvent} e  */
@@ -1603,7 +1619,7 @@
         const noButton = el.showSolutionDialog.querySelector('button[data-id="no"]')
         noButton.addEventListener("click", e => {
             el.showSolutionDialog.close();
-            e.stopImmediatePropagation();
+            e.stopPropagation();
         });
         const yesButton = el.showSolutionDialog.querySelector('button[data-id="yes"]')
         yesButton.addEventListener("click", e => {
@@ -1612,7 +1628,7 @@
                 el.settingsDialog.close();
             }
             el.game.showSolution();
-            e.stopImmediatePropagation();
+            e.stopPropagation();
         });
     }
 
@@ -1621,7 +1637,7 @@
         const okButton = el.help.querySelector("button");
         okButton.addEventListener("click", e => {
             el.help.close();
-            e.stopImmediatePropagation();
+            e.stopPropagation();
         });
         window.addEventListener("showhelp", () => {
             el.help.showModal();
@@ -1634,13 +1650,13 @@
         okButton.addEventListener("click", e => {
             el.levelComplete.close();
             el.game.nextLevel();
-            e.stopImmediatePropagation();
+            e.stopPropagation();
         });
         const tryAgainButton = el.levelComplete.querySelector("button[data-id='try-again']");
         tryAgainButton.addEventListener("click", e => {
             el.levelComplete.close();
             el.game.reset();
-            e.stopImmediatePropagation();
+            e.stopPropagation();
         });
         window.addEventListener("levelcomplete", e => {
             const moves = e.detail.moves;
@@ -1657,6 +1673,10 @@
 
     function enableSettingsDialog() {
         el.settingsDialog = document.querySelector("#settings-dialog");
+        const playerAnimatedCheckbox = el.settingsDialog.querySelector("input[name='animated-player']");
+        const soundEnabledCheckbox = el.settingsDialog.querySelector("input[name='sound-enabled']");
+        playerAnimatedCheckbox.addEventListener("click", e => e.stopPropagation());
+        soundEnabledCheckbox.addEventListener("click", e => e.stopPropagation());
         const cancelButton = el.settingsDialog.querySelector('button[data-id="cancel"]');
         cancelButton.addEventListener("click", e => {
             el.settingsDialog.close();
@@ -1664,8 +1684,8 @@
         });
         const applyButton = el.settingsDialog.querySelector('button[data-id="apply"]');
         applyButton.addEventListener("click", e => {
-            el.game.playerAnimated = el.settingsDialog.querySelector("input[name='animated-player']").checked;
-            el.game.soundEnabled = el.settingsDialog.querySelector("input[name='sound-enabled']").checked;
+            el.game.playerAnimated = playerAnimatedCheckbox.checked;
+            el.game.soundEnabled = soundEnabledCheckbox.checked;
             el.settingsDialog.close();
             e.stopPropagation();
             e.preventDefault();
@@ -1681,8 +1701,8 @@
             e.stopImmediatePropagation();
         });
         window.addEventListener("showsettings", () => {
-            el.settingsDialog.querySelector("input[name='animated-player']").checked = el.game.playerAnimated;
-            el.settingsDialog.querySelector("input[name='sound-enabled']").checked = el.game.soundEnabled;
+            playerAnimatedCheckbox.checked = el.game.playerAnimated;
+            soundEnabledCheckbox.checked = el.game.soundEnabled;
             el.settingsDialog.showModal();
         });
     }
