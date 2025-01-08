@@ -1420,16 +1420,14 @@
             this._gainNode = this._audioCtx.createGain();
             this._gainNode.gain.value = parseFloat(localStorage.getItem("retroban-sound-volume") || SokobanGame.DEFAULT_GAIN_VALUE.toString());
             this._gainNode.connect(this._audioCtx.destination);
-            const loadSound = async (url) => {
-                return fetch(url)
+            for (const name of Object.keys(this._sounds)) {
+                fetch(`sounds/${name}.mp3`)
                     .then(response => response.arrayBuffer())
                     .then(arrayBuffer => this._audioCtx.decodeAudioData(arrayBuffer))
+                    .then(audioBuffer => this._sounds[name].buffer = audioBuffer)
                     .catch(error => {
                         console.error("Failed to load sound:", error);
                     });
-            };
-            for (const name of Object.keys(this._sounds)) {
-                this._sounds[name].buffer = await loadSound(`sounds/${name}.mp3`);
             }
         }
 
@@ -1552,6 +1550,7 @@
                 el.game.undo();
                 break;
             case "r":
+                el.game.cancelAutoplay();
                 el.game.reset();
                 break;
             case "a":
@@ -1723,17 +1722,17 @@
         customElements.define("sokoban-game", SokobanGame);
         el.game = document.querySelector("sokoban-game");
 
-        enableCollectionSelector();
-        enableHelpDialog();
-        enableSettingsDialog();
-        enableShowSolutionDialog();
-        enableLevelCompleteDialog();
-
         window.addEventListener("keyup", onKeyUp);
         window.addEventListener("collectionchange", e => {
             document.title = `Retroban - ${e.detail.name}`;
         });
         loadCollectionList();
+
+        enableCollectionSelector();
+        enableHelpDialog();
+        enableSettingsDialog();
+        enableShowSolutionDialog();
+        enableLevelCompleteDialog();
         enableSplashScreen().showModal();
 
         window.addEventListener("blur", e => {
