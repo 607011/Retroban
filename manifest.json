@@ -23,7 +23,15 @@
             "type": "image/webp",
             "platform": "ios",
             "label": "Screen showing a level of the game"
-          },          {
+          },
+          {
+            "src": "images/screenshot-windows.webp",
+            "sizes": "1156x1635",
+            "type": "image/webp",
+            "platform": "windows",
+            "label": "Screen showing a level of the game"
+          },
+          {
             "src": "images/screenshot-android.png",
             "sizes": "1080x2400",
             "type": "image/png",
