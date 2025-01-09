@@ -1355,7 +1355,9 @@
                 return;
             if (!(dstTile & Tile.Crate)) {
                 this._level.moveTo(this._pos, dst, Tile.Player);
-                this._undoStack.push([{ from: this._pos, to: dst, what: Tile.Player }]);
+                if (!this._autoplaying) {
+                    this._undoStack.push([{ from: this._pos, to: dst, what: Tile.Player }]);
+                }
                 this._pos = dst;
                 this._moves.push(direction);
                 this._playSound("step");
@@ -1372,10 +1374,12 @@
                 return;
             this._level.moveTo(this._pos, dst, Tile.Player);
             this._level.moveTo(dst, dst2, Tile.Crate);
-            this._undoStack.push([
-                { from: dst, to: dst2, what: Tile.Crate },
-                { from: this._pos, to: dst, what: Tile.Player }
-            ]);
+            if (!this._autoplaying) {
+                this._undoStack.push([
+                    { from: dst, to: dst2, what: Tile.Crate },
+                    { from: this._pos, to: dst, what: Tile.Player }
+                ]);
+            }
             this._pos = dst;
             this._moves.push(direction);
             this._playSound("push");
