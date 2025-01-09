@@ -1,99 +1,143 @@
 {
-    "name": "Retroban - Retro-styled version of the classic Sokoban game",
+    "name": "Retroban",
     "short_name": "Retroban",
+    "description": "Retro-styled version of the classic Sokoban game",
+    "categories": ["entertainment"],
+    "id": "https://retroban.607011.org/",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#222222",
     "theme_color": "#222222",
+    "orientation": "portrait-primary",
+    "screenshots": [
+        {
+            "src": "images/screenshot-wide.webp",
+            "sizes": "2742x2296",
+            "type": "image/webp",
+            "form_factor": "wide",
+            "label": "Screen showing a level of the game"
+          },
+          {
+            "src": "images/screenshot-ios.webp",
+            "sizes": "1179x2556",
+            "type": "image/webp",
+            "platform": "ios",
+            "label": "Screen showing a level of the game"
+          },          {
+            "src": "images/screenshot-android.png",
+            "sizes": "1080x2400",
+            "type": "image/png",
+            "platform": "android",
+            "label": "Screen showing a level of the game"
+          }
+    ],
     "icons": [
         {
-            "src": "/images/retroban-1024.png",
+            "src": "/images/app-icon-1024.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "1024x1024"
         },
         {
-            "src": "/images/retroban-512.png",
+            "src": "/images/app-icon-512.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "512x512"
         },
         {
-            "src": "/images/retroban-256.png",
+            "src": "/images/app-icon-256.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "256x256"
         },
         {
-            "src": "/images/retroban-120.png",
+            "src": "/images/app-icon-120.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "120x120"
         },
         {
-            "src": "/images/retroban-167.png",
+            "src": "/images/app-icon-167.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "167x167"
         },
         {
-            "src": "/images/retroban-152.png",
+            "src": "/images/app-icon-152.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "152x152"
         },
         {
-            "src": "/images/retroban-80.png",
+            "src": "/images/app-icon-80.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "80x80"
         },
         {
-            "src": "/images/retroban-58.png",
+            "src": "/images/app-icon-58.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "58x58"
         },
         {
-            "src": "/images/retroban-76.png",
+            "src": "/images/app-icon-76.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "76x76"
         },
         {
-            "src": "/images/retroban-180.png",
+            "src": "/images/app-icon-180.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "180x180"
         },
         {
-            "src": "/images/retroban-120.png",
+            "src": "/images/app-icon-120.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "120x120"
         },
         {
-            "src": "/images/retroban-87.png",
+            "src": "/images/app-icon-87.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "87x87"
         },
         {
-            "src": "/images/retroban-114.png",
+            "src": "/images/app-icon-114.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "114x114"
         },
         {
-            "src": "/images/retroban-256.png",
+            "src": "/images/app-icon-256.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "256x256"
         },
         {
-            "src": "/images/retroban-128.png",
+            "src": "/images/app-icon-128.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "128x128"
         },
         {
-            "src": "/images/retroban-32.png",
+            "src": "/images/app-icon-32.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "32x32"
         },
         {
-            "src": "/images/retroban-16.png",
+            "src": "/images/app-icon-16.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "16x16"
         },
         {
-            "src": "/images/retroban-384.png",
+            "src": "/images/app-icon-384.png",
             "type": "image/png",
+            "purpose": "any",
             "sizes": "384x384"
         }
     ]
