@@ -1082,6 +1082,7 @@
                 this._buildLevel();
                 this._updateDisplay();
                 this._updateLevelName();
+                this._relaxPlayer();
             }
             else {
                 console.error("Invalid level number:", this._levelNum);
@@ -1139,16 +1140,10 @@
             this._adjustCellSize();
         }
 
-        /** @param {TouchEvent} _e  */
-        _onTouchStart(e) {
-            console.debug(e);
-            if (e.touches.length > 1) {
-                e.preventDefault();
-                return;
-            }
+        /** @param {TouchEvent} _e - not used */
+        _onTouchStart(_e) {
             this._touchStartTime = performance.now();
             this._stimulatePlayer();
-
         }
 
         /** @param {TouchEvent} e  */
@@ -1160,7 +1155,7 @@
             }
             const tapLength = currentTime - this._lastTapTime;
             if (tapLength < 500 && tapLength > 0) {
-                e.preventDefault();
+                e.preventDefault(); // prevent double-tap to zoom
             }
             this._lastTapTime = currentTime;
         }
@@ -1254,7 +1249,7 @@
             this._player.classList.add("relaxed");
             this._player.classList.remove("waving", "left", "right");
             clearTimeout(this._inactivityTimer);
-            if (this._playerAnimated) {
+            if (this._playerAnimated && !this.paused) {
                 this._inactivityTimer = setTimeout(this._makePlayerWaving.bind(this), 3000 + Math.random() * 5000);
             }
         }
@@ -1263,7 +1258,7 @@
             this._player.classList.remove("relaxed");
             this._player.classList.add("waving");
             clearTimeout(this._inactivityTimer);
-            if (this._playerAnimated) {
+            if (this._playerAnimated && !this.paused) {
                 this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 5100);
             }
         }
@@ -1271,7 +1266,7 @@
         _stimulatePlayer() {
             this._player.classList.remove("relaxed", "waving");
             clearTimeout(this._inactivityTimer);
-            if (this._playerAnimated) {
+            if (this._playerAnimated && !this.paused) {
                 this._inactivityTimer = setTimeout(this._relaxPlayer.bind(this), 8000 + Math.random() * 5000);
             }
         }
@@ -1351,7 +1346,7 @@
 
         /** @param {string} direction */
         _move(direction) {
-            if (this._paused)
+            if (this.paused)
                 return;
             const d = MOVE[direction];
             const dst = this._pos.add(d);
@@ -1404,7 +1399,8 @@
                 return;
             // According to https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode,
             // an `AudioBufferSourceNode` can only be played once; after each call to `start()`,
-            // you have to create a new node if you want to play the same sound again.
+            // you have to create a new `AudioBufferSourceNode` if you want to play the same sound
+            // again.
             const source = this._audioCtx.createBufferSource();
             source.buffer = this._sounds[name].buffer;
             source.connect(this._gainNode);
@@ -1734,13 +1730,6 @@
         enableShowSolutionDialog();
         enableLevelCompleteDialog();
         enableSplashScreen().showModal();
-
-        window.addEventListener("blur", e => {
-            el.game.paused = true;
-        });
-        window.addEventListener("focus", e => {
-            el.game.paused = false;
-        });
     }
 
     window.addEventListener("pageshow", main);
