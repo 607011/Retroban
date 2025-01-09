@@ -1730,6 +1730,7 @@
         });
         loadCollectionList();
 
+        // Configure dialogs
         enableCollectionSelector();
         enableHelpDialog();
         enableSettingsDialog();
