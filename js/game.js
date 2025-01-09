@@ -23,6 +23,8 @@
         "#": Tile.Wall,
     };
 
+    console.debug(Object.entries(TileMap).map(([tile, value], idx) => `${tile} -> ${value}`).join("\n"));
+    
     const TileReverseMap = Object.entries(TileMap)
         .reduce((acc, [key, value]) => {
             acc[value] = key;
@@ -1712,10 +1714,10 @@
         if ("serviceWorker" in navigator) {
             navigator.serviceWorker.register("/service-worker.js")
                 .then(registration => {
-                    console.log("Service Worker registered with scope:", registration.scope);
+                    console.info(`Service Worker registered with scope "${registration.scope}"`);
                 })
                 .catch(error => {
-                    console.log("Service Worker registration failed:", error);
+                    console.error(`Service Worker registration failed: ${error}`);
                 });
         }
 
