@@ -23,8 +23,6 @@
         "#": Tile.Wall,
     };
 
-    console.debug(Object.entries(TileMap).map(([tile, value], idx) => `${tile} -> ${value}`).join("\n"));
-    
     const TileReverseMap = Object.entries(TileMap)
         .reduce((acc, [key, value]) => {
             acc[value] = key;
