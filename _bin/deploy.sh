@@ -9,7 +9,7 @@ mkdir -p ${DIST}/sounds
 echo Copying files ...
 rsync -Rrav puzzles/xsb ${DIST}
 cp puzzles/list.txt ${DIST}/puzzles
-cp -r index.html js images manifest.json service-worker.js ${DIST}
+cp -r index.html js images manifest.json service-worker.js fonts ${DIST}
 echo Minifying ...
 minify ${DIST}/index.html -o ${DIST}/index.html
 minify ${DIST}/js/game.js -o ${DIST}/js/game.js
