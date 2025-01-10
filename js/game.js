@@ -174,13 +174,17 @@
          * @param {string[]} data - The level data, each element is a row of the level.
          * @param {string} [title] - The title of the level.
          * @param {string} [author] - The author of the level.
+         * @param {string} [date] - Date of creation.
+         * @param {string} [comment] - Some comment.
          * @param {string} [solution] - The moves to solve the level.
          */
-        constructor(data, title, author, solution) {
+        constructor(data, title, author, date, comment, solution) {
             this._rawData = data;
             this.data = data;
             this._title = title;
             this._author = author;
+            this._date = date;
+            this._comment = comment;
             this._solution = solution;
         }
 
@@ -193,11 +197,15 @@
                 this._rawData.map(row => row.slice()), // deep copy
                 this._title,
                 this._author,
+                this._date,
+                this._comment,
                 this._solution);
         }
 
         get title() { return this._title; }
         get author() { return this._author; }
+        get date() { return this._date; }
+        get comment() { return this._comment; }
         get solution() { return this._solution; }
         get width() { return this._width; }
         get height() { return this._height; }
@@ -967,6 +975,7 @@
         _updateLevelName() {
             this._collectionNameEl.textContent = this._collection;
             this._levelNumEl.textContent = this._levelNum + 1;
+            this._levelNumEl.title = `${this._level.title || ""}${this._level.author ? " by " + this._level.author : ""}`;
             dispatchEvent(new CustomEvent("collectionchange", {
                 detail: {
                     name: this._collection
