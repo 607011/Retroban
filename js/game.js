@@ -1001,7 +1001,7 @@
             if (this._collection === collection)
                 return;
             this._collection = collection;
-            this._loadFromUrl(`puzzles/xsb/${collection}.xsb`);
+            this._loadFromUrl(`puzzles/xsb-concat/${collection}.xsb`);
         }
 
         /** @returns {String} name of current collection */

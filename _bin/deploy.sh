@@ -7,7 +7,7 @@ DIST=dist
 mkdir -p sounds
 mkdir -p ${DIST}/sounds
 echo Copying files ...
-rsync -Rrav puzzles/xsb ${DIST}
+rsync -Rrav puzzles/xsb-concat ${DIST}
 cp puzzles/list.txt ${DIST}/puzzles
 cp -r index.html js images manifest.json service-worker.js fonts ${DIST}
 echo Minifying ...
