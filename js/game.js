@@ -17,6 +17,7 @@
         "@": Tile.Player | Tile.Floor,
         "+": Tile.Player | Tile.Goal | Tile.Floor,
         " ": Tile.Floor,
+        "-": Tile.Floor,
         "$": Tile.Crate | Tile.Floor,
         ".": Tile.Goal | Tile.Floor,
         "*": Tile.Crate | Tile.Goal | Tile.Floor,
@@ -329,14 +330,16 @@
          * @returns {SokobanLevel[]} An array of `SokobanLevel` objects.
          */
         static parseMulti(data) {
-            const reRow = /^[@\+ \$\.\*#]{2,}$/;
+            const reRow = /^[@\+ \$\.\*#-]{2,}$/;
             const reLE = /\n|\r\n|\r/;
             const reTitle = /^Title:\s*(.*)/g;
             const reAuthor = /^Author:\s*(.*)/g;
             const reSolution = /^Solution:\s*(.*)/g;
+            const reComment = /^Comment:\s*(.*)/g;
+            const reDate = /^Date:\s*(.*)/g;
             let levels = [];
             let level = [];
-            let title, author, solution;
+            let title, author, solution, date, comment;
             for (const line of data.split(reLE)) {
                 const titleMatch = [...line.matchAll(reTitle)];
                 if (titleMatch.length > 0) {
@@ -353,6 +356,16 @@
                     solution = solutionMatch[0][1];
                     continue;
                 }
+                const dateMatch = [...line.matchAll(reDate)];
+                if (dateMatch.length > 0) {
+                    date = dateMatch[0][1];
+                    continue;
+                }
+                const commentMatch = [...line.matchAll(reComment)];
+                if (commentMatch.length > 0) {
+                    comment = commentMatch[0][1];
+                    continue;
+                }
                 if (line.match(reRow)) {
                     level.push(line);
                 }
@@ -361,6 +374,8 @@
                     title = undefined;
                     author = undefined;
                     solution = undefined;
+                    date = undefined;
+                    comment = undefined;
                     level = [];
                 }
             }
