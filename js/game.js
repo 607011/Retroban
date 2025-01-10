@@ -663,6 +663,9 @@
     background-position: calc(-3 * var(--cell-size)) calc(-3 * var(--cell-size));
     cursor: pointer;
 }
+.titlebar, .toolbar {
+    font-size: 1.6rem;
+}
 .titlebar {
     margin-bottom: calc(var(--cell-size) / 2);
 }
@@ -707,7 +710,6 @@
             let titlebarInner = document.createElement("div");
             titlebar.appendChild(titlebarInner);
             this._collectionNameEl = document.createElement("div");
-            this._collectionNameEl.setAttribute("role", "img");
             this._collectionNameEl.addEventListener("click", this._onClick.bind(this));
             this._collectionNameEl.addEventListener("touchstart", this._onTouchStart.bind(this), { passive: true });
             this._collectionNameEl.addEventListener("touchend", this._onTouchEnd.bind(this), { passive: true });
@@ -717,7 +719,6 @@
             this._moveCountEl.className = "move-count"
             titlebarInner.appendChild(this._moveCountEl);
             this._levelNumEl = document.createElement("div");
-            this._levelNumEl.setAttribute("role", "img");
             titlebarInner.appendChild(this._levelNumEl);
             this._board = document.createElement("div");
             this._board.className = "board";
@@ -953,23 +954,8 @@
         }
 
         _updateLevelName() {
-            let chars = [];
-            for (const c of this._collection) {
-                const span = document.createElement("span");
-                span.className = `char c${c.charCodeAt(0)}`;
-                chars.push(span);
-            }
-            this._collectionNameEl.setAttribute("aria-label", `Collection: ${this._collection}`);
-            this._collectionNameEl.replaceChildren(...chars);
-            let digits = [];
-            const levelNum = (this._levelNum + 1).toString();
-            for (const digit of levelNum) {
-                const span = document.createElement("span");
-                span.className = `char c${digit.charCodeAt(0)}`;
-                digits.push(span);
-            }
-            this._levelNumEl.setAttribute("aria-label", `Level: ${levelNum}`);
-            this._levelNumEl.replaceChildren(...digits);
+            this._collectionNameEl.textContent = this._collection;
+            this._levelNumEl.textContent = this._levelNum + 1;
             dispatchEvent(new CustomEvent("collectionchange", {
                 detail: {
                     name: this._collection
@@ -978,13 +964,7 @@
         }
 
         _updateDisplay() {
-            let digits = [];
-            for (const digit of this._moves.length.toString()) {
-                const div = document.createElement("div");
-                div.className = `char c${digit.charCodeAt(0)}`;
-                digits.push(div);
-            }
-            this._moveCountEl.replaceChildren(...digits);
+            this._moveCountEl.textContent = this._moves.length;
             if (this._levelNum === 0) {
                 this._prevLevelButton.classList.add("disabled");
             }

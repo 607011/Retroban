@@ -2,6 +2,11 @@ const CACHE_NAME = "my-cache-v1";
 const urlsToCache = [
     "/",
     "/js/game.js",
+    "/fonts/C64_Pro_Mono-STYLE.eot",
+    "/fonts/C64_Pro_Mono-STYLE.otf",
+    "/fonts/C64_Pro_Mono-STYLE.woff",
+    "/fonts/C64_Pro_Mono-STYLE.woff2",
+    "/fonts/C64_Pro_Mono-STYLE.ttf",
     "/sounds/completed.mp3",
     "/sounds/push.mp3",
     "/sounds/step.mp3",

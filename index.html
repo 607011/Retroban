@@ -28,13 +28,23 @@
     <link rel="apple-touch-icon" sizes="152x152" href="images/app-icon-152.png" />
     <link rel="apple-touch-icon" sizes="167x167" href="images/app-icon-167.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/app-icon-180.png" />
-    <link rel="preload" as="image" href="images/font-8x8.png" />
     <link rel="preload" as="image" href="images/tileset-colors-8x8.png" />
     <link rel="preload" as="audio" href="sounds/complete.mp3" />
     <link rel="preload" as="audio" href="sounds/step.mp3" />
     <link rel="preload" as="audio" href="sounds/push.mp3" />
     <title>Retroban</title>
     <style>
+        @font-face {
+            font-family: Commodore;
+            font-display: swap;
+            src:
+                url("fonts/C64_Pro_Mono-STYLE.eot") format("eot"),
+                url("fonts/C64_Pro_Mono-STYLE.otf") format("opentype"),
+                url("fonts/C64_Pro_Mono-STYLE.woff") format("woff"),
+                url("fonts/C64_Pro_Mono-STYLE.woff2") format("woff2"),
+                url("fonts/C64_Pro_Mono-STYLE.ttf") format("truetype"), ;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -45,7 +55,7 @@
 
         html,
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: Commodore, monospace;
             font-size: clamp(18px, 2vw, 22px);
             color: #eaeaea;
             background-color: #232323;
@@ -103,14 +113,13 @@
         }
 
         dialog input {
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
+            font-family: Commodore, monospace;
             font-size: 1rem;
             padding: 1ex 0.5em;
         }
 
         dialog button {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: Commodore, monospace;
             font-weight: bold;
             font-size: clamp(16px, 2vw, 24px);
             padding: 1ex 1em;
