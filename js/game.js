@@ -708,21 +708,7 @@
 .move-count {
     opacity: 0.3;
 }
-.char {
-    position: relative;
-    background-image: url("images/font-8x8.png");
-    background-size: calc(16 * var(--font-size)) calc(16 * var(--font-size));
-    width: var(--font-size);
-    height: var(--font-size);
-}
 `;
-            // Generate CSS classes for characters
-            for (let j = 2; j < 28; ++j) {
-                for (let i = 0; i < 16; ++i) {
-                    const idx = j * 16 + i;
-                    this._style.textContent += `.char.c${idx} { background-position: calc(-${i} * var(--font-size)) calc(-${j} * var(--font-size)); }`;
-                }
-            }
             // Build level's style, will be updated later in _setLevelStyles()
             this._levelStyle = document.createElement("style");
             // Build title bar
@@ -731,10 +717,6 @@
             let titlebarInner = document.createElement("div");
             titlebar.appendChild(titlebarInner);
             this._collectionNameEl = document.createElement("div");
-            this._collectionNameEl.addEventListener("click", this._onClick.bind(this));
-            this._collectionNameEl.addEventListener("touchstart", this._onTouchStart.bind(this), { passive: true });
-            this._collectionNameEl.addEventListener("touchend", this._onTouchEnd.bind(this), { passive: true });
-            this._collectionNameEl.style.cursor = "pointer";
             titlebarInner.appendChild(this._collectionNameEl);
             this._moveCountEl = document.createElement("div");
             this._moveCountEl.className = "move-count"
