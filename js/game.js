@@ -543,6 +543,7 @@
     padding: 0;
     box-sizing: border-box;
     touch-action: manipulation;
+    font-size: calc(var(--cell-size) / 2);
 }
 .board {
     position: relative;
