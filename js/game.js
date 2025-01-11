@@ -1400,7 +1400,7 @@
             return this._audioCtx.resume();
         }
 
-        async _initAudio() {
+        _initAudio() {
             this._audioCtx = new AudioContext();
             this._gainNode = this._audioCtx.createGain();
             this._gainNode.gain.value = parseFloat(localStorage.getItem("retroban-sound-volume") || SokobanGame.DEFAULT_GAIN_VALUE.toString());
