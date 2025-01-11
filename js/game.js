@@ -378,7 +378,7 @@
                     level.push(line);
                 }
                 else if (level.length > 0) {
-                    levels.push(new SokobanLevel(level, title, author, solution));
+                    levels.push(new SokobanLevel(level, title, author, date, comment, solution));
                     title = undefined;
                     author = undefined;
                     solution = undefined;
@@ -1464,6 +1464,7 @@
         }
 
         showSolution() {
+            console.debug(this._level);
             if (this._level.solution) {
                 this.reset();
                 this.play(this._level.solution);
