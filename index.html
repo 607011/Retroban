@@ -32,6 +32,7 @@
     <link rel="preload" as="audio" href="sounds/complete.mp3" />
     <link rel="preload" as="audio" href="sounds/step.mp3" />
     <link rel="preload" as="audio" href="sounds/push.mp3" />
+    <link rel="stylesheet" href="themes/default.css" />
     <title>Retroban</title>
     <style>
         @font-face {
@@ -57,8 +58,8 @@
         body {
             font-family: Commodore, monospace;
             font-size: clamp(18px, 2vw, 22px);
-            color: #eaeaea;
-            background-color: #232323;
+            color: var(--fg-color);
+            background-color: var(--bg-color);
             height: 100%;
         }
 
@@ -79,9 +80,12 @@
             transform: translate(-50%, -50%);
             border: none;
             padding: 1em;
-            background: #232323;
-            color: #eaeaea;
+            background: var(--bg-color);
+            color: var(--fg-color);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-width: calc(clamp(18px, 2vw, 22px) / 2);
+            border-color: var(--dark-color);
+            border-style: solid;
             width: 100%;
             overflow: auto;
         }
@@ -123,8 +127,8 @@
             font-weight: bold;
             font-size: clamp(16px, 2vw, 24px);
             padding: 1ex 1em;
-            background: #eaeaea;
-            color: #232323;
+            background: var(--fg-color);
+            color: var(--bg-color);
             border: none;
             cursor: pointer;
         }

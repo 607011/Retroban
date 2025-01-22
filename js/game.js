@@ -565,7 +565,7 @@
 }
 .tile {
     position: absolute;
-    background-image: url("images/tileset-colors-8x8.png");
+    background-image: var(--tile-set);
     background-size: calc(6 * var(--cell-size)) calc(6 * var(--cell-size));
     width: var(--cell-size);
     height: var(--cell-size);
