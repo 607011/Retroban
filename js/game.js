@@ -950,7 +950,6 @@
             const maxWidth = Math.floor(viewportWidth / (this._level.width + HORIZONTAL_MARGIN));
             const maxHeight = Math.floor(viewportHeight / (this._level.height + MARGIN_FOR_TITLE_AND_TOOLBAR));
             let newSize = Math.min(maxWidth, maxHeight);
-            newSize -= newSize % 8;
             this._cellSize = newSize;
             this._setLevelStyles();
         }
