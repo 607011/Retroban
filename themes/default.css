@@ -1,0 +1,7 @@
+:root {
+    --tile-set: url("images/tileset-colors-8x8.png");
+    --bg-color: #252525;
+    --fg-color: #eaeaea;
+    --light-color: #a6a6a6;
+    --dark-color: #474747;
+}
